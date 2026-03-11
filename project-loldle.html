@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOLDLE – Henni Wassil</title>
+  <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+
+  <nav class="det-nav">
+    <a href="projects.html" class="det-nav-back">← Projets</a>
+    <span class="det-nav-title">LOLDLE — Quiz League of Legends PWA</span>
+    <span class="det-nav-badge det-nav-badge--school">École · E5</span>
+  </nav>
+
+  <main class="det-page">
+
+    <!-- HERO -->
+    <header class="det-hero">
+      <div class="det-hero-meta">
+        <span class="det-hero-type det-hero-type--school">Projet E5 — BTS SIO SLAM</span>
+        <span class="det-hero-year">2025</span>
+        <span class="det-hero-status det-hero-status--done">Terminé</span>
+      </div>
+      <h1 class="det-hero-title">LOLDLE</h1>
+      <p class="det-hero-subtitle">
+        Application web de quiz autour de l'univers de League of Legends, développée en tant que
+        Progressive Web App (PWA). Le jeu fonctionne entièrement hors-ligne grâce aux Service Workers
+        et à IndexedDB, avec synchronisation automatique des données à la reconnexion.
+      </p>
+      <div class="det-hero-tags">
+        <span>React</span><span>Node.js</span><span>MySQL</span><span>REST API</span>
+        <span>PWA</span><span>Service Worker</span><span>IndexedDB</span>
+      </div>
+      <div class="det-hero-links">
+        <a href="#" class="det-btn det-btn--gh">GitHub</a>
+        <a href="#" class="det-btn det-btn--demo">Voir la démo</a>
+      </div>
+    </header>
+
+    <!-- SCREENSHOTS -->
+    <section class="det-screenshots">
+      <p class="det-screenshots-title">Captures d'écran</p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 1 : remplacer par <img src="img/loldle/accueil.png" alt="Accueil"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🎮</span>
+            <span class="screenshot-ph-label">Écran d'accueil</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/loldle/accueil.png"&gt;</span>
+          </div>
+          <figcaption>Page d'accueil et sélection du mode de jeu</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 2 : remplacer par <img src="img/loldle/quiz.png" alt="Quiz"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">❓</span>
+            <span class="screenshot-ph-label">Interface de quiz</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/loldle/quiz.png"&gt;</span>
+          </div>
+          <figcaption>Question en cours avec timer et options</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 3 : remplacer par <img src="img/loldle/scores.png" alt="Classement"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🏆</span>
+            <span class="screenshot-ph-label">Classement &amp; scores</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/loldle/scores.png"&gt;</span>
+          </div>
+          <figcaption>Tableau des scores et classement</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 4 : remplacer par <img src="img/loldle/offline.png" alt="Mode offline"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📴</span>
+            <span class="screenshot-ph-label">Mode hors-ligne</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/loldle/offline.png"&gt;</span>
+          </div>
+          <figcaption>Indicateur de synchronisation et mode offline</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- CONTEXTE -->
+    <section class="det-section">
+      <span class="det-section-label">Contexte du projet</span>
+      <h2 class="det-section-title">Pourquoi ce projet ?</h2>
+      <div class="det-section-body">
+        <p>
+          LOLDLE est né de la volonté de combiner deux passions — le développement web et League of Legends —
+          dans le cadre du <strong>projet E5 du BTS SIO SLAM</strong>. Le défi principal imposé par
+          le cahier des charges était de rendre l'application <strong>utilisable sans connexion internet</strong>,
+          ce qui a orienté l'ensemble des choix techniques vers l'architecture PWA.
+        </p>
+        <p>
+          L'application permet aux joueurs de tester leurs connaissances sur les champions, leurs sorts,
+          leurs lores et leurs statistiques. Plusieurs modes de jeu sont disponibles : mode classique
+          (QCM), mode silhouette (deviner le champion à partir de son ombre), et mode citation
+          (reconnaître le champion depuis une phrase iconique).
+        </p>
+        <p>
+          Le backend Node.js expose une <strong>API REST</strong> qui alimente la base de champions,
+          synchronisée avec les données officielles de Riot Games via leur API publique. Le frontend
+          React consomme cette API et stocke les données localement dans <strong>IndexedDB</strong>
+          pour garantir le mode hors-ligne.
+        </p>
+        <div class="det-highlight det-highlight--blue">
+          Ce projet m'a permis de découvrir en profondeur le fonctionnement des Progressive Web Apps :
+          cycle de vie des Service Workers, stratégies de cache (Cache First, Network First),
+          synchronisation différée et installation sur écran d'accueil.
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS -->
+    <section class="det-section">
+      <span class="det-section-label">Fonctionnalités</span>
+      <h2 class="det-section-title">Ce que fait l'application</h2>
+      <div class="det-features">
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Mode hors-ligne complet</div>
+            <div class="det-feature-desc">Service Worker avec stratégie Cache First — toute l'app fonctionne sans connexion, y compris les questions et les images.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Synchronisation automatique</div>
+            <div class="det-feature-desc">Les scores réalisés hors-ligne sont mis en file d'attente (Background Sync API) et envoyés au serveur à la reconnexion.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">3 modes de jeu</div>
+            <div class="det-feature-desc">Quiz classique, mode silhouette et mode citation — chaque mode cible des connaissances différentes sur les champions.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Base de données de champions</div>
+            <div class="det-feature-desc">Plus de 160 champions avec leurs sorts, statistiques et lores, synchronisés depuis l'API Riot Games.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Classements &amp; scores</div>
+            <div class="det-feature-desc">Système de scoring avec combo multiplicateur, historique personnel et classement global en temps réel.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Partage de score QR Code</div>
+            <div class="det-feature-desc">Génération d'un QR code unique à la fin de chaque partie pour partager son score avec d'autres joueurs.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--purple">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Installable sur mobile</div>
+            <div class="det-feature-desc">Manifest PWA configuré pour permettre l'installation sur l'écran d'accueil iOS et Android comme une app native.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--purple">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Interface responsive dark</div>
+            <div class="det-feature-desc">Design entièrement responsive inspiré de l'univers visuel de League of Legends avec thème sombre et effets lumineux.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="det-section">
+      <span class="det-section-label">Stack technique</span>
+      <h2 class="det-section-title">Technologies utilisées</h2>
+      <div class="det-section-body">
+        <p>
+          Le frontend <strong>React</strong> gère toute la logique de jeu côté client. Le routing est
+          assuré par React Router et le state global par Context API. Le backend <strong>Node.js + Express</strong>
+          fournit l'API REST pour les champions, les scores et l'authentification. La base de données
+          <strong>MySQL</strong> stocke les questions, les utilisateurs et les classements.
+        </p>
+      </div>
+      <div class="det-stack">
+        <div class="det-stack-item"><span class="det-stack-item-name">React 18</span><span class="det-stack-item-role">Frontend SPA</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Node.js</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Express</span><span class="det-stack-item-role">API REST</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MySQL 8</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Service Worker</span><span class="det-stack-item-role">Cache offline</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">IndexedDB</span><span class="det-stack-item-role">Stockage local</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">PWA Manifest</span><span class="det-stack-item-role">Installable</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Riot API</span><span class="det-stack-item-role">Data champions</span></div>
+      </div>
+    </section>
+
+    <!-- DÉFIS -->
+    <section class="det-section">
+      <span class="det-section-label">Défis &amp; apprentissages</span>
+      <h2 class="det-section-title">Ce que j'ai appris</h2>
+      <div class="det-challenges">
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">Stratégie de cache Service Worker</div>
+          <div class="det-challenge-desc">
+            Choisir la bonne stratégie de cache selon la ressource (Cache First pour les assets statiques,
+            Network First pour les données de score) a demandé beaucoup de tests. Une mauvaise stratégie
+            rend soit l'app inutilisable offline, soit les données périmées.
+          </div>
+        </div>
+        <div class="det-challenge">
+          <div class="det-challenge-title">Synchronisation différée des scores offline</div>
+          <div class="det-challenge-desc">
+            Gérer la synchronisation des scores réalisés hors-ligne sans conflits avec les scores en ligne
+            était complexe. J'ai implémenté un système de queue locale avec timestamp pour résoudre
+            les conflits lors de la synchronisation.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Consommation de l'API Riot Games</div>
+          <div class="det-challenge-desc">
+            L'API Riot impose des limites de taux (rate limiting) strictes. J'ai mis en place un système
+            de mise en cache côté serveur pour éviter de dépasser les quotas tout en gardant
+            les données champions à jour.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const t = localStorage.getItem('theme') || 'dark';
+    const p = localStorage.getItem('palette') || 'cyber';
+    document.documentElement.dataset.theme   = t;
+    document.documentElement.dataset.palette = p;
+  </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanSIO – Henni Wassil</title>
+  <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+
+  <nav class="det-nav">
+    <a href="projects.html" class="det-nav-back">← Projets</a>
+    <span class="det-nav-title">PlanSIO — Suivi des activités BTS SIO</span>
+    <span class="det-nav-badge det-nav-badge--school">École · Transversal</span>
+  </nav>
+
+  <main class="det-page">
+
+    <!-- HERO -->
+    <header class="det-hero">
+      <div class="det-hero-meta">
+        <span class="det-hero-type det-hero-type--school">Projet Transversal — BTS SIO SLAM</span>
+        <span class="det-hero-year">2025</span>
+        <span class="det-hero-status det-hero-status--done">Terminé</span>
+      </div>
+      <h1 class="det-hero-title">PlanSIO</h1>
+      <p class="det-hero-subtitle">
+        Application de planning et de suivi des activités professionnelles pour les élèves de BTS SIO.
+        Développée en équipe dans le cadre d'un projet transversal, elle centralise les rapports de stage,
+        les compétences validées et les ressources pédagogiques dans une interface unifiée.
+      </p>
+      <div class="det-hero-tags">
+        <span>PHP</span><span>Symfony</span><span>MySQL</span><span>Vue.js</span>
+        <span>REST API</span><span>JWT</span><span>Docker</span>
+      </div>
+      <div class="det-hero-links">
+        <a href="#" class="det-btn det-btn--gh">GitHub</a>
+        <a href="#" class="det-btn det-btn--demo">Voir la démo</a>
+      </div>
+    </header>
+
+    <!-- SCREENSHOTS -->
+    <section class="det-screenshots">
+      <p class="det-screenshots-title">Captures d'écran</p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 1 : remplacer par <img src="img/plansio/dashboard.png" alt="Dashboard"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📅</span>
+            <span class="screenshot-ph-label">Tableau de bord élève</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/plansio/dashboard.png"&gt;</span>
+          </div>
+          <figcaption>Dashboard — progression par compétence</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 2 : remplacer par <img src="img/plansio/calendrier.png" alt="Calendrier"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🗓️</span>
+            <span class="screenshot-ph-label">Calendrier des activités</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/plansio/calendrier.png"&gt;</span>
+          </div>
+          <figcaption>Calendrier interactif des activités pro</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 3 : remplacer par <img src="img/plansio/documents.png" alt="Documents"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📁</span>
+            <span class="screenshot-ph-label">Gestion des documents</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/plansio/documents.png"&gt;</span>
+          </div>
+          <figcaption>Dépôt et versionnage des rapports de stage</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 4 : remplacer par <img src="img/plansio/admin.png" alt="Vue admin"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">👨‍🏫</span>
+            <span class="screenshot-ph-label">Vue professeur / admin</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/plansio/admin.png"&gt;</span>
+          </div>
+          <figcaption>Tableau de bord professeur — suivi de classe</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- CONTEXTE -->
+    <section class="det-section">
+      <span class="det-section-label">Contexte du projet</span>
+      <h2 class="det-section-title">Pourquoi ce projet ?</h2>
+      <div class="det-section-body">
+        <p>
+          PlanSIO répond à un besoin concret identifié au sein du BTS SIO : les élèves gèrent leurs
+          activités professionnelles sur des supports dispersés (fichiers Word, Google Drive personnel,
+          mails…), et les professeurs n'ont pas de vue centralisée sur la progression de leur classe.
+          L'objectif était de <strong>créer un outil unifié</strong> couvrant la totalité du cursus.
+        </p>
+        <p>
+          Le projet a été développé en <strong>équipe de 3 personnes</strong> avec une organisation
+          inspirée de Scrum : sprints de deux semaines, réunions de planification et rétrospectives.
+          Chaque membre avait un domaine de responsabilité principal (backend, frontend, infrastructure)
+          tout en contribuant à l'ensemble.
+        </p>
+        <p>
+          L'architecture choisie est une <strong>séparation stricte backend/frontend</strong> :
+          un backend Symfony expose une API REST consommée par un frontend Vue.js. Cette organisation
+          a permis de travailler en parallèle et de préparer une éventuelle ouverture vers une
+          application mobile.
+        </p>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS -->
+    <section class="det-section">
+      <span class="det-section-label">Fonctionnalités</span>
+      <h2 class="det-section-title">Ce que fait l'application</h2>
+      <div class="det-features">
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Calendrier des activités</div>
+            <div class="det-feature-desc">Vue mensuelle / hebdomadaire des activités professionnelles avec catégorisation par type (stage, projet, atelier).</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Gestion de documents</div>
+            <div class="det-feature-desc">Upload, versionnage et partage des rapports de stage avec historique des révisions et commentaires professeur.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Suivi des compétences</div>
+            <div class="det-feature-desc">Tableau de progression par compétence du référentiel BTS SIO, avec auto-évaluation et validation professeur.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Messagerie interne</div>
+            <div class="det-feature-desc">Système de messagerie élève ↔ professeur avec fils de discussion par document et notifications en temps réel.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Génération de rapports PDF</div>
+            <div class="det-feature-desc">Export automatisé du bilan de compétences et du portfolio d'activités au format PDF prêt à imprimer.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--purple">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Gestion multi-rôles</div>
+            <div class="det-feature-desc">Trois niveaux d'accès : Élève, Professeur référent et Administrateur — avec interfaces distinctes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="det-section">
+      <span class="det-section-label">Stack technique</span>
+      <h2 class="det-section-title">Technologies utilisées</h2>
+      <div class="det-section-body">
+        <p>
+          Le backend <strong>Symfony 6</strong> gère la logique métier, l'API REST (API Platform)
+          et l'authentification JWT. Le frontend <strong>Vue.js 3</strong> (Composition API) consomme
+          l'API avec Axios et gère l'état global avec Pinia. L'environnement de développement est
+          entièrement <strong>dockerisé</strong> pour uniformiser les postes de l'équipe.
+        </p>
+      </div>
+      <div class="det-stack">
+        <div class="det-stack-item"><span class="det-stack-item-name">PHP 8.2</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Symfony 6</span><span class="det-stack-item-role">Framework</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">API Platform</span><span class="det-stack-item-role">REST API</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MySQL 8</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Vue.js 3</span><span class="det-stack-item-role">Frontend SPA</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Pinia</span><span class="det-stack-item-role">State management</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">JWT</span><span class="det-stack-item-role">Authentification</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Docker</span><span class="det-stack-item-role">Dev env</span></div>
+      </div>
+    </section>
+
+    <!-- DÉFIS -->
+    <section class="det-section">
+      <span class="det-section-label">Défis &amp; apprentissages</span>
+      <h2 class="det-section-title">Ce que j'ai appris</h2>
+      <div class="det-challenges">
+        <div class="det-challenge">
+          <div class="det-challenge-title">Travail en équipe avec Git</div>
+          <div class="det-challenge-desc">
+            Coordonner le travail de trois développeurs sur le même dépôt a nécessité une discipline
+            rigoureuse : branches feature, pull requests obligatoires, revues de code. Les conflits
+            de merge m'ont appris à mieux comprendre l'historique Git et à utiliser le rebase de façon sûre.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">Architecture API REST avec Symfony</div>
+          <div class="det-challenge-desc">
+            API Platform accélère le développement d'API mais impose ses conventions. Comprendre les
+            groupes de sérialisation, les filtres et les voters de sécurité a demandé un investissement
+            important mais m'a donné une base solide pour de futurs projets Symfony.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Versionnage de documents</div>
+          <div class="det-challenge-desc">
+            Implémenter un système de versionnage simple sans Git côté applicatif a été un défi de
+            conception : chaque upload crée une nouvelle version liée à la précédente. La gestion
+            du stockage et du nommage des fichiers sur le serveur a demandé une réflexion soignée.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const t = localStorage.getItem('theme') || 'dark';
+    const p = localStorage.getItem('palette') || 'cyber';
+    document.documentElement.dataset.theme   = t;
+    document.documentElement.dataset.palette = p;
+  </script>
+</body>
+</html>

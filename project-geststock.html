@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GestStock – Henni Wassil</title>
+  <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+
+  <nav class="det-nav">
+    <a href="projects.html" class="det-nav-back">← Projets</a>
+    <span class="det-nav-title">GestStock — Application de gestion de stock</span>
+    <span class="det-nav-badge det-nav-badge--school">École · E4</span>
+  </nav>
+
+  <main class="det-page">
+
+    <!-- HERO -->
+    <header class="det-hero">
+      <div class="det-hero-meta">
+        <span class="det-hero-type det-hero-type--school">Projet E4 — BTS SIO SLAM</span>
+        <span class="det-hero-year">2024</span>
+        <span class="det-hero-status det-hero-status--done">Terminé</span>
+      </div>
+      <h1 class="det-hero-title">GestStock</h1>
+      <p class="det-hero-subtitle">
+        Application web complète de gestion de stock développée dans le cadre du projet E4 du BTS SIO.
+        Conçue pour une PME du secteur industriel, elle modernise la gestion des stocks en remplaçant
+        les processus papier par une solution numérique centralisée, accessible et fiable.
+      </p>
+      <div class="det-hero-tags">
+        <span>PHP</span><span>Laravel</span><span>MySQL</span><span>Bootstrap</span>
+        <span>Twig</span><span>Chart.js</span><span>REST API</span>
+      </div>
+      <div class="det-hero-links">
+        <a href="#" class="det-btn det-btn--gh">GitHub</a>
+        <a href="#" class="det-btn det-btn--demo">Voir la démo</a>
+      </div>
+    </header>
+
+    <!-- SCREENSHOTS -->
+    <section class="det-screenshots">
+      <p class="det-screenshots-title">Captures d'écran</p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 1 : remplacer le bloc .screenshot-ph par <img src="img/geststock/dashboard.png" alt="Dashboard"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🖥️</span>
+            <span class="screenshot-ph-label">Tableau de bord principal</span>
+            <span class="screenshot-ph-hint">Remplacer ce bloc par &lt;img src="img/geststock/dashboard.png"&gt;</span>
+          </div>
+          <figcaption>Dashboard — vue d'ensemble des stocks et alertes</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 2 : remplacer le bloc .screenshot-ph par <img src="img/geststock/products.png" alt="Liste produits"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📦</span>
+            <span class="screenshot-ph-label">Gestion des produits</span>
+            <span class="screenshot-ph-hint">Remplacer ce bloc par &lt;img src="img/geststock/products.png"&gt;</span>
+          </div>
+          <figcaption>Liste des produits avec filtres et tri</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 3 : remplacer le bloc .screenshot-ph par <img src="img/geststock/movements.png" alt="Mouvements"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📊</span>
+            <span class="screenshot-ph-label">Historique des mouvements</span>
+            <span class="screenshot-ph-hint">Remplacer ce bloc par &lt;img src="img/geststock/movements.png"&gt;</span>
+          </div>
+          <figcaption>Historique des entrées / sorties de stock</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 4 : remplacer le bloc .screenshot-ph par <img src="img/geststock/alerts.png" alt="Alertes"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🔔</span>
+            <span class="screenshot-ph-label">Alertes de réapprovisionnement</span>
+            <span class="screenshot-ph-hint">Remplacer ce bloc par &lt;img src="img/geststock/alerts.png"&gt;</span>
+          </div>
+          <figcaption>Système d'alertes automatiques</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- CONTEXTE -->
+    <section class="det-section">
+      <span class="det-section-label">Contexte du projet</span>
+      <h2 class="det-section-title">Pourquoi ce projet ?</h2>
+      <div class="det-section-body">
+        <p>
+          Ce projet a été réalisé dans le cadre du <strong>E4 du BTS SIO option SLAM</strong>.
+          L'objectif était de concevoir et développer une application web répondant à un besoin réel.
+          Le contexte choisi est celui d'une PME industrielle dont la gestion des stocks reposait
+          entièrement sur des fichiers Excel, sources d'erreurs et de pertes de temps considérables.
+        </p>
+        <p>
+          La problématique centrale était la suivante : comment <strong>centraliser, sécuriser et
+          automatiser</strong> la gestion des stocks tout en offrant une interface simple d'utilisation
+          pour des opérateurs sans compétences informatiques avancées ? Il fallait également prévoir
+          un système de droits permettant de différencier les rôles administrateur et utilisateur simple.
+        </p>
+        <p>
+          Le projet a été développé en suivant la <strong>méthode MVC</strong> imposée par Laravel,
+          avec une base de données relationnelle MySQL modélisée en amont via un MCD/MLD complet.
+          La durée de développement s'est étalée sur environ deux mois, avec des itérations régulières.
+        </p>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS -->
+    <section class="det-section">
+      <span class="det-section-label">Fonctionnalités</span>
+      <h2 class="det-section-title">Ce que fait l'application</h2>
+      <div class="det-features">
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Tableau de bord dynamique</div>
+            <div class="det-feature-desc">Graphiques Chart.js en temps réel : tendances des stocks, top produits consommés, alertes actives.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">CRUD Produits &amp; Fournisseurs</div>
+            <div class="det-feature-desc">Création, modification, archivage et suppression logique des produits et fournisseurs associés.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Mouvements de stock</div>
+            <div class="det-feature-desc">Enregistrement des entrées et sorties avec horodatage, motif et utilisateur responsable.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Alertes automatiques</div>
+            <div class="det-feature-desc">Déclenchement automatique d'alertes visuelles et e-mail lorsqu'un seuil de réapprovisionnement est atteint.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Export PDF &amp; CSV</div>
+            <div class="det-feature-desc">Génération de rapports d'inventaire et d'historiques exportables pour les besoins comptables.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Authentification &amp; rôles</div>
+            <div class="det-feature-desc">Système d'authentification sécurisé (hachage bcrypt) avec gestion des rôles Admin / Utilisateur.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Recherche &amp; filtres avancés</div>
+            <div class="det-feature-desc">Filtrage multi-critères, tri par colonnes et pagination côté serveur pour les grandes listes.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Historique d'audit</div>
+            <div class="det-feature-desc">Traçabilité complète des actions effectuées par chaque utilisateur pour des raisons de sécurité.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="det-section">
+      <span class="det-section-label">Stack technique</span>
+      <h2 class="det-section-title">Technologies utilisées</h2>
+      <div class="det-section-body">
+        <p>
+          Le choix de <strong>Laravel</strong> s'est imposé naturellement pour son architecture MVC robuste,
+          son ORM Eloquent et son écosystème riche (migrations, factories, seeders). Le frontend a été
+          construit avec <strong>Bootstrap 5</strong> et des templates Twig pour garantir une interface
+          responsive sans surcharge technique.
+        </p>
+      </div>
+      <div class="det-stack">
+        <div class="det-stack-item"><span class="det-stack-item-name">PHP 8.1</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Laravel 10</span><span class="det-stack-item-role">Framework MVC</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MySQL 8</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Bootstrap 5</span><span class="det-stack-item-role">UI / CSS</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Twig</span><span class="det-stack-item-role">Templates</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Chart.js</span><span class="det-stack-item-role">Graphiques</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Composer</span><span class="det-stack-item-role">Dépendances</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Git / GitHub</span><span class="det-stack-item-role">Versioning</span></div>
+      </div>
+    </section>
+
+    <!-- DÉFIS -->
+    <section class="det-section">
+      <span class="det-section-label">Défis &amp; apprentissages</span>
+      <h2 class="det-section-title">Ce que j'ai appris</h2>
+      <div class="det-challenges">
+        <div class="det-challenge">
+          <div class="det-challenge-title">Gestion des stocks négatifs</div>
+          <div class="det-challenge-desc">
+            Une des difficultés majeures a été d'empêcher les stocks de passer en négatif tout en gérant les
+            sorties partielles. La solution a été d'introduire une validation côté serveur avec transactions
+            MySQL pour garantir l'atomicité des opérations de stock.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">Modélisation de la base de données</div>
+          <div class="det-challenge-desc">
+            La conception du MCD a nécessité plusieurs itérations. Les relations entre produits, fournisseurs,
+            catégories et mouvements étaient complexes à normaliser sans créer de redondances.
+            Ce projet m'a permis de consolider mes connaissances en conception de bases relationnelles.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Système de permissions granulaire</div>
+          <div class="det-challenge-desc">
+            Implémenter un système de rôles avec des middlewares Laravel m'a appris à structurer la sécurité
+            au niveau des routes et des contrôleurs. J'ai découvert les Gates et Policies de Laravel pour
+            gérer finement les autorisations.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--yellow">
+          <div class="det-challenge-title">Performance des requêtes</div>
+          <div class="det-challenge-desc">
+            Avec plusieurs milliers de mouvements de stock en base, certaines requêtes Eloquent devenaient
+            lentes. L'optimisation via des index MySQL et le lazy/eager loading d'Eloquent a réduit
+            significativement les temps de réponse.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const t = localStorage.getItem('theme') || 'dark';
+    const p = localStorage.getItem('palette') || 'cyber';
+    document.documentElement.dataset.theme   = t;
+    document.documentElement.dataset.palette = p;
+  </script>
+</body>
+</html>

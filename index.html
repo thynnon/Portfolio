@@ -1,1 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – BTS SIO SLAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-github="votre-username">
 
+  <!-- ══ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-logo">&lt;thynnon.dev /&gt;</div>
+    <div class="nav-links">
+      <button class="nav-link" data-target="avatar"   data-i18n="nav.profil">Profil</button>
+      <button class="nav-link" data-target="skills"   data-i18n="nav.skills">Compétences</button>
+      <button class="nav-link" data-target="p1"       data-i18n="nav.projects">Projets</button>
+      <button class="nav-link" data-target="contact"  data-i18n="nav.contact">Contact</button>
+    </div>
+    <div class="nav-controls">
+      <span id="nav-lang-badge" class="nav-lang-badge">FR</span>
+      <button id="settings-btn" title="Réglages" aria-label="Ouvrir les réglages">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ SETTINGS PANEL ═══════════════════════ -->
+  <div id="settings-panel" class="settings-panel" aria-hidden="true">
+    <div class="settings-header">
+      <span data-i18n="settings.title">Réglages</span>
+      <button id="settings-close" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.lang">Langue</div>
+      <div class="lang-grid">
+        <button class="lang-opt active" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-opt"        data-lang="en">🇬🇧 English</button>
+        <button class="lang-opt"        data-lang="es">🇪🇸 Español</button>
+        <button class="lang-opt"        data-lang="de">🇩🇪 Deutsch</button>
+        <button class="lang-opt"        data-lang="it">🇮🇹 Italiano</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.palette">Palette de couleurs</div>
+      <div class="palette-grid">
+        <button class="palette-opt active" data-palette="cyber"  title="Cyber">
+          <span class="pc" style="background:#00e87a"></span><span class="pc" style="background:#3d8bff"></span>
+          <span class="pn">Cyber</span>
+        </button>
+        <button class="palette-opt" data-palette="neon"   title="Neon">
+          <span class="pc" style="background:#ff2d78"></span><span class="pc" style="background:#b44dff"></span>
+          <span class="pn">Neon</span>
+        </button>
+        <button class="palette-opt" data-palette="ocean"  title="Ocean">
+          <span class="pc" style="background:#00d4ff"></span><span class="pc" style="background:#0066ff"></span>
+          <span class="pn">Ocean</span>
+        </button>
+        <button class="palette-opt" data-palette="sunset" title="Sunset">
+          <span class="pc" style="background:#ff7b00"></span><span class="pc" style="background:#ff3d6b"></span>
+          <span class="pn">Sunset</span>
+        </button>
+        <button class="palette-opt" data-palette="forest" title="Forest">
+          <span class="pc" style="background:#39d353"></span><span class="pc" style="background:#26a641"></span>
+          <span class="pn">Forest</span>
+        </button>
+        <button class="palette-opt" data-palette="rose"   title="Rose">
+          <span class="pc" style="background:#f472b6"></span><span class="pc" style="background:#e879f9"></span>
+          <span class="pn">Rose</span>
+        </button>
+        <button class="palette-opt" data-palette="elden" title="Elden Ring">
+          <span class="pc" style="background:#c7a84a"></span><span class="pc" style="background:#9ea34a"></span>
+          <span class="pn">Elden</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.theme">Apparence</div>
+      <div class="theme-toggle-row">
+        <button class="theme-opt active" id="theme-dark"  data-i18n="settings.dark">🌙 Sombre</button>
+        <button class="theme-opt"        id="theme-light" data-i18n="settings.light">☀️ Clair</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.fontsize">Taille du texte</div>
+      <div class="fontsize-row">
+        <button class="fs-opt" data-fs="12" style="font-size:0.62rem">A</button>
+        <button class="fs-opt active" data-fs="14" style="font-size:0.75rem">A</button>
+        <button class="fs-opt" data-fs="16" style="font-size:0.88rem">A</button>
+        <button class="fs-opt" data-fs="18" style="font-size:1rem">A</button>
+        <button class="fs-opt" data-fs="20" style="font-size:1.12rem">A</button>
+      </div>
+      <input type="range" id="fs-slider" min="11" max="22" value="14" step="1" class="fs-slider">
+    </div>
+  </div>
+  <div id="settings-backdrop" class="settings-backdrop"></div>
+
+  <!-- ══ TOAST ════════════════════════════════ -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ══ MODAL PROJET ═════════════════════════ -->
+  <div id="modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button id="modal-close" aria-label="Fermer">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ══ BENTO GRID ═══════════════════════════ -->
+  <main class="bento">
+
+    <!-- ① HERO -->
+    <article class="card card--hero">
+      <div class="hero-bg"></div>
+      <div class="card-content">
+        <div class="hero-badge" data-i18n="hero.badge">BTS SIO · SLAM · 2024–2026</div>
+        <h1 class="hero-name">
+          <span class="hero-first">Henni</span>
+          <span class="hero-last">Wassil</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">Développeur web &amp; mobile</p>
+        <div class="hero-tags">
+          <span>PHP</span><span>JavaScript</span><span>React</span><span>Laravel</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ② AVATAR -->
+    <article class="card card--avatar">
+      <div class="avatar-ring"><div class="avatar-inner"></div></div>
+      <div class="av-status-row">
+        <div class="status-dot"></div>
+        <span class="status-label" data-i18n="status">En formation</span>
+      </div>
+      <span class="av-sub">BTS SIO SLAM · 2026</span>
+      <span class="av-loc">Valenciennes · 59</span>
+    </article>
+
+    <!-- ③ LOCALISATION -->
+    <article class="card card--location">
+      <div class="loc-grid"></div>
+      <div class="loc-pin"></div>
+      <p class="loc-city">Valenciennes</p>
+      <p class="loc-country" data-i18n="loc.country">France · 59</p>
+    </article>
+
+    <!-- ④ COMPÉTENCES -->
+    <article class="card card--skills">
+      <div class="card-label" data-i18n="skills.label">Compétences</div>
+      <div class="skills-desc">
+        <div class="sk-group">
+          <span class="sk-group-title">Front-end</span>
+          <p class="sk-text" data-i18n="skills.frontend">HTML &amp; CSS avancé, JavaScript ES6+, React — construction d'interfaces modernes et accessibles.</p>
+        </div>
+        <div class="sk-group">
+          <span class="sk-group-title">Back-end</span>
+          <p class="sk-text" data-i18n="skills.backend">PHP orienté objet, Laravel, Node.js — conception d'APIs REST et logique serveur.</p>
+        </div>
+        <div class="sk-group">
+          <span class="sk-group-title">Database</span>
+          <p class="sk-text" data-i18n="skills.db">MySQL, modélisation relationnelle, requêtes complexes et optimisées.</p>
+        </div>
+        <div class="sk-group">
+          <span class="sk-group-title">Outils</span>
+          <p class="sk-text" data-i18n="skills.tools">Git, GitHub, VS Code, Linux.</p>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ⑥ À PROPOS — avec onglet Timeline -->
+    <article class="card card--about">
+      <div class="about-tabs">
+        <button class="about-tab active" data-tab="bio" data-i18n="about.tab.bio">À propos</button>
+        <button class="about-tab" data-tab="timeline" data-i18n="about.tab.timeline">Parcours</button>
+        <button class="about-tab" data-tab="certs" data-i18n="about.tab.certs">Certifications</button>
+      </div>
+
+      <div class="about-panel" data-panel="bio">
+        <div class="bio-cols">
+          <div class="bio-left">
+            <p class="about-text" data-i18n="about.text">Passionné de dev web &amp; mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome, toujours en train de coder.</p>
+            <div class="about-hobbies">
+              <span>🎮 Gaming</span><span>🎵 Musique</span><span>⚡ Open Source</span>
+            </div>
+          </div>
+          <div class="bio-right">
+            <div class="snake-wrap">
+              <div class="snake-hd"><span class="fun-blink">▮</span>&nbsp;SNAKE.exe — auto</div>
+              <canvas id="snake-canvas" width="160" height="112"></canvas>
+              <div class="snake-footer">Score&nbsp;<span id="snake-score">0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-panel hidden" data-panel="certs">
+        <div class="certs-scroll">
+
+          <div class="cert-cat">
+            <span class="cert-cat-title">🌐 Développement Web</span>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">JavaScript ES6+</span>
+                <span class="cert-org">OpenClassrooms</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2023</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">React — Les bases</span>
+                <span class="cert-org">OpenClassrooms</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2023</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">PHP &amp; MySQL</span>
+                <span class="cert-org">Codecademy</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2024</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">Laravel — Full Course</span>
+                <span class="cert-org">Laracasts</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2024</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-cat">
+            <span class="cert-cat-title">🔒 Cybersécurité</span>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">SecNumAcadémie</span>
+                <span class="cert-org">ANSSI</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2024</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">Initiation à la cybersécurité</span>
+                <span class="cert-org">OpenClassrooms</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2025</span>
+                <span class="cert-badge cert-pending">…</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-cat">
+            <span class="cert-cat-title">⚙️ DevOps &amp; Outils</span>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">Git &amp; GitHub Essentials</span>
+                <span class="cert-org">GitHub</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2023</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-left">
+                <span class="cert-name">Linux Command Line</span>
+                <span class="cert-org">Codecademy</span>
+              </div>
+              <div class="cert-right">
+                <span class="cert-date">2024</span>
+                <span class="cert-badge cert-ok">✓</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="about-panel hidden" data-panel="timeline">
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">2022</span>
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-title" data-i18n="tl.first">1er projet perso</span>
+              <span class="tl-sub">Portfolio HTML/CSS</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2021 – 2024</span>
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-title" data-i18n="tl.bac">Bac STI2D · SIN</span>
+              <span class="tl-sub">Mention Bien</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2024</span>
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-title" data-i18n="tl.stage">Stage · Dev Web</span>
+              <span class="tl-sub">Entreprise XYZ · 8 sem.</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2024 – 2026</span>
+            <div class="tl-dot tl-dot--active"></div>
+            <div class="tl-content">
+              <span class="tl-title" data-i18n="tl.bts">BTS SIO · SLAM</span>
+              <span class="tl-sub">Henri Wallon · Valenciennes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑦ STACK -->
+    <article class="card card--stack">
+      <div class="card-label" data-i18n="stack.label">Stack</div>
+      <div class="stack-grid">
+        <div class="stack-item" title="HTML5"><img src="img/HTML5.png" alt="HTML5"></div>
+        <div class="stack-item" title="CSS3"><img src="img/CSS3.png" alt="CSS3"></div>
+        <div class="stack-item" title="JavaScript"><img src="img/js.webp" alt="JavaScript"></div>
+        <div class="stack-item" title="React"><img src="img/react.png" alt="React"></div>
+        <div class="stack-item" title="PHP"><img src="img/php.png" alt="PHP"></div>
+        <div class="stack-item" title="Symfony"><img src="img/laravel.png" alt="Laravel"></div>
+        <div class="stack-item" title="MySQL"><img src="img/MySQL.svg" alt="MySQL"></div>
+        <div class="stack-item" title="Git"><img src="img/github.png" alt="Git"></div>
+        <div class="stack-item" title="Docker"><img src="img/angular.webp" alt="Docker"></div>
+      </div>
+    </article>
+
+
+    <!-- ⑨ STATS — GitHub API -->
+    <article class="card card--stats">
+      <div class="card-label" data-i18n="stats.label">Activité GitHub</div>
+      <div class="stats-top">
+        <div class="stat">
+          <span class="stat-n" data-val="12" data-stat="projects">12</span>
+          <span class="stat-l" data-i18n="stats.projects">Projets</span>
+        </div>
+        <div class="stat">
+          <span class="stat-n" data-val="4" data-stat="repos">4</span>
+          <span class="stat-l" data-i18n="stats.repos">Dépôts</span>
+        </div>
+        <div class="stat">
+          <span class="stat-n" data-val="2" data-stat="years">2</span>
+          <span class="stat-l" data-i18n="stats.years">Ans</span>
+        </div>
+      </div>
+      <div class="heatmap-wrap">
+        <div class="heatmap-days">
+          <span></span><span>L</span><span></span><span>M</span><span></span><span>V</span><span></span>
+        </div>
+        <div class="commit-grid" id="commit-grid"></div>
+      </div>
+      <div class="heatmap-legend">
+        <span class="legend-txt">Moins</span>
+        <div class="legend-cells">
+          <div class="commit-cell"></div>
+          <div class="commit-cell lv1"></div>
+          <div class="commit-cell lv2"></div>
+          <div class="commit-cell lv3"></div>
+          <div class="commit-cell lv4"></div>
+        </div>
+        <span class="legend-txt">Plus</span>
+      </div>
+    </article>
+
+
+    <!-- ⑪ CONTACT -->
+    <article class="card card--contact">
+      <div class="card-label" data-i18n="contact.label">Contact</div>
+      <p class="email-addr" id="email-copy" title="Copier l'adresse">wassil.henni@gmail.com</p>
+      <div class="contact-actions">
+        <a href="mailto:wassil.henni@gmail.com" class="btn-email" data-i18n="contact.mail">Email</a>
+        <a href="https://github.com/thynnon" target="_blank" class="btn-social">GitHub</a>
+        <a href="https://www.linkedin.com/in/wassil-henni-5b942834b/" target="_blank" class="btn-social">LinkedIn</a>
+      </div>
+    </article>
+
+
+
+    <!-- PROJETS UNIFIÉ -->
+    <article class="card card--projects">
+      <div class="card-label" data-i18n="proj.title">Projets</div>
+      <div class="projs-wrap">
+
+        <!-- ── PERSO ── -->
+        <div class="proj-cat">
+          <div class="proj-cat-hd" data-i18n="proj.cat.perso">Perso</div>
+
+          <div class="proj-row" data-pkey="p2">
+            <div class="proj-row-hd">
+              <div class="proj-row-meta">
+                <span class="proj-row-name">TaskFlow</span>
+                <span class="proj-row-tags"><span>React</span><span>Node.js</span><span>Socket.io</span></span>
+              </div>
+              <span class="proj-chevron">›</span>
+            </div>
+            <div class="proj-row-body">
+              <p class="proj-row-desc" data-i18n="p2.desc">Kanban collaboratif temps réel.</p>
+              <div class="proj-row-feats">
+                <span>Temps réel WebSocket</span><span>Drag &amp; drop</span><span>JWT Auth</span>
+              </div>
+              <a href="#" class="btn-link" onclick="event.stopPropagation()">GitHub →</a>
+              <a href="projects.html#p2" class="btn-link btn-link--detail">Voir détails →</a>
+            </div>
+          </div>
+
+          <div class="proj-row" data-pkey="p4">
+            <div class="proj-row-hd">
+              <div class="proj-row-meta">
+                <span class="proj-row-name">MonProjet</span>
+                <span class="proj-row-tags"><span>À remplir</span></span>
+              </div>
+              <span class="proj-chevron">›</span>
+            </div>
+            <div class="proj-row-body">
+              <p class="proj-row-desc" data-i18n="p4.desc">À compléter.</p>
+              <a href="#" class="btn-link" onclick="event.stopPropagation()">GitHub →</a>
+              <a href="projects.html#p4" class="btn-link btn-link--detail">Voir détails →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ÉCOLE ── -->
+        <div class="proj-cat">
+          <div class="proj-cat-hd" data-i18n="proj.cat.school">École</div>
+
+          <div class="proj-sub-hd" data-i18n="proj.ap">Activité Professionnelle</div>
+
+          <div class="proj-row" data-pkey="p1">
+            <div class="proj-row-hd">
+              <div class="proj-row-meta">
+                <span class="proj-row-type" data-i18n="p1.type">Projet E4</span>
+                <span class="proj-row-name">GestStock</span>
+                <span class="proj-row-tags"><span>PHP</span><span>Laravel</span><span>MySQL</span></span>
+              </div>
+              <span class="proj-chevron">›</span>
+            </div>
+            <div class="proj-row-body">
+              <p class="proj-row-desc" data-i18n="p1.desc">App web de gestion de stock — dashboard, alertes, export PDF/CSV.</p>
+              <div class="proj-row-feats">
+                <span>Dashboard</span><span>CRUD complet</span><span>Export PDF</span><span>Auth rôles</span>
+              </div>
+              <a href="#" class="btn-link" onclick="event.stopPropagation()">GitHub →</a>
+              <a href="projects.html#p1" class="btn-link btn-link--detail">Voir détails →</a>
+            </div>
+          </div>
+
+          <div class="proj-row" data-pkey="p3">
+            <div class="proj-row-hd">
+              <div class="proj-row-meta">
+                <span class="proj-row-type" data-i18n="p3.type">Projet E5</span>
+                <span class="proj-row-name">LOLDLE</span>
+                <span class="proj-row-tags"><span>React</span><span>Node.js</span><span>MySQL</span></span>
+              </div>
+              <span class="proj-chevron">›</span>
+            </div>
+            <div class="proj-row-body">
+              <p class="proj-row-desc" data-i18n="p3.desc">App Web quiz hors-ligne.</p>
+              <div class="proj-row-feats">
+                <span>Mode hors-ligne</span><span>Sync cloud</span><span>QR Code</span>
+              </div>
+              <a href="#" class="btn-link" onclick="event.stopPropagation()">GitHub →</a>
+              <a href="projects.html#p3" class="btn-link btn-link--detail">Voir détails →</a>
+            </div>
+          </div>
+
+          <div class="proj-sub-hd" data-i18n="proj.stage.label">Stage</div>
+
+          <div class="proj-row proj-row--stage">
+            <div class="proj-row-hd">
+              <div class="proj-row-meta">
+                <span class="proj-row-type">2024 · 8 sem.</span>
+                <span class="proj-row-name" data-i18n="tl.stage">Stage · Développeur Web</span>
+                <span class="proj-row-tags"><span>PHP</span><span>Laravel</span></span>
+              </div>
+              <span class="proj-chevron">›</span>
+            </div>
+            <div class="proj-row-body">
+              <p class="proj-row-desc">Développement d'une application web interne pour une entreprise locale. Intégration dans une équipe professionnelle pendant 8 semaines.</p>
+              <div class="proj-row-feats">
+                <span>Environnement pro</span><span>Laravel</span><span>Méthode Agile</span>
+              </div>
+              <span class="proj-row-org">Entreprise XYZ · Valenciennes</span>
+              <a href="projects.html#stage1" class="btn-link btn-link--detail" onclick="event.stopPropagation()">Voir détails →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
