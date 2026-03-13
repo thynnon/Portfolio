@@ -30,12 +30,18 @@
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 15px;
+}
+
+/* Desktop uniquement : layout plein écran sans scroll */
+@media (min-width: 769px) {
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 /* Dot grid background */
@@ -421,27 +427,35 @@ html[data-palette="elden"] {
   --purple: #8e9586; --purple-rgb: 142, 149, 134;
 }
 
-/* ── GRID (6 cols × 6 rows — layout éditorial asymétrique) ─ */
+/* ── BENTO — mobile par défaut: colonne scrollable ── */
 .bento {
-  display: grid;
-  flex: 1;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 5px;
-  grid-template-columns: 1.55fr 0.82fr 0.7fr 1.2fr 1fr 0.95fr;
-  grid-template-rows: 0.78fr 0.85fr 1fr 1.08fr 1.08fr 0.78fr;
-  gap: 5px;
+  padding: 10px;
+  gap: 10px;
   position: relative;
   z-index: 1;
+}
 
-  /* layout éditorial : hero dominant gauche, projets bloc droit, about bande du bas */
-  grid-template-areas:
-    "hero  hero  avatar skills skills stats "
-    "hero  hero  stack  skills skills stats "
-    "hero  hero  stack  projs  projs  projs "
-    "about about about  projs  projs  projs "
-    "about about about  projs  projs  projs "
-    "cntct cntct cntct  projs  projs  projs ";
+/* ── GRID (6 cols × 6 rows) — desktop uniquement ── */
+@media (min-width: 769px) {
+  .bento {
+    display: grid;
+    flex: 1;
+    min-height: 0;
+    padding: 5px;
+    gap: 5px;
+    grid-template-columns: 1.55fr 0.82fr 0.7fr 1.2fr 1fr 0.95fr;
+    grid-template-rows: 0.78fr 0.85fr 1fr 1.08fr 1.08fr 0.78fr;
+    grid-template-areas:
+      "hero  hero  avatar skills skills stats "
+      "hero  hero  stack  skills skills stats "
+      "hero  hero  stack  projs  projs  projs "
+      "about about about  projs  projs  projs "
+      "about about about  projs  projs  projs "
+      "cntct cntct cntct  projs  projs  projs ";
+  }
 }
 
 /* ── CARD BASE ───────────────────────────── */
@@ -1454,6 +1468,14 @@ html[data-theme="light"] .card--contact:hover,
 html[data-theme="light"] .card--avatar:hover { box-shadow: 0 8px 32px rgba(0,180,100,0.2); }
 html[data-theme="light"] .card--cv:hover     { box-shadow: 0 8px 32px rgba(139,92,246,0.22); }
 
+html[data-theme="light"] .nav-mobile-menu {
+  background: rgba(240,244,255,0.98);
+  border-bottom-color: rgba(0,150,200,0.18);
+}
+html[data-theme="light"] .nav-mobile-menu .nav-link { color: #3a3a6a; }
+html[data-theme="light"] .nav-hamburger { background: rgba(90,90,200,0.08); border-color: rgba(90,90,200,0.15); }
+html[data-theme="light"] .nav-hamburger span { background: #3a3a6a; }
+
 html[data-theme="light"] body::after { display: none; }
 html[data-theme="light"] .card:not(.card--hero)::before { display: none; }
 html[data-theme="light"] .hero-first {
@@ -2141,6 +2163,260 @@ html[data-palette="elden"] .card--projects:hover { box-shadow: 0 0 0 1px rgba(90
   transition: opacity 0.2s;
 }
 .card--contact:hover .email-addr::after { opacity: 1; }
+
+/* ── HAMBURGER (caché sur desktop) ────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: var(--s2);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  width: 34px; height: 34px;
+  padding: 7px 8px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.22s, opacity 0.22s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* Menu mobile déroulant */
+.nav-mobile-menu {
+  display: none;
+  position: sticky;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background: rgba(6,7,13,0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 190;
+  padding: 10px 14px 14px;
+  flex-direction: column;
+  gap: 4px;
+  animation: slide-down 0.2s ease;
+}
+.nav-mobile-menu.open { display: flex; }
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-mobile-menu .nav-link {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  color: var(--muted);
+}
+.nav-mobile-menu .nav-link:hover { color: var(--text); background: var(--border); }
+
+/* ══════════════════════════════════════════
+   MOBILE — styles de base (mobile-first)
+   ══════════════════════════════════════════ */
+
+/* ── NAVBAR ── */
+.nav-links    { display: none; }
+.nav-hamburger { display: flex; }
+
+/* ── CARD BASE mobile ── */
+.card {
+  contain: none;
+  overflow: visible;
+}
+
+/* ── HERO ── */
+.card--hero {
+  padding: 36px 24px 30px;
+}
+.hero-name { font-size: clamp(3rem, 14vw, 5.5rem); }
+
+/* ── AVATAR ── */
+.card--avatar {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 18px;
+  padding: 18px 20px;
+}
+.avatar-ring { width: 62px; height: 62px; flex-shrink: 0; }
+.av-status-row { justify-content: flex-start; }
+
+/* ── SKILLS ── */
+.card--skills { padding: 18px; }
+.card--skills .card-label {
+  position: static;
+  transform: none;
+  margin-bottom: 14px;
+}
+.sk-group { flex: none; }
+.sk-text { font-size: 0.72rem; }
+
+/* ── ABOUT ── */
+.card--about { padding: 18px; }
+.card--about .card-label {
+  position: static;
+  transform: none;
+  margin-bottom: 12px;
+}
+.about-panel { overflow: visible; }
+.bio-cols { flex-direction: column; gap: 16px; }
+.bio-right { justify-content: center; }
+.snake-wrap { margin: 0 auto; max-width: 210px; }
+.about-text { font-size: 0.8rem; }
+.certs-scroll { overflow: visible; max-height: none; }
+.cert-name { white-space: normal; }
+.timeline { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+
+/* ── STACK ── */
+.card--stack { padding: 18px; }
+.card--stack .card-label {
+  position: static;
+  transform: none;
+  writing-mode: unset;
+  margin-bottom: 14px;
+}
+.stack-grid { grid-template-columns: repeat(5, 1fr); gap: 12px; flex: none; }
+.stack-item img, .stack-item svg {
+  width: clamp(32px, 8vw, 48px);
+  height: clamp(32px, 8vw, 48px);
+}
+
+/* ── STATS ── */
+.card--stats { padding: 18px; gap: 14px; }
+.card--stats .card-label { position: static; transform: none; margin-bottom: 4px; }
+.stat-n { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+.heatmap-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.commit-grid { min-width: 220px; }
+
+/* ── CONTACT ── */
+.card--contact {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 22px 20px;
+}
+.card--contact .card-label { position: static; transform: none; margin-bottom: 2px; }
+.email-addr { font-size: 0.85rem; word-break: break-all; margin-bottom: 0; }
+.contact-actions { flex-wrap: wrap; gap: 8px; }
+.btn-email  { font-size: 0.68rem; padding: 10px 18px; }
+.btn-social { font-size: 0.68rem; padding: 10px 14px; }
+
+/* ── PROJETS ── */
+.card--projects { padding: 18px; }
+.card--projects .card-label { position: static; transform: none; margin-bottom: 14px; }
+.projs-wrap { display: flex; flex-direction: column; gap: 16px; }
+.proj-cat:nth-child(2) {
+  border-left: none;
+  padding-left: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.proj-row-hd { padding: 12px 10px; }
+.proj-row-name { font-size: 0.88rem; }
+
+/* ── SETTINGS plein écran ── */
+.settings-panel { width: 100%; }
+
+/* ── MODAL ── */
+.modal-box { width: 95vw; max-height: 90vh; padding: 24px 18px; border-radius: 18px; }
+.modal-title { font-size: 1.5rem; }
+
+/* ── LOCATION cachée ── */
+.card--location { display: none; }
+
+
+/* ══════════════════════════════════════════
+   DESKTOP — remettre les styles bento grid
+   ══════════════════════════════════════════ */
+
+@media (min-width: 769px) {
+
+  /* Navbar : liens visibles, hamburger caché */
+  .nav-links     { display: flex; }
+  .nav-hamburger { display: none; }
+  .nav-mobile-menu { display: none !important; }
+
+  /* Cards : remettre contain et overflow */
+  .card { contain: layout style; overflow: hidden; }
+
+  /* Chaque card occupe sa grid-area */
+  .card--hero    { grid-area: hero; }
+  .card--avatar  { grid-area: avatar; }
+  .card--skills  { grid-area: skills; }
+  .card--about   { grid-area: about; }
+  .card--stack   { grid-area: stack; }
+  .card--stats   { grid-area: stats; }
+  .card--contact { grid-area: cntct; }
+  .card--projects{ grid-area: projs; }
+
+  /* Remettre les layouts desktop */
+  .card--avatar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: var(--p);
+  }
+  .avatar-ring { width: clamp(54px, 8vw, 72px); height: clamp(54px, 8vw, 72px); }
+  .av-status-row { justify-content: center; }
+
+  .card--skills .card-label { position: absolute; left: auto; right: var(--p); transform: rotate(1deg); }
+  .card--about  .card-label { position: absolute; top: auto; bottom: var(--p); left: auto; right: var(--p); transform: rotate(0.8deg); }
+  .card--stats  .card-label { position: absolute; top: auto; bottom: var(--p); left: auto; right: var(--p); transform: rotate(1deg); }
+  .card--contact .card-label { position: absolute; top: var(--p); left: var(--p); transform: rotate(-0.5deg); }
+  .card--projects .card-label { position: absolute; top: var(--p); left: var(--p); }
+  .card--stack .card-label { position: absolute; top: 50%; transform: translateY(-50%) rotate(-90deg); left: 4px; font-size: 0.48rem; }
+
+  .card--skills  { padding: var(--p); }
+  .card--about   { padding: var(--p); }
+  .card--stack   { padding: var(--p); }
+  .card--stats   { padding: var(--p); gap: 8px; }
+  .card--contact { padding: var(--p); flex-direction: row; align-items: center; justify-content: center; gap: 32px; }
+  .card--projects { padding: var(--p); padding-top: calc(var(--p) + 1.2rem); }
+  .card--hero    { padding: var(--p); }
+
+  .email-addr { font-size: 0.95rem; word-break: normal; }
+  .btn-email  { font-size: 0.62rem; padding: 7px 16px; }
+  .btn-social { font-size: 0.62rem; padding: 7px 12px; }
+
+  .bio-cols { flex-direction: row; gap: 12px; }
+
+  .sk-text { font-size: 0.68rem; }
+  .sk-group { flex: 1; }
+
+  .stack-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; flex: 1; }
+  .stack-item img, .stack-item svg {
+    width: clamp(28px, 3.8vw, 48px);
+    height: clamp(28px, 3.8vw, 48px);
+  }
+
+  .stat-n { font-size: clamp(1.6rem, 2.8vw, 2.8rem); }
+
+  .about-panel { overflow: hidden; }
+  .certs-scroll { overflow-y: auto; }
+  .cert-name { white-space: nowrap; }
+
+  .projs-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .proj-cat:nth-child(2) { border-left: 1px solid var(--border); padding-left: 12px; border-top: none; padding-top: 0; }
+
+  .modal-box { width: min(680px, 92vw); max-height: 85vh; padding: 36px; border-radius: 24px; }
+  .modal-title { font-size: 1.8rem; }
+
+  .settings-panel { width: 270px; }
+  .hero-name { font-size: clamp(3rem, 6vw, 7rem); }
+}
 
 /* ══════════════════════════════════════════
    CERTIFICATIONS PANEL

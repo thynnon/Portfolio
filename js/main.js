@@ -598,6 +598,11 @@ document.querySelectorAll('.nav-link').forEach(btn => {
     void card.offsetWidth; // reflow pour relancer l'animation
     card.classList.add('card--highlight');
     card.addEventListener('animationend', () => card.classList.remove('card--highlight'), { once: true });
+
+    // Sur mobile : scroller vers la carte
+    if (window.innerWidth <= 768) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
@@ -871,6 +876,32 @@ if (commitGrid) {
 
   init();
   setInterval(() => { step(); draw(); }, 200);
+})();
+
+/* ─── HAMBURGER MENU MOBILE ─────────────── */
+(function () {
+  const btn  = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('nav-mobile-menu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    menu.setAttribute('aria-hidden', !isOpen);
+  });
+
+  // Ferme le menu quand on clique sur un lien
+  menu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  // Afficher le hamburger uniquement sur mobile (CSS gère display:none sur desktop)
 })();
 
 /* ─── TILT CARDS — supprimé (trop lourd avec rotateX/rotateY) ─── */
