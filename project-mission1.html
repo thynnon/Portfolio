@@ -123,125 +123,132 @@
       <h2 class="det-section-title">Schéma complet — GSB_total</h2>
 
       <div class="det-db-diagram-wrap">
-        <div class="det-db-diagram" style="width:1310px;height:550px">
+        <!-- 3 colonnes : col1=x50 (évaluations+congés+vue), col2=x320 (praticien+grille+utilisateur), col3=x590 (types+géographie) -->
+        <div class="det-db-diagram" style="width:840px;height:920px">
 
-          <!-- praticien -->
-          <div class="det-db-tbl" data-table="praticien" style="left:10px;top:10px">
-            <div class="det-db-tbl-head">praticien</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">prenom</span><span class="dbc-type">varchar(60)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">date_embauche</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">anciennete</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">adresse</span><span class="dbc-type">varchar(100)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">coef_notoriete</span><span class="dbc-type">float</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
-            <div class="det-db-tbl-col" data-fk="type_praticien.code">       <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col" data-fk="ville.id">                  <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_ville</span><span class="dbc-type">mediumint</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">username</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">conges_restant</span><span class="dbc-type">int</span></div>
-          </div>
+          <!-- ── COL 1 ── -->
 
           <!-- evaluation -->
-          <div class="det-db-tbl" data-table="evaluation" style="left:275px;top:10px">
+          <div class="det-db-tbl" data-table="evaluation" style="left:50px;top:10px">
             <div class="det-db-tbl-head">evaluation</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="praticien.id">              <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">note</span><span class="dbc-type">double</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">type_evaluateur</span><span class="dbc-type">varchar(10)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">date_evaluation</span><span class="dbc-type">date</span></div>
+            <div class="det-db-tbl-col" data-col="id">         <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col" data-fk="praticien.id"><span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">note</span><span class="dbc-type">double</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">type_evaluateur</span><span class="dbc-type">varchar(10)</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_evaluation</span><span class="dbc-type">date</span></div>
           </div>
 
           <!-- userconge -->
-          <div class="det-db-tbl" data-table="userconge" style="left:275px;top:220px">
+          <div class="det-db-tbl" data-table="userconge" style="left:50px;top:235px">
             <div class="det-db-tbl-head">userconge</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="praticien.id">              <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">date_debut</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">date_fin</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">statut</span><span class="dbc-type">enum</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">text</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">date_demande</span><span class="dbc-type">datetime</span></div>
-          </div>
-
-          <!-- type_praticien -->
-          <div class="det-db-tbl" data-table="type_praticien" style="left:545px;top:10px">
-            <div class="det-db-tbl-head">type_praticien</div>
-            <div class="det-db-tbl-col" data-col="code">                    <span class="dbc-key">PK</span><span class="dbc-name">code</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">libelle</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">lieu</span><span class="dbc-type">varchar(70)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">type</span><span class="dbc-type">varchar(1)</span></div>
-          </div>
-
-          <!-- grille_salariale -->
-          <div class="det-db-tbl" data-table="grille_salariale" style="left:545px;top:165px">
-            <div class="det-db-tbl-head">grille_salariale</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="type_praticien.code">       <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">anciennete_min</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">anciennete_max</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
-          </div>
-
-          <!-- utilisateur -->
-          <div class="det-db-tbl" data-table="utilisateur" style="left:545px;top:385px">
-            <div class="det-db-tbl-head">utilisateur</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">isAdmin</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(250)</span></div>
+            <div class="det-db-tbl-col" data-col="id">         <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col" data-fk="praticien.id"><span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_debut</span><span class="dbc-type">date</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_fin</span><span class="dbc-type">date</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">statut</span><span class="dbc-type">enum</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">text</span></div>
+            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_demande</span><span class="dbc-type">datetime</span></div>
           </div>
 
           <!-- congeutilisateur -->
-          <div class="det-db-tbl" data-table="congeutilisateur" style="left:815px;top:10px">
+          <div class="det-db-tbl" data-table="congeutilisateur" style="left:50px;top:490px">
             <div class="det-db-tbl-head">congeutilisateur</div>
-            <div class="det-db-tbl-col" data-col="idConge">                  <span class="dbc-key">PK</span><span class="dbc-name">idConge</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="utilisateur.id">            <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">idUtilisateur</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">etatConge</span><span class="dbc-type">enum</span></div>
-          </div>
-
-          <!-- ville -->
-          <div class="det-db-tbl" data-table="ville" style="left:815px;top:150px">
-            <div class="det-db-tbl-head">ville</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">mediumint</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(45)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">code_postal</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">code_commune</span><span class="dbc-type">varchar(5)</span></div>
-            <div class="det-db-tbl-col" data-fk="departement.id">            <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_departement</span><span class="dbc-type">int</span></div>
-          </div>
-
-          <!-- region -->
-          <div class="det-db-tbl" data-table="region" style="left:815px;top:365px">
-            <div class="det-db-tbl-head">region</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">tinyint</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(4)</span></div>
-            <div class="det-db-tbl-col" data-fk="ville.id">                  <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_ville</span><span class="dbc-type">mediumint</span></div>
-          </div>
-
-          <!-- departement -->
-          <div class="det-db-tbl" data-table="departement" style="left:1085px;top:10px">
-            <div class="det-db-tbl-head">departement</div>
-            <div class="det-db-tbl-col" data-col="id">                      <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">                                     <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col" data-fk="region.id">                 <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_region</span><span class="dbc-type">tinyint</span></div>
+            <div class="det-db-tbl-col" data-col="idConge">          <span class="dbc-key">PK</span><span class="dbc-name">idConge</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col" data-fk="utilisateur.id">    <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">idUtilisateur</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                              <span class="dbc-key"></span><span class="dbc-name">etatConge</span><span class="dbc-type">enum</span></div>
           </div>
 
           <!-- v_praticiens (vue) -->
-          <div class="det-db-tbl" style="left:1085px;top:165px;width:200px">
+          <div class="det-db-tbl" style="left:50px;top:630px">
             <div class="det-db-tbl-head det-db-tbl-head--view">👁 v_praticiens</div>
-            <div class="det-db-tbl-col" style="padding:7px 10px;min-height:auto">
-              <span class="dbc-name" style="white-space:normal;font-size:0.67rem;color:var(--muted);line-height:1.5">Vue — JOIN praticien, calcul anciennete_calculee via TIMESTAMPDIFF. Exposée par l'API REST.</span>
+            <div class="det-db-tbl-col" style="padding:8px 10px;min-height:auto">
+              <span class="dbc-name" style="white-space:normal;font-size:0.72rem;color:var(--muted);line-height:1.5">Vue — JOIN praticien, calcul anciennete_calculee via TIMESTAMPDIFF. Exposée par l'API REST.</span>
             </div>
+          </div>
+
+          <!-- ── COL 2 ── -->
+
+          <!-- praticien -->
+          <div class="det-db-tbl" data-table="praticien" style="left:320px;top:10px">
+            <div class="det-db-tbl-head">praticien</div>
+            <div class="det-db-tbl-col" data-col="id">                   <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">prenom</span><span class="dbc-type">varchar(60)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">date_embauche</span><span class="dbc-type">date</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">adresse</span><span class="dbc-type">varchar(100)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">coef_notoriete</span><span class="dbc-type">float</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
+            <div class="det-db-tbl-col" data-fk="type_praticien.code">   <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
+            <div class="det-db-tbl-col" data-fk="ville.id">              <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_ville</span><span class="dbc-type">mediumint</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">username</span><span class="dbc-type">varchar(50)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">conges_restant</span><span class="dbc-type">int</span></div>
+          </div>
+
+          <!-- grille_salariale -->
+          <div class="det-db-tbl" data-table="grille_salariale" style="left:320px;top:490px">
+            <div class="det-db-tbl-head">grille_salariale</div>
+            <div class="det-db-tbl-col" data-col="id">                   <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col" data-fk="type_praticien.code">   <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete_min</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete_max</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
+          </div>
+
+          <!-- utilisateur -->
+          <div class="det-db-tbl" data-table="utilisateur" style="left:320px;top:720px">
+            <div class="det-db-tbl-head">utilisateur</div>
+            <div class="det-db-tbl-col" data-col="id"><span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(50)</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">isAdmin</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(250)</span></div>
+          </div>
+
+          <!-- ── COL 3 ── -->
+
+          <!-- type_praticien -->
+          <div class="det-db-tbl" data-table="type_praticien" style="left:590px;top:10px">
+            <div class="det-db-tbl-head">type_praticien</div>
+            <div class="det-db-tbl-col" data-col="code"><span class="dbc-key">PK</span><span class="dbc-name">code</span><span class="dbc-type">varchar(6)</span></div>
+            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">libelle</span><span class="dbc-type">varchar(50)</span></div>
+            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">lieu</span><span class="dbc-type">varchar(70)</span></div>
+            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">type</span><span class="dbc-type">varchar(1)</span></div>
+          </div>
+
+          <!-- ville -->
+          <div class="det-db-tbl" data-table="ville" style="left:590px;top:180px">
+            <div class="det-db-tbl-head">ville</div>
+            <div class="det-db-tbl-col" data-col="id">           <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">mediumint</span></div>
+            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(45)</span></div>
+            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">code_postal</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(3)</span></div>
+            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">code_commune</span><span class="dbc-type">varchar(5)</span></div>
+            <div class="det-db-tbl-col" data-fk="departement.id"> <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_departement</span><span class="dbc-type">int</span></div>
+          </div>
+
+          <!-- departement -->
+          <div class="det-db-tbl" data-table="departement" style="left:590px;top:410px">
+            <div class="det-db-tbl-head">departement</div>
+            <div class="det-db-tbl-col" data-col="id">          <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                         <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
+            <div class="det-db-tbl-col">                         <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col" data-fk="region.id">    <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_region</span><span class="dbc-type">tinyint</span></div>
+          </div>
+
+          <!-- region -->
+          <div class="det-db-tbl" data-table="region" style="left:590px;top:580px">
+            <div class="det-db-tbl-head">region</div>
+            <div class="det-db-tbl-col" data-col="id"><span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">tinyint</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(4)</span></div>
+            <div class="det-db-tbl-col">             <span class="dbc-key dbc-key--fk" style="color:var(--muted)">FK</span><span class="dbc-name" style="color:var(--muted)">id_ville</span><span class="dbc-type">↺ circ.</span></div>
           </div>
 
         </div>
@@ -252,6 +259,7 @@
         <span><span class="det-db-legend-dot" style="background:rgba(129,140,248,0.8)"></span>Clé étrangère (FK)</span>
         <span><span class="det-db-legend-dot" style="background:rgba(96,165,250,0.6);border-radius:0;width:16px;height:2px"></span>Relation FK→PK</span>
         <span><span class="det-db-legend-dot" style="background:rgba(251,191,36,0.4)"></span>Vue SQL</span>
+        <span style="color:var(--muted);font-style:italic">↺ region.id_ville → ville (référence circulaire, non tracée)</span>
       </div>
     </section>
 
