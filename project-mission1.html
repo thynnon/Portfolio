@@ -117,6 +117,79 @@
       </div>
     </section>
 
+    <!-- BASE DE DONNÉES -->
+    <section class="det-section">
+      <span class="det-section-label">Base de données</span>
+      <h2 class="det-section-title">Schéma — GSB_total</h2>
+
+      <div class="det-db-grid">
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">praticien</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">nom / prenom</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">username / mdp</span><span class="det-db-col-type">varchar</span><span class="det-db-col-note">authentification</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">conges_restant</span><span class="det-db-col-type">int DEFAULT 25</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">code_type_praticien</span><span class="det-db-col-type">varchar FK</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">utilisateur</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">nom / mdp</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">isAdmin</span><span class="det-db-col-type">int</span><span class="det-db-col-note">rôle RH</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">userconge</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">praticien_id</span><span class="det-db-col-type">int FK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">date_debut / date_fin</span><span class="det-db-col-type">date</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">statut</span><span class="det-db-col-type">enum</span><span class="det-db-col-note">En_attente / Acceptee / Refusee / Annulee</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">commentaire</span><span class="det-db-col-type">text</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">date_demande</span><span class="det-db-col-type">datetime DEFAULT now()</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">congeutilisateur</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">idConge</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">idUtilisateur</span><span class="det-db-col-type">int FK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">etatConge</span><span class="det-db-col-type">enum</span><span class="det-db-col-note">Attente / Accepté / Refusé / Annulé</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Relations -->
+      <div class="det-db-info" style="margin-top:16px">
+        <div class="det-db-info-title">Relations</div>
+        <div class="det-db-relations">
+          <span class="det-db-rel"><em>userconge.praticien_id</em> → praticien.id</span>
+          <span class="det-db-rel"><em>congeutilisateur.idUtilisateur</em> → utilisateur.id (CASCADE)</span>
+          <span class="det-db-rel"><em>praticien.code_type_praticien</em> → type_praticien.code</span>
+        </div>
+      </div>
+    </section>
+
     <!-- STACK -->
     <section class="det-section">
       <span class="det-section-label">Stack technique</span>

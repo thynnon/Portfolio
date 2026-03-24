@@ -117,6 +117,83 @@
       </div>
     </section>
 
+    <!-- BASE DE DONNÉES -->
+    <section class="det-section">
+      <span class="det-section-label">Base de données</span>
+      <h2 class="det-section-title">Schéma — GSB_total</h2>
+
+      <div class="det-db-grid">
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">praticien</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">nom / prenom</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">adresse</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">coef_notoriete</span><span class="det-db-col-type">float</span><span class="det-db-col-note">pondération note</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">code_type_praticien</span><span class="det-db-col-type">varchar FK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">id_ville</span><span class="det-db-col-type">mediumint FK</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">evaluation</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">praticien_id</span><span class="det-db-col-type">int FK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">note</span><span class="det-db-col-type">double</span><span class="det-db-col-note">0 – 5</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">commentaire</span><span class="det-db-col-type">varchar(255)</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">type_evaluateur</span><span class="det-db-col-type">varchar(10)</span><span class="det-db-col-note">client ou expert</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">date_evaluation</span><span class="det-db-col-type">date</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">type_praticien</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">code</span><span class="det-db-col-type">varchar(6) PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">libelle</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:3px">
+              <span class="det-db-col-type" style="white-space:normal">MH · MV · PH · PO · PS · RH</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">v_praticiens</span>
+            <span class="det-db-table-badge det-db-table-badge--view">Vue</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:4px">
+              <span class="det-db-col-note" style="margin-left:0">Vue agrégée exposée par l'API</span>
+              <span class="det-db-col-type" style="white-space:normal; line-height:1.5">Jointure <code>praticien</code> + <code>evaluation</code> + <code>type_praticien</code> — calcule la moyenne des notes clients et experts, retourne les infos complètes par praticien en un seul appel REST.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Relations -->
+      <div class="det-db-info" style="margin-top:16px">
+        <div class="det-db-info-title">Relations</div>
+        <div class="det-db-relations">
+          <span class="det-db-rel"><em>evaluation.praticien_id</em> → praticien.id</span>
+          <span class="det-db-rel"><em>praticien.code_type_praticien</em> → type_praticien.code</span>
+          <span class="det-db-rel"><em>praticien.id_ville</em> → ville.id (CASCADE)</span>
+        </div>
+      </div>
+    </section>
+
     <!-- STACK -->
     <section class="det-section">
       <span class="det-section-label">Stack technique</span>

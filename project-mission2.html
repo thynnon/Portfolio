@@ -129,6 +129,94 @@
       </div>
     </section>
 
+    <!-- BASE DE DONNÉES -->
+    <section class="det-section">
+      <span class="det-section-label">Base de données</span>
+      <h2 class="det-section-title">Schéma — GSB_total</h2>
+
+      <div class="det-db-grid">
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">praticien</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">nom / prenom</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">date_embauche</span><span class="det-db-col-type">date</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">anciennete</span><span class="det-db-col-type">int</span><span class="det-db-col-note">calculé auto</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">echelon</span><span class="det-db-col-type">int DEFAULT 1</span><span class="det-db-col-note">calculé auto</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">salaire</span><span class="det-db-col-type">double</span><span class="det-db-col-note">calculé via trigger</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">code_type_praticien</span><span class="det-db-col-type">varchar FK</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">type_praticien</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">code</span><span class="det-db-col-type">varchar(6) PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">libelle</span><span class="det-db-col-type">varchar</span><span class="det-db-col-note">ex. Médecin Hospitalier</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">lieu</span><span class="det-db-col-type">varchar</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">type</span><span class="det-db-col-type">varchar(1)</span><span class="det-db-col-note">H / V / A</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">grille_salariale</span>
+            <span class="det-db-table-badge">Table</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">code_type_praticien</span><span class="det-db-col-type">varchar FK</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">echelon</span><span class="det-db-col-type">int</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">anciennete_min / max</span><span class="det-db-col-type">int</span></div>
+            <div class="det-db-col"><span class="det-db-col-name">salaire</span><span class="det-db-col-type">double</span><span class="det-db-col-note">ex. 4 633 € → 9 368 €</span></div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">trg_praticien_insert / update</span>
+            <span class="det-db-table-badge det-db-table-badge--trigger">Trigger</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:4px">
+              <span class="det-db-col-note" style="margin-left:0">BEFORE INSERT / BEFORE UPDATE sur praticien</span>
+              <span class="det-db-col-type" style="white-space:normal; line-height:1.5">Consulte <code>grille_salariale</code> selon le code type et l'ancienneté — met à jour automatiquement <code>echelon</code> et <code>salaire</code> sans intervention manuelle.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="det-db-table">
+          <div class="det-db-table-head">
+            <span class="det-db-table-name">sp_update_all_salaires</span>
+            <span class="det-db-table-badge det-db-table-badge--proc">Procédure</span>
+          </div>
+          <div class="det-db-cols">
+            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:4px">
+              <span class="det-db-col-note" style="margin-left:0">Recalcul global en masse</span>
+              <span class="det-db-col-type" style="white-space:normal; line-height:1.5">UPDATE sur l'ensemble de la table <code>praticien</code> via JOIN <code>grille_salariale</code> — synchronise tous les échelons et salaires en un seul appel.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Relations -->
+      <div class="det-db-info" style="margin-top:16px">
+        <div class="det-db-info-title">Relations</div>
+        <div class="det-db-relations">
+          <span class="det-db-rel"><em>praticien.code_type_praticien</em> → type_praticien.code</span>
+          <span class="det-db-rel"><em>grille_salariale.code_type_praticien</em> → type_praticien.code (CASCADE)</span>
+        </div>
+      </div>
+    </section>
+
     <!-- STACK -->
     <section class="det-section">
       <span class="det-section-label">Stack technique</span>
