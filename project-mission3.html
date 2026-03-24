@@ -122,75 +122,54 @@
       <span class="det-section-label">Base de données</span>
       <h2 class="det-section-title">Schéma — GSB_total</h2>
 
-      <div class="det-db-grid">
+      <div class="det-db-diagram-wrap">
+        <!-- container 660×420 -->
+        <div class="det-db-diagram" style="width:660px;height:420px">
 
-        <div class="det-db-table">
-          <div class="det-db-table-head">
-            <span class="det-db-table-name">praticien</span>
-            <span class="det-db-table-badge">Table</span>
+          <!-- praticien — haut gauche -->
+          <div class="det-db-tbl" data-table="praticien" style="left:10px;top:10px">
+            <div class="det-db-tbl-head">praticien</div>
+            <div class="det-db-tbl-col" data-col="id">                          <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">nom / prenom</span><span class="dbc-type">varchar</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">adresse</span><span class="dbc-type">varchar</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">coef_notoriete</span><span class="dbc-type">float</span></div>
+            <div class="det-db-tbl-col" data-fk="type_praticien.code">           <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar</span></div>
           </div>
-          <div class="det-db-cols">
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">nom / prenom</span><span class="det-db-col-type">varchar</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">adresse</span><span class="det-db-col-type">varchar</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">coef_notoriete</span><span class="det-db-col-type">float</span><span class="det-db-col-note">pondération note</span></div>
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">code_type_praticien</span><span class="det-db-col-type">varchar FK</span></div>
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">id_ville</span><span class="det-db-col-type">mediumint FK</span></div>
-          </div>
-        </div>
 
-        <div class="det-db-table">
-          <div class="det-db-table-head">
-            <span class="det-db-table-name">evaluation</span>
-            <span class="det-db-table-badge">Table</span>
+          <!-- evaluation — haut droite -->
+          <div class="det-db-tbl" data-table="evaluation" style="left:280px;top:10px">
+            <div class="det-db-tbl-head">evaluation</div>
+            <div class="det-db-tbl-col" data-col="id">                          <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col" data-fk="praticien.id">                  <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">note</span><span class="dbc-type">double (0–5)</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">type_evaluateur</span><span class="dbc-type">client/expert</span></div>
+            <div class="det-db-tbl-col">                                         <span class="dbc-key"></span><span class="dbc-name">date_evaluation</span><span class="dbc-type">date</span></div>
           </div>
-          <div class="det-db-cols">
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">id</span><span class="det-db-col-type">int PK</span></div>
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--fk">praticien_id</span><span class="det-db-col-type">int FK</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">note</span><span class="det-db-col-type">double</span><span class="det-db-col-note">0 – 5</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">commentaire</span><span class="det-db-col-type">varchar(255)</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">type_evaluateur</span><span class="det-db-col-type">varchar(10)</span><span class="det-db-col-note">client ou expert</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">date_evaluation</span><span class="det-db-col-type">date</span></div>
-          </div>
-        </div>
 
-        <div class="det-db-table">
-          <div class="det-db-table-head">
-            <span class="det-db-table-name">type_praticien</span>
-            <span class="det-db-table-badge">Table</span>
+          <!-- type_praticien — bas gauche -->
+          <div class="det-db-tbl" data-table="type_praticien" style="left:10px;top:268px">
+            <div class="det-db-tbl-head">type_praticien</div>
+            <div class="det-db-tbl-col" data-col="code">  <span class="dbc-key">PK</span><span class="dbc-name">code</span><span class="dbc-type">varchar(6)</span></div>
+            <div class="det-db-tbl-col">                   <span class="dbc-key"></span><span class="dbc-name">libelle</span><span class="dbc-type">varchar</span></div>
+            <div class="det-db-tbl-col">                   <span class="dbc-key"></span><span class="dbc-name">type</span><span class="dbc-type">H / V / A</span></div>
           </div>
-          <div class="det-db-cols">
-            <div class="det-db-col"><span class="det-db-col-name det-db-col-name--pk">code</span><span class="det-db-col-type">varchar(6) PK</span></div>
-            <div class="det-db-col"><span class="det-db-col-name">libelle</span><span class="det-db-col-type">varchar</span></div>
-            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:3px">
-              <span class="det-db-col-type" style="white-space:normal">MH · MV · PH · PO · PS · RH</span>
+
+          <!-- v_praticiens — bas droite -->
+          <div class="det-db-tbl" style="left:280px;top:268px;width:240px">
+            <div class="det-db-tbl-head det-db-tbl-head--view">👁 v_praticiens</div>
+            <div class="det-db-tbl-col" style="min-height:auto;padding:6px 10px">
+              <span class="dbc-name" style="white-space:normal;font-size:0.68rem;color:var(--muted);line-height:1.45">Vue agrégée — JOIN praticien + evaluation + type_praticien. Calcule la moyenne client/expert. Exposée par l'API REST.</span>
             </div>
           </div>
-        </div>
 
-        <div class="det-db-table">
-          <div class="det-db-table-head">
-            <span class="det-db-table-name">v_praticiens</span>
-            <span class="det-db-table-badge det-db-table-badge--view">Vue</span>
-          </div>
-          <div class="det-db-cols">
-            <div class="det-db-col" style="flex-direction:column; align-items:flex-start; gap:4px">
-              <span class="det-db-col-note" style="margin-left:0">Vue agrégée exposée par l'API</span>
-              <span class="det-db-col-type" style="white-space:normal; line-height:1.5">Jointure <code>praticien</code> + <code>evaluation</code> + <code>type_praticien</code> — calcule la moyenne des notes clients et experts, retourne les infos complètes par praticien en un seul appel REST.</span>
-            </div>
-          </div>
         </div>
-
       </div>
 
-      <!-- Relations -->
-      <div class="det-db-info" style="margin-top:16px">
-        <div class="det-db-info-title">Relations</div>
-        <div class="det-db-relations">
-          <span class="det-db-rel"><em>evaluation.praticien_id</em> → praticien.id</span>
-          <span class="det-db-rel"><em>praticien.code_type_praticien</em> → type_praticien.code</span>
-          <span class="det-db-rel"><em>praticien.id_ville</em> → ville.id (CASCADE)</span>
-        </div>
+      <div class="det-db-legend">
+        <span><span class="det-db-legend-dot" style="background:rgba(251,191,36,0.8)"></span>Clé primaire (PK)</span>
+        <span><span class="det-db-legend-dot" style="background:rgba(129,140,248,0.8)"></span>Clé étrangère (FK)</span>
+        <span><span class="det-db-legend-dot" style="background:rgba(251,191,36,0.8);opacity:.5"></span>Vue SQL</span>
       </div>
     </section>
 
