@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow – Henni Wassil</title>
+  <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+
+  <nav class="det-nav">
+    <a href="index.html#projects" class="det-nav-back">← Projets</a>
+    <span class="det-nav-title">TaskFlow — Gestionnaire de tâches collaboratif temps réel</span>
+    <span class="det-nav-badge det-nav-badge--perso">Personnel</span>
+  </nav>
+
+  <main class="det-page">
+
+    <!-- HERO -->
+    <header class="det-hero">
+      <div class="det-hero-meta">
+        <span class="det-hero-type det-hero-type--perso">Projet Personnel</span>
+        <span class="det-hero-year">2024</span>
+        <span class="det-hero-status det-hero-status--wip">En cours</span>
+      </div>
+      <h1 class="det-hero-title">TaskFlow</h1>
+      <p class="det-hero-subtitle">
+        Gestionnaire de tâches collaboratif en temps réel, inspiré de Trello et Linear.
+        Les équipes créent des tableaux Kanban, déplacent des cartes par drag &amp; drop
+        et voient les modifications de leurs coéquipiers instantanément grâce aux WebSockets.
+        Projet personnel pour approfondir le temps réel et l'architecture full-stack.
+      </p>
+      <div class="det-hero-tags">
+        <span>React</span><span>Node.js</span><span>Socket.io</span>
+        <span>MongoDB</span><span>Express</span><span>JWT</span><span>Swagger</span>
+      </div>
+      <div class="det-hero-links">
+        <a href="#" class="det-btn det-btn--gh">GitHub</a>
+        <a href="#" class="det-btn det-btn--demo">Démo live</a>
+      </div>
+    </header>
+
+    <!-- SCREENSHOTS -->
+    <section class="det-screenshots">
+      <p class="det-screenshots-title">Captures d'écran</p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 1 : remplacer par <img src="img/taskflow/board.png" alt="Tableau Kanban"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">📋</span>
+            <span class="screenshot-ph-label">Tableau Kanban principal</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/board.png"&gt;</span>
+          </div>
+          <figcaption>Vue tableau avec colonnes et cartes drag & drop</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 2 : remplacer par <img src="img/taskflow/realtime.png" alt="Temps réel"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">⚡</span>
+            <span class="screenshot-ph-label">Collaboration temps réel</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/realtime.png"&gt;</span>
+          </div>
+          <figcaption>Indicateurs de présence et modifications en direct</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 3 : remplacer par <img src="img/taskflow/card.png" alt="Détail carte"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🗒️</span>
+            <span class="screenshot-ph-label">Détail d'une carte</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/card.png"&gt;</span>
+          </div>
+          <figcaption>Modal de détail — description, membres, étiquettes</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <!-- SCREENSHOT 4 : remplacer par <img src="img/taskflow/notifications.png" alt="Notifications"> -->
+          <div class="screenshot-ph">
+            <span class="screenshot-ph-icon">🔔</span>
+            <span class="screenshot-ph-label">Notifications temps réel</span>
+            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/notifications.png"&gt;</span>
+          </div>
+          <figcaption>Centre de notifications et activité du tableau</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- CONTEXTE -->
+    <section class="det-section">
+      <span class="det-section-label">Genèse du projet</span>
+      <h2 class="det-section-title">Pourquoi TaskFlow ?</h2>
+      <div class="det-section-body">
+        <p>
+          TaskFlow est né d'une frustration personnelle : les outils de gestion de tâches existants
+          (Trello, Notion, Jira) sont soit trop lourds, soit trop limités dans leur version gratuite.
+          L'objectif principal était de <strong>construire un projet de bout en bout</strong>
+          en me confrontant à des problématiques techniques que mes projets scolaires n'abordaient pas :
+          le temps réel, la gestion des conflits de données et l'architecture orientée événements.
+        </p>
+        <p>
+          Le choix de <strong>MongoDB</strong> (au lieu de MySQL habituel) était délibéré : les données
+          d'un tableau Kanban — cartes, colonnes, membres — sont naturellement imbriquées et leur
+          schéma évolue fréquemment. Un document MongoDB représente un tableau entier avec toutes
+          ses données, ce qui simplifie les lectures mais complexifie les mises à jour partielles.
+        </p>
+        <p>
+          La partie la plus challenging du projet a été d'implémenter la <strong>synchronisation
+          temps réel multi-utilisateurs</strong> : quand Alice déplace une carte pendant que Bob
+          en modifie le titre, les deux utilisateurs doivent voir un état cohérent sans rafraîchissement.
+          Socket.io avec des rooms par tableau résout ce problème élégamment.
+        </p>
+        <div class="det-highlight det-highlight--purple">
+          Ce projet est mon laboratoire personnel : je l'utilise pour tester de nouvelles technologies
+          (TypeScript, tests E2E avec Playwright, CI/CD GitHub Actions) avant de les adopter
+          dans mes projets professionnels.
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS -->
+    <section class="det-section">
+      <span class="det-section-label">Fonctionnalités</span>
+      <h2 class="det-section-title">Ce que fait l'application</h2>
+      <div class="det-features">
+        <div class="det-feature det-feature--purple">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Temps réel via WebSockets</div>
+            <div class="det-feature-desc">Socket.io avec rooms par tableau — chaque action (ajout, déplacement, modification) est diffusée instantanément à tous les membres.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--purple">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Drag &amp; drop inter-colonnes</div>
+            <div class="det-feature-desc">Déplacement fluide des cartes entre colonnes avec @dnd-kit. L'ordre est persisté en base et synchronisé en temps réel.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Gestion d'équipe</div>
+            <div class="det-feature-desc">Invitations par e-mail, rôles (Owner, Admin, Member), assignation de membres sur les cartes avec avatars.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Étiquettes &amp; priorités</div>
+            <div class="det-feature-desc">Étiquettes colorées personnalisables, niveaux de priorité (Urgent / High / Normal / Low) et dates d'échéance avec alertes.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Notifications en temps réel</div>
+            <div class="det-feature-desc">Centre de notifications pour les mentions (@user), assignations et modifications sur les cartes suivies.</div>
+          </div>
+        </div>
+        <div class="det-feature">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">API REST documentée</div>
+            <div class="det-feature-desc">Tous les endpoints sont documentés avec Swagger/OpenAPI. L'API est consommable indépendamment du frontend React.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Authentification JWT sécurisée</div>
+            <div class="det-feature-desc">Access token (15min) + Refresh token (7j) stocké en httpOnly cookie. Rotation des tokens à chaque refresh.</div>
+          </div>
+        </div>
+        <div class="det-feature det-feature--blue">
+          <div class="det-feature-dot"></div>
+          <div class="det-feature-body">
+            <div class="det-feature-name">Indicateurs de présence</div>
+            <div class="det-feature-desc">Avatars des membres actuellement connectés sur un tableau, avec indicateur de la carte qu'ils sont en train de modifier.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="det-section">
+      <span class="det-section-label">Architecture</span>
+      <h2 class="det-section-title">Comment c'est construit</h2>
+      <div class="det-section-body">
+        <p>
+          L'application suit une architecture <strong>client-serveur découplée</strong>. Le frontend React
+          communique avec le backend via deux canaux : l'API REST (Express) pour les opérations CRUD
+          classiques, et Socket.io pour les événements temps réel. Les deux partagent le même processus
+          Node.js mais sont clairement séparés dans le code.
+        </p>
+        <p>
+          <strong>MongoDB</strong> stocke les données avec un modèle de document par tableau contenant
+          ses colonnes et ses cartes. Cette dénormalisation optimise les lectures (un seul fetch pour
+          tout un tableau) au prix d'une logique de mise à jour plus complexe via les opérateurs
+          atomiques de MongoDB ($set, $push, $pull, arrayFilters).
+        </p>
+      </div>
+      <div class="det-stack">
+        <div class="det-stack-item"><span class="det-stack-item-name">React 18</span><span class="det-stack-item-role">Frontend SPA</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Node.js</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Express 4</span><span class="det-stack-item-role">API REST</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Socket.io</span><span class="det-stack-item-role">Temps réel</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MongoDB</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Mongoose</span><span class="det-stack-item-role">ODM</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">JWT</span><span class="det-stack-item-role">Auth</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">@dnd-kit</span><span class="det-stack-item-role">Drag & Drop</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Swagger</span><span class="det-stack-item-role">API docs</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Jest</span><span class="det-stack-item-role">Tests</span></div>
+      </div>
+    </section>
+
+    <!-- DÉFIS -->
+    <section class="det-section">
+      <span class="det-section-label">Défis &amp; apprentissages</span>
+      <h2 class="det-section-title">Ce que j'ai appris</h2>
+      <div class="det-challenges">
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Gestion des conflits temps réel</div>
+          <div class="det-challenge-desc">
+            Quand deux utilisateurs modifient la même carte simultanément, laquelle des deux modifications
+            prime ? J'ai implémenté un système de verrous optimistes basé sur les timestamps :
+            la modification la plus récente gagne, et un toast avertit l'autre utilisateur que ses
+            changements ont été écrasés.
+          </div>
+        </div>
+        <div class="det-challenge">
+          <div class="det-challenge-title">Drag &amp; drop avec synchronisation</div>
+          <div class="det-challenge-desc">
+            Combiner une bibliothèque de drag & drop (@dnd-kit) avec la mise à jour optimiste de l'UI
+            et la synchronisation Socket.io était délicat. La mise à jour de l'ordre local avant
+            la confirmation serveur garantit une UX fluide, avec rollback en cas d'erreur.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">Sécurité JWT et rotation des tokens</div>
+          <div class="det-challenge-desc">
+            Implémenter correctement la rotation des refresh tokens (chaque utilisation génère un nouveau
+            token, l'ancien est révoqué) a nécessité la gestion d'une liste noire en mémoire (Redis-like
+            avec un Map Node.js) pour les tokens invalidés avant expiration naturelle.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--yellow">
+          <div class="det-challenge-title">MongoDB vs SQL — trouver le bon modèle</div>
+          <div class="det-challenge-desc">
+            J'ai refactorisé le schéma deux fois avant de trouver le bon équilibre entre dénormalisation
+            (performance de lecture) et maintenabilité. Trop dénormalisé = mises à jour complexes,
+            trop normalisé = perd tout l'intérêt de MongoDB.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const t = localStorage.getItem('theme') || 'dark';
+    const p = localStorage.getItem('palette') || 'cyber';
+    document.documentElement.dataset.theme   = t;
+    document.documentElement.dataset.palette = p;
+  </script>
+</body>
+</html>
