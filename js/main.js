@@ -399,7 +399,7 @@ function openProjectDetail(card) {
 }
 
 
-/* ─── NAV LINKS → SCROLL & HIGHLIGHT ───────────── */
+/* ─── NAV LINKS → SCROLL ────────────────────────── */
 document.querySelectorAll('.nav-link').forEach(btn => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.target;
@@ -408,25 +408,11 @@ document.querySelectorAll('.nav-link').forEach(btn => {
     btn.classList.add('active');
     setTimeout(() => btn.classList.remove('active'), 1200);
 
-    // Projects → scroll to section
-    if (target === 'p1' || target === 'projects') {
-      const section = document.getElementById('projects');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-    }
-
-    const card = document.querySelector(`.card--${target}`);
-    if (!card) return;
-    card.classList.remove('card--highlight');
-    void card.offsetWidth;
-    card.classList.add('card--highlight');
-    card.addEventListener('animationend', () => card.classList.remove('card--highlight'), { once: true });
-
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const section = document.getElementById(target) || document.getElementById('projects');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
 
 /* ─── ABOUT TABS (Bio / Timeline) ───────────── */
 document.querySelectorAll('.about-tab').forEach(btn => {
@@ -545,38 +531,19 @@ function animateCount(el, target, duration = 900) {
 /* ─── GITHUB API ────────────────────────────── */
 async function loadGithubStats() {
   if (!GITHUB_USERNAME || GITHUB_USERNAME === 'votre-username') return;
-
+  const el = document.getElementById('stats-inline');
+  if (!el) return;
   try {
     const res  = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
     if (!res.ok) return;
     const data = await res.json();
-
-    const repoEl = document.querySelector('[data-stat="repos"]');
-    if (repoEl) {
-      repoEl.dataset.val = data.public_repos;
-    }
-
-    // Re-lancer les compteurs avec les vraies valeurs
-    document.querySelectorAll('.stat-n').forEach(el => {
-      animateCount(el, parseInt(el.dataset.val) || 0, 800);
-    });
+    const repos     = data.public_repos ?? '—';
+    const followers = data.followers    ?? '—';
+    el.textContent  = `${repos} dépôts publics · ${followers} followers`;
   } catch {
-    // Fallback silencieux — valeurs hardcodées restent
+    // silencieux
   }
 }
-
-/* ─── STATS INTERSECTION OBSERVER ───────────── */
-const statsObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.querySelectorAll('.stat-n').forEach(el => {
-      animateCount(el, parseInt(el.dataset.val) || 0, 900);
-    });
-    statsObs.unobserve(e.target);
-  });
-}, { threshold: 0.4 });
-
-document.querySelectorAll('.card--stats').forEach(c => statsObs.observe(c));
 
 /* ─── INIT : appliquer les préférences sauvegardées ─ */
 applyLang();
@@ -588,22 +555,84 @@ window.addEventListener('load', () => {
   loadGithubStats();
 });
 
-/* ─── GRILLE DE COMMITS (heatmap style) ──────── */
+/* ─── GRILLE DE COMMITS (GitHub GraphQL) ──────── */
 const commitGrid = document.getElementById('commit-grid');
 if (commitGrid) {
-  const levels = ['', 'lv1', 'lv1', 'lv2', 'lv2', 'lv3', 'lv4'];
-  const WEEKS  = 24; /* 7 rows × 24 cols — le CSS coupe avec overflow:hidden */
-  const frag   = document.createDocumentFragment();
-  /* Génération colonne par colonne (7 jours × N semaines) */
-  for (let w = 0; w < WEEKS; w++) {
-    for (let d = 0; d < 7; d++) {
-      const cell     = document.createElement('div');
-      const empty    = Math.random() > 0.6;
-      cell.className = 'commit-cell' + (empty ? '' : ' ' + levels[Math.floor(Math.random() * levels.length)]);
-      frag.appendChild(cell);
+  const GITHUB_TOKEN = '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'; // ⚠️ scope read:user uniquement
+
+  const username = document.body.dataset.github || 'thynnon';
+
+  const query = `query($login: String!, $from: DateTime!, $to: DateTime!) {
+    user(login: $login) {
+      contributionsCollection(from: $from, to: $to) {
+        contributionCalendar {
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+            }
+          }
+        }
+      }
     }
+  }`;
+
+  function countToLevel(n) {
+    if (n === 0) return '';
+    if (n <= 2)  return 'lv1';
+    if (n <= 5)  return 'lv2';
+    if (n <= 9)  return 'lv3';
+    return 'lv4';
   }
-  commitGrid.appendChild(frag);
+
+  function renderFallback() {
+    const levels = ['', 'lv1', 'lv1', 'lv2', 'lv2', 'lv3', 'lv4'];
+    const frag = document.createDocumentFragment();
+    for (let w = 0; w < 24; w++) {
+      for (let d = 0; d < 7; d++) {
+        const cell = document.createElement('div');
+        const empty = Math.random() > 0.6;
+        cell.className = 'commit-cell' + (empty ? '' : ' ' + levels[Math.floor(Math.random() * levels.length)]);
+        frag.appendChild(cell);
+      }
+    }
+    commitGrid.appendChild(frag);
+  }
+
+  if (GITHUB_TOKEN === 'REMPLACE_PAR_TON_TOKEN') {
+    renderFallback();
+  } else {
+    fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Authorization': `bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query, variables: {
+        login: username,
+        from: '2025-11-01T00:00:00Z',
+        to: new Date().toISOString(),
+      }}),
+    })
+      .then(r => r.json())
+      .then(data => {
+        const weeks = data?.data?.user?.contributionsCollection?.contributionCalendar?.weeks;
+        if (!weeks) { renderFallback(); return; }
+        const frag = document.createDocumentFragment();
+        weeks.forEach(week => {
+          week.contributionDays.forEach(day => {
+            const cell = document.createElement('div');
+            const lvl  = countToLevel(day.contributionCount);
+            cell.className = 'commit-cell' + (lvl ? ' ' + lvl : '');
+            cell.title = `${day.date} — ${day.contributionCount} contribution${day.contributionCount !== 1 ? 's' : ''}`;
+            frag.appendChild(cell);
+          });
+        });
+        commitGrid.innerHTML = '';
+        commitGrid.appendChild(frag);
+      })
+      .catch(renderFallback);
+  }
 }
 
 

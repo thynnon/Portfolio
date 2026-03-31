@@ -635,6 +635,8 @@ figure.screenshot figcaption {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--s2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .det-db-diagram {
@@ -651,7 +653,7 @@ figure.screenshot figcaption {
 /* Table card */
 .det-db-tbl {
   position: absolute;
-  width: 210px;
+  width: 220px;
   background: var(--s1);
   border: 1px solid var(--border2);
   border-radius: 6px;

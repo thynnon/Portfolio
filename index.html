@@ -44,7 +44,6 @@
       <span data-i18n="settings.title">Réglages</span>
       <button id="settings-close" aria-label="Fermer">✕</button>
     </div>
-
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.lang">Langue</div>
       <div class="lang-grid">
@@ -52,7 +51,6 @@
         <button class="lang-opt"        data-lang="en">🇬🇧 English</button>
       </div>
     </div>
-
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.theme">Apparence</div>
       <div class="theme-toggle-row">
@@ -60,7 +58,6 @@
         <button class="theme-opt"        id="theme-light" data-i18n="settings.light">☀️ Clair</button>
       </div>
     </div>
-
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.animations">Animations</div>
       <div class="theme-toggle-row">
@@ -68,7 +65,6 @@
         <button class="anim-opt"        id="anim-off" data-i18n="settings.anim.off">Désactiver</button>
       </div>
     </div>
-
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.fontsize">Taille du texte</div>
       <div class="fontsize-row">
@@ -94,280 +90,204 @@
     <div class="fs-body" id="fs-body"></div>
   </div>
 
-  <!-- ══ BENTO GRID ═══════════════════════════ -->
-  <main class="bento">
+  <!-- ══ SITE MAIN ══════════════════════════════ -->
+  <main class="site-main">
 
-    <!-- ① HERO -->
-    <article class="card card--hero">
-      <div class="hero-bg"></div>
-      <div class="card-content">
-        <div class="hero-badge" data-i18n="hero.badge">BTS SIO · SLAM · 2024–2026</div>
-        <h1 class="hero-name">
-          <span class="hero-first">Henni</span>
-          <span class="hero-last">Wassil</span>
+    <!-- HERO -->
+    <header class="s-hero" id="hero">
+      <div class="s-hero-name">
+        <h1>
+          <span class="hero-first">Wassil</span>
+          <span class="hero-last">Henni</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero.sub">Développeur web &amp; mobile</p>
-        <div class="hero-tags">
-          <span>PHP</span><span>JavaScript</span><span>React</span><span>Laravel</span>
+      </div>
+      <div class="s-hero-meta">
+        <p class="s-hero-role" data-i18n="hero.sub">Développeur web &amp; mobile</p>
+        <p class="s-hero-detail">BTS SIO SLAM · Valenciennes · 2026</p>
+        <div class="s-hero-status">
+          <span class="status-dot"></span>
+          <span data-i18n="status">En formation</span>
         </div>
       </div>
-    </article>
+    </header>
 
-    <!-- ② AVATAR -->
-    <article class="card card--avatar">
-      <div class="avatar-ring"><div class="avatar-inner"></div></div>
-      <div class="av-status-row">
-        <div class="status-dot"></div>
-        <span class="status-label" data-i18n="status">En formation</span>
-      </div>
-      <span class="av-sub">BTS SIO SLAM · 2026</span>
-      <span class="av-loc">Valenciennes · 59</span>
-    </article>
+    <!-- INTRO -->
+    <div class="s-intro">
+      <p data-i18n="about.text">Passionné de dev web &amp; mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome, toujours en train de coder.</p>
+    </div>
 
-    <!-- ④ COMPÉTENCES -->
-    <article class="card card--skills">
-      <div class="card-label" data-i18n="skills.label">Compétences</div>
-      <div class="skills-desc">
-        <div class="sk-group">
-          <span class="sk-group-title">Front-end</span>
-          <p class="sk-text" data-i18n="skills.frontend">HTML &amp; CSS avancé, JavaScript ES6+, React — construction d'interfaces modernes et accessibles.</p>
-        </div>
-        <div class="sk-group">
-          <span class="sk-group-title">Back-end</span>
-          <p class="sk-text" data-i18n="skills.backend">PHP orienté objet, Laravel, Node.js — conception d'APIs REST et logique serveur.</p>
-        </div>
-        <div class="sk-group">
-          <span class="sk-group-title">Database</span>
-          <p class="sk-text" data-i18n="skills.db">MySQL, modélisation relationnelle, requêtes complexes et optimisées.</p>
-        </div>
-        <div class="sk-group">
-          <span class="sk-group-title">Outils</span>
-          <p class="sk-text" data-i18n="skills.tools">Git, GitHub, VS Code, Linux.</p>
-        </div>
-      </div>
-    </article>
+    <!-- ── PROFIL ──────────────────────────────── -->
+    <section class="s-section s-section--profil" id="avatar">
+      <div class="profil-2col">
 
-
-    <!-- ⑥ À PROPOS — avec onglet Timeline -->
-    <article class="card card--about">
-      <div class="about-tabs">
-        <button class="about-tab active" data-tab="bio" data-i18n="about.tab.bio">À propos</button>
-        <button class="about-tab" data-tab="timeline" data-i18n="about.tab.timeline">Parcours</button>
-        <button class="about-tab" data-tab="certs" data-i18n="about.tab.certs">Certifications</button>
-      </div>
-
-      <div class="about-panel about-panel--bio" data-panel="bio">
-        <div class="bio-scroll">
-          <p class="about-text" data-i18n="about.text">Passionné de dev web &amp; mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome, toujours en train de coder.</p>
-          <div class="about-hobbies">
-            <span>🎮 Gaming</span><span>🎵 Musique</span><span>⚡ Open Source</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-panel hidden" data-panel="certs">
-        <button class="expand-btn" data-expand="certs" title="Agrandir">⛶</button>
-        <div class="certs-scroll">
-
-          <div class="cert-cat">
-            <span class="cert-cat-title">🌐 Développement Web</span>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">JavaScript ES6+</span>
-                <span class="cert-org">OpenClassrooms</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2023</span>
-                <span class="cert-badge cert-ok">✓</span>
+        <!-- Parcours -->
+        <div class="profil-col">
+          <div class="s-label"><span>Parcours</span></div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2021–2024</span>
+                <span class="tl-title">Bac Général · SVT · Physique</span>
+                <span class="tl-sub">Lycée Antoine Watteau</span>
               </div>
             </div>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">React — Les bases</span>
-                <span class="cert-org">OpenClassrooms</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2023</span>
-                <span class="cert-badge cert-ok">✓</span>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot--active"></div>
+              <div class="tl-content">
+                <span class="tl-date">2024–2026</span>
+                <span class="tl-title">BTS SIO · SLAM</span>
+                <span class="tl-sub">Lycée Henri Wallon · Valenciennes</span>
               </div>
             </div>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">PHP &amp; MySQL</span>
-                <span class="cert-org">Codecademy</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2024</span>
-                <span class="cert-badge cert-ok">✓</span>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2025 · 4 sem.</span>
+                <span class="tl-title">Stage 1ʳᵉ année · Dev Web</span>
+                <span class="tl-sub">Mairie de Saint-Saulve</span>
               </div>
             </div>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">Laravel — Full Course</span>
-                <span class="cert-org">Laracasts</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2024</span>
-                <span class="cert-badge cert-ok">✓</span>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2026 · 6 sem.</span>
+                <span class="tl-title">Stage 2ᵉ année · Dev Web</span>
+                <span class="tl-sub">Mairie de Saint-Saulve</span>
               </div>
             </div>
           </div>
+          <button class="expand-btn text-btn" data-expand="timeline">Voir en plein écran →</button>
+        </div>
 
-          <div class="cert-cat">
-            <span class="cert-cat-title">🔒 Cybersécurité</span>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">SecNumAcadémie</span>
-                <span class="cert-org">ANSSI</span>
+        <!-- Certifications -->
+        <div class="profil-col">
+          <div class="s-label"><span data-i18n="about.tab.certs">Certifications</span></div>
+          <div class="certs-scroll">
+            <div class="cert-cat">
+              <div class="cert-item">
+                <div class="cert-left"><span class="cert-name">Pix</span><span class="cert-org">GIP Pix · pix.fr</span></div>
+                <div class="cert-right"><span class="cert-date">2025</span><span class="cert-badge cert-ok">✓</span></div>
               </div>
-              <div class="cert-right">
-                <span class="cert-date">2024</span>
-                <span class="cert-badge cert-ok">✓</span>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">Initiation à la cybersécurité</span>
-                <span class="cert-org">OpenClassrooms</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2025</span>
-                <span class="cert-badge cert-pending">…</span>
+              <div class="cert-item">
+                <div class="cert-left"><span class="cert-name">SecNumAcadémie</span><span class="cert-org">ANSSI</span></div>
+                <div class="cert-right"><span class="cert-date">2024</span><span class="cert-badge cert-ok">✓</span></div>
               </div>
             </div>
           </div>
-
-          <div class="cert-cat">
-            <span class="cert-cat-title">⚙️ DevOps &amp; Outils</span>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">Git &amp; GitHub Essentials</span>
-                <span class="cert-org">GitHub</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2023</span>
-                <span class="cert-badge cert-ok">✓</span>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-left">
-                <span class="cert-name">Linux Command Line</span>
-                <span class="cert-org">Codecademy</span>
-              </div>
-              <div class="cert-right">
-                <span class="cert-date">2024</span>
-                <span class="cert-badge cert-ok">✓</span>
-              </div>
-            </div>
-          </div>
-
+          <button class="expand-btn text-btn" data-expand="certs">Voir en plein écran →</button>
         </div>
+
       </div>
-      <div class="about-panel hidden" data-panel="timeline">
-        <button class="expand-btn" data-expand="timeline" title="Agrandir">⛶</button>
-        <div class="timeline">
-          <div class="tl-item">
-            <span class="tl-date">2022</span>
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-title" data-i18n="tl.first">1er projet perso</span>
-              <span class="tl-sub">Portfolio HTML/CSS</span>
-            </div>
+    </section>
+
+    <!-- ── COMPÉTENCES ─────────────────────────── -->
+    <section class="s-section" id="skills">
+      <div class="s-label"><span data-i18n="skills.label">Compétences</span></div>
+      <div class="skills-grid">
+        <div class="sk-block">
+          <span class="sk-num">01</span>
+          <span class="sk-head">Front-end</span>
+          <div class="sk-tags">
+            <span>HTML &amp; CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
           </div>
-          <div class="tl-item">
-            <span class="tl-date">2021 – 2024</span>
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-title" data-i18n="tl.bac">Bac STI2D · SIN</span>
-              <span class="tl-sub">Mention Bien</span>
-            </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">02</span>
+          <span class="sk-head">Back-end</span>
+          <div class="sk-tags">
+            <span>PHP</span>
+            <span>Laravel</span>
+            <span>Node.js</span>
+            <span>APIs REST</span>
           </div>
-          <div class="tl-item">
-            <span class="tl-date">2024</span>
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-title" data-i18n="tl.stage">Stage · Dev Web</span>
-              <span class="tl-sub">Entreprise XYZ · 8 sem.</span>
-            </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">03</span>
+          <span class="sk-head">Base de données</span>
+          <div class="sk-tags">
+            <span>MySQL</span>
+            <span>Modélisation</span>
+            <span>Requêtes</span>
           </div>
-          <div class="tl-item">
-            <span class="tl-date">2024 – 2026</span>
-            <div class="tl-dot tl-dot--active"></div>
-            <div class="tl-content">
-              <span class="tl-title" data-i18n="tl.bts">BTS SIO · SLAM</span>
-              <span class="tl-sub">Henri Wallon · Valenciennes</span>
-            </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">04</span>
+          <span class="sk-head">Outils</span>
+          <div class="sk-tags">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Linux</span>
           </div>
         </div>
       </div>
-    </article>
-
-    <!-- ⑦ STACK -->
-    <article class="card card--stack">
-      <div class="card-label" data-i18n="stack.label">Stack</div>
-      <div class="stack-grid">
-        <div class="stack-item" title="HTML5"><img src="img/HTML5.png" alt="HTML5"></div>
-        <div class="stack-item" title="CSS3"><img src="img/CSS3.png" alt="CSS3"></div>
-        <div class="stack-item" title="JavaScript"><img src="img/js.webp" alt="JavaScript"></div>
-        <div class="stack-item" title="React"><img src="img/react.png" alt="React"></div>
-        <div class="stack-item" title="PHP"><img src="img/php.png" alt="PHP"></div>
-        <div class="stack-item" title="Symfony"><img src="img/laravel.png" alt="Laravel"></div>
-        <div class="stack-item" title="MySQL"><img src="img/MySQL.svg" alt="MySQL"></div>
-        <div class="stack-item" title="Git"><img src="img/github.png" alt="Git"></div>
-        <div class="stack-item" title="Docker"><img src="img/angular.webp" alt="Docker"></div>
-      </div>
-    </article>
-
-
-    <!-- ⑨ STATS — GitHub API -->
-    <article class="card card--stats">
-      <div class="card-label" data-i18n="stats.label">Activité GitHub</div>
-      <div class="stats-top">
-        <div class="stat">
-          <span class="stat-n" data-val="12" data-stat="projects">12</span>
-          <span class="stat-l" data-i18n="stats.projects">Projets</span>
-        </div>
-        <div class="stat">
-          <span class="stat-n" data-val="4" data-stat="repos">4</span>
-          <span class="stat-l" data-i18n="stats.repos">Dépôts</span>
-        </div>
-        <div class="stat">
-          <span class="stat-n" data-val="2" data-stat="years">2</span>
-          <span class="stat-l" data-i18n="stats.years">Ans</span>
+      <div class="stack-section">
+        <div class="s-label"><span data-i18n="stack.label">Stack</span></div>
+        <div class="stack-grid">
+          <div class="stack-item"><img src="img/HTML5.png" alt="HTML5"><span>HTML</span></div>
+          <div class="stack-item"><img src="img/CSS3.png" alt="CSS3"><span>CSS</span></div>
+          <div class="stack-item"><img src="img/js.webp" alt="JavaScript"><span>JS</span></div>
+          <div class="stack-item"><img src="img/react.png" alt="React"><span>React</span></div>
+          <div class="stack-item"><img src="img/php.png" alt="PHP"><span>PHP</span></div>
+          <div class="stack-item"><img src="img/laravel.png" alt="Laravel"><span>Laravel</span></div>
+          <div class="stack-item"><img src="img/MySQL.svg" alt="MySQL"><span>MySQL</span></div>
+          <div class="stack-item"><img src="img/github.png" alt="Git"><span>Git</span></div>
+          <div class="stack-item"><img src="img/angular.webp" alt="Angular"><span>Angular</span></div>
         </div>
       </div>
-      <div class="heatmap-wrap">
-        <div class="heatmap-days">
-          <span></span><span>L</span><span></span><span>M</span><span></span><span>V</span><span></span>
+    </section>
+
+    <!-- ── ACTIVITÉ GITHUB ──────────────────────── -->
+    <section class="s-section s-stats">
+      <div class="s-label"><span data-i18n="stats.label">Activité GitHub</span></div>
+      <div class="stats-center">
+        <div class="heatmap-wrap">
+          <div class="heatmap-days">
+            <span></span><span>L</span><span></span><span>M</span><span></span><span>V</span><span></span>
+          </div>
+          <div class="commit-grid" id="commit-grid"></div>
         </div>
-        <div class="commit-grid" id="commit-grid"></div>
-      </div>
-      <div class="heatmap-legend">
-        <span class="legend-txt">Moins</span>
-        <div class="legend-cells">
-          <div class="commit-cell"></div>
-          <div class="commit-cell lv1"></div>
-          <div class="commit-cell lv2"></div>
-          <div class="commit-cell lv3"></div>
-          <div class="commit-cell lv4"></div>
+        <div class="heatmap-footer">
+          <div class="heatmap-legend">
+            <span class="legend-txt">Moins</span>
+            <div class="legend-cells">
+              <div class="commit-cell"></div>
+              <div class="commit-cell lv1"></div>
+              <div class="commit-cell lv2"></div>
+              <div class="commit-cell lv3"></div>
+              <div class="commit-cell lv4"></div>
+            </div>
+            <span class="legend-txt">Plus</span>
+          </div>
+          <span class="stats-inline" id="stats-inline"></span>
         </div>
-        <span class="legend-txt">Plus</span>
       </div>
-    </article>
+    </section>
 
-
-    <!-- ⑪ CONTACT -->
-    <article class="card card--contact">
-      <div class="card-label" data-i18n="contact.label">Contact</div>
-      <p class="email-addr" id="email-copy" title="Copier l'adresse">wassil.henni@gmail.com</p>
-      <div class="contact-actions">
-        <a href="mailto:wassil.henni@gmail.com" class="btn-email" data-i18n="contact.mail">Email</a>
-        <a href="https://github.com/thynnon" target="_blank" class="btn-social">GitHub</a>
-        <a href="https://www.linkedin.com/in/wassil-henni-5b942834b/" target="_blank" class="btn-social">LinkedIn</a>
+    <!-- ── CONTACT ──────────────────────────────── -->
+    <footer class="s-section s-contact" id="contact">
+      <div class="s-label"><span data-i18n="contact.label">Contact</span></div>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="contact-row" id="email-copy" title="Copier l'adresse" style="cursor:pointer">
+            <span class="contact-row-label">Email</span>
+            <span class="contact-row-val">wassil.henni@gmail.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Tél.</span>
+            <a class="contact-row-val" href="tel:+33782675552">07 82 67 55 52</a>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:wassil.henni@gmail.com" class="btn-social" data-i18n="contact.mail">Email</a>
+          <a href="https://github.com/thynnon" target="_blank" class="btn-social">GitHub</a>
+          <a href="https://www.linkedin.com/in/wassil-henni-5b942834b/" target="_blank" class="btn-social">LinkedIn</a>
+        </div>
       </div>
-    </article>
-
-
+    </footer>
 
   </main>
 
@@ -409,12 +329,8 @@
                 </div>
                 <h3 class="showcase-title">Gestion des congés</h3>
                 <p class="showcase-desc">Application C# de gestion de congés — dashboard temps réel.</p>
-                <div class="showcase-feats">
-                  <span>Dashboard</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>C#</span><span>.NET</span><span>MySQL</span>
-                </div>
+                <div class="showcase-feats"><span>Dashboard</span></div>
+                <div class="showcase-tags"><span>C#</span><span>.NET</span><span>MySQL</span></div>
                 <div class="showcase-links">
                   <a href="#" class="sl-gh">GitHub</a>
                   <a href="project-mission1.html" class="sl-detail">Voir détails →</a>
@@ -440,12 +356,8 @@
                 </div>
                 <h3 class="showcase-title">Gestion des salaires</h3>
                 <p class="showcase-desc">Application web de gestion des salaires — dashboard temps réel, calculs automatiques, filtres de recherches, statistiques.</p>
-                <div class="showcase-feats">
-                  <span>Dashboard</span><span>Calculs auto</span><span>Filtres</span><span>Statistiques</span><span>Rôles</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>Laravel</span><span>PHP</span><span>MySQL</span><span>API REST</span>
-                </div>
+                <div class="showcase-feats"><span>Dashboard</span><span>Calculs auto</span><span>Filtres</span><span>Statistiques</span><span>Rôles</span></div>
+                <div class="showcase-tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>API REST</span></div>
                 <div class="showcase-links">
                   <a href="#" class="sl-gh">GitHub</a>
                   <a href="project-mission2.html" class="sl-detail">Voir détails →</a>
@@ -471,12 +383,8 @@
                 </div>
                 <h3 class="showcase-title">Notes des praticiens</h3>
                 <p class="showcase-desc">Application mobile pour noter les praticiens et pouvoir lire leur commentaires.</p>
-                <div class="showcase-feats">
-                  <span>Notes</span><span>Commentaires</span><span>Dashboard</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>Dart</span><span>Flutter</span><span>MySQL</span><span>API REST</span>
-                </div>
+                <div class="showcase-feats"><span>Notes</span><span>Commentaires</span><span>Dashboard</span></div>
+                <div class="showcase-tags"><span>Dart</span><span>Flutter</span><span>MySQL</span><span>API REST</span></div>
                 <div class="showcase-links">
                   <a href="#" class="sl-gh">GitHub</a>
                   <a href="project-mission3.html" class="sl-detail">Voir détails →</a>
@@ -522,12 +430,8 @@
                 </div>
                 <h3 class="showcase-title">Stage · Développeur Web</h3>
                 <p class="showcase-desc">Développement d'un intranet interne pendant 6 semaines en entreprise.</p>
-                <div class="showcase-feats">
-                  <span>Dashboard</span><span>Actualités</span><span>Site Dynamique</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>PHP</span><span>JavaScript</span><span>MySQL</span>
-                </div>
+                <div class="showcase-feats"><span>Dashboard</span><span>Actualités</span><span>Site Dynamique</span></div>
+                <div class="showcase-tags"><span>PHP</span><span>JavaScript</span><span>MySQL</span></div>
                 <div class="showcase-links">
                   <a href="project-stage1.html" class="sl-detail">Voir détails →</a>
                 </div>
@@ -551,12 +455,8 @@
                 </div>
                 <h3 class="showcase-title">Stage · Développeur Web</h3>
                 <p class="showcase-desc">Conception et finalisation de l'intranet avec  — de la modélisation au déploiement Linux.</p>
-                <div class="showcase-feats">
-                  <span>SPA React</span><span>API REST</span><span>Tests</span><span>Déploiement</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>React</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Linux</span>
-                </div>
+                <div class="showcase-feats"><span>SPA React</span><span>API REST</span><span>Tests</span><span>Déploiement</span></div>
+                <div class="showcase-tags"><span>React</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Linux</span></div>
                 <div class="showcase-links">
                   <a href="project-stage2.html" class="sl-detail">Voir détails →</a>
                 </div>
@@ -601,13 +501,9 @@
                   <span class="showcase-year">2024</span>
                 </div>
                 <h3 class="showcase-title">TaskFlow</h3>
-                <p class="showcase-desc">Gestionnaire de tâches collaboratif temps réel inspiré de Trello — drag & drop, WebSockets, JWT.</p>
-                <div class="showcase-feats">
-                  <span>Temps réel</span><span>Drag &amp; drop</span><span>JWT Auth</span><span>API REST</span>
-                </div>
-                <div class="showcase-tags">
-                  <span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span><span>Express</span>
-                </div>
+                <p class="showcase-desc">Gestionnaire de tâches collaboratif temps réel inspiré de Trello — drag &amp; drop, WebSockets, JWT.</p>
+                <div class="showcase-feats"><span>Temps réel</span><span>Drag &amp; drop</span><span>JWT Auth</span><span>API REST</span></div>
+                <div class="showcase-tags"><span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span><span>Express</span></div>
                 <div class="showcase-links">
                   <a href="#" class="sl-gh">GitHub</a>
                   <a href="project-taskflow.html" class="sl-detail">Voir détails →</a>
