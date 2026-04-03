@@ -95,7 +95,7 @@ const i18n = {
 };
 
 let currentLang    = localStorage.getItem('lang')    || 'fr';
-let currentTheme   = localStorage.getItem('theme')   || 'dark';
+let currentTheme   = localStorage.getItem('theme')   || 'light';
 
 function t(key) {
   return i18n[currentLang]?.[key] ?? i18n['fr'][key] ?? key;
