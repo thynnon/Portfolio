@@ -275,6 +275,168 @@
       </div>
     </section>
 
+    <!-- EXTRAITS DE CODE -->
+    <style>
+      .det-snippets { display: flex; flex-direction: column; gap: 24px; }
+      .det-snippet { background: var(--s1); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+      .det-snippet-header { display: flex; align-items: baseline; gap: 12px; padding: 12px 16px 10px; border-bottom: 1px solid var(--border); background: var(--s2); }
+      .det-snippet-file { font-size: 0.72rem; font-weight: 700; color: var(--green); font-family: 'Courier New', monospace; }
+      .det-snippet-badge { font-size: 0.55rem; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; letter-spacing: 0.06em; }
+      .det-snippet-desc { font-size: 0.70rem; color: var(--muted); line-height: 1.6; padding: 10px 16px 12px; border-bottom: 1px solid var(--border); }
+      .det-snippet-body { position: relative; cursor: zoom-in; }
+      .det-snippet-body:hover { opacity: 0.92; }
+      .det-snippet-body::after { content: '🔍'; position: absolute; top: 8px; right: 10px; font-size: 0.75rem; opacity: 0.45; pointer-events: none; }
+      .det-snippet-body pre { margin: 0; padding: 16px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.72rem; line-height: 1.65; color: #cdd6f4; background: #0d1117; tab-size: 2; }
+      html[data-theme="light"] .det-snippet-body pre { background: #1e1e2e; }
+      .tok-kw { color: #cba6f7; } .tok-type { color: #89dceb; } .tok-str { color: #a6e3a1; }
+      .tok-cmt { color: #6c7086; font-style: italic; } .tok-fn { color: #89b4fa; }
+      .tok-var { color: #f38ba8; } .tok-op { color: #94e2d5; }
+      .lightbox-code { background: #0d1117; border-radius: 10px; max-width: 900px; width: 92vw; overflow: auto; padding: 28px; }
+      .lightbox-code pre { font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; line-height: 1.7; color: #cdd6f4; white-space: pre; margin: 0; }
+    </style>
+
+    <section class="det-section">
+      <span class="det-section-label">Extraits de code</span>
+      <h2 class="det-section-title">Points techniques clés</h2>
+      <div class="det-snippets">
+
+        <!-- PraticienController — Trigger -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">PraticienController.php</span>
+            <span class="det-snippet-badge">Trigger SQL · Eloquent · Save</span>
+          </div>
+          <div class="det-snippet-desc">
+            La mise à jour de l'ancienneté illustre une collaboration PHP ↔ SQL : Laravel se contente de modifier
+            la date d'embauche et d'appeler <code>save()</code>, puis un <strong>trigger MySQL</strong> côté serveur
+            recalcule automatiquement l'ancienneté, l'échelon et le salaire selon la grille salariale.
+            Le <code>refresh()</code> après le save force Eloquent à relire la ligne en base pour récupérer les
+            valeurs recalculées par le trigger.
+          </div>
+          <div class="det-snippet-body" data-snippet="trigger">
+<pre><span class="tok-cmt">// PraticienController.php — save() déclenche le trigger SQL</span>
+<span class="tok-var">$praticien</span> = <span class="tok-type">Praticien</span>::<span class="tok-fn">findOrFail</span>(<span class="tok-var">$id</span>);
+<span class="tok-cmt">// On modifie uniquement la date d'embauche...</span>
+<span class="tok-var">$praticien</span>->date_embauche = <span class="tok-var">$request</span>->date_embauche;
+<span class="tok-var">$praticien</span>-><span class="tok-fn">save</span>();
+<span class="tok-cmt">// ...le trigger MySQL recalcule ancienneté + échelon + salaire</span>
+<span class="tok-cmt">// refresh() : recharge depuis la BDD pour avoir les valeurs du trigger</span>
+<span class="tok-var">$praticien</span>-><span class="tok-fn">refresh</span>();
+<span class="tok-kw">return</span> <span class="tok-fn">redirect</span>()-><span class="tok-fn">route</span>(<span class="tok-str">'praticiens.show'</span>, <span class="tok-var">$id</span>)
+    -><span class="tok-fn">with</span>(<span class="tok-str">'success'</span>,
+        <span class="tok-str">'Ancienneté mise à jour. '</span> .
+        <span class="tok-str">'Échelon : '</span> . <span class="tok-var">$praticien</span>->echelon .
+        <span class="tok-str">' — Salaire : '</span> . <span class="tok-var">$praticien</span>->salaire_format
+    );</pre>
+          </div>
+        </div>
+
+        <!-- AuthController + CheckAuth — Session middleware -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">AuthController.php + CheckAuth.php</span>
+            <span class="det-snippet-badge">Session · Middleware · Auth custom</span>
+          </div>
+          <div class="det-snippet-desc">
+            La table <code>utilisateurs</code> du GSB ne respecte pas les conventions Laravel (pas de colonne
+            <code>email</code>, mot de passe hashé en SHA256+HMAC), donc le système d'auth natif de Laravel
+            ne peut pas être utilisé. L'auth est gérée manuellement via la Session. Le middleware
+            <strong>CheckAuth</strong> vérifie simplement la présence de <code>user_id</code> avant chaque
+            route protégée.
+          </div>
+          <div class="det-snippet-body" data-snippet="auth">
+<pre><span class="tok-cmt">// AuthController.php — login custom sans guard Laravel</span>
+<span class="tok-var">$utilisateur</span> = <span class="tok-type">Utilisateur</span>::<span class="tok-fn">where</span>(<span class="tok-str">'nom'</span>, <span class="tok-var">$request</span>->nom)-><span class="tok-fn">first</span>();
+<span class="tok-kw">if</span> (<span class="tok-var">$utilisateur</span> && <span class="tok-var">$utilisateur</span>-><span class="tok-fn">checkPassword</span>(<span class="tok-var">$request</span>->mdp)) {
+    <span class="tok-type">Session</span>::<span class="tok-fn">put</span>(<span class="tok-str">'user_id'</span>,  <span class="tok-var">$utilisateur</span>->id);
+    <span class="tok-type">Session</span>::<span class="tok-fn">put</span>(<span class="tok-str">'user_nom'</span>, <span class="tok-var">$utilisateur</span>->nom);
+    <span class="tok-type">Session</span>::<span class="tok-fn">put</span>(<span class="tok-str">'is_admin'</span>, <span class="tok-var">$utilisateur</span>-><span class="tok-fn">isAdmin</span>());
+    <span class="tok-cmt">// → redirige vers la liste des praticiens</span>
+    <span class="tok-kw">return</span> <span class="tok-fn">redirect</span>()-><span class="tok-fn">route</span>(<span class="tok-str">'praticiens.index'</span>);
+}
+
+<span class="tok-cmt">// CheckAuth.php — middleware qui protège toutes les routes</span>
+<span class="tok-kw">public function</span> <span class="tok-fn">handle</span>(<span class="tok-type">Request</span> <span class="tok-var">$request</span>, <span class="tok-type">Closure</span> <span class="tok-var">$next</span>)
+{
+    <span class="tok-kw">if</span> (!<span class="tok-type">Session</span>::<span class="tok-fn">has</span>(<span class="tok-str">'user_id'</span>)) {
+        <span class="tok-kw">return</span> <span class="tok-fn">redirect</span>()-><span class="tok-fn">route</span>(<span class="tok-str">'login'</span>)
+            -><span class="tok-fn">with</span>(<span class="tok-str">'error'</span>, <span class="tok-str">'Veuillez vous connecter.'</span>);
+    }
+    <span class="tok-kw">return</span> <span class="tok-var">$next</span>(<span class="tok-var">$request</span>); <span class="tok-cmt">// ← laisse passer si connecté</span>
+}</pre>
+          </div>
+        </div>
+
+        <!-- PraticienController — Filtres pagination -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">PraticienController.php</span>
+            <span class="det-snippet-badge">Eloquent · Filtres · Pagination</span>
+          </div>
+          <div class="det-snippet-desc">
+            La méthode <code>index()</code> construit une requête Eloquent de façon conditionnelle et cumulative :
+            chaque filtre est ajouté à la query seulement si le paramètre est présent dans la requête HTTP.
+            <code>filled()</code> ignore les chaînes vides. La recherche par nom utilise une closure pour
+            grouper les conditions <code>OR</code> sans casser les autres filtres <code>AND</code>.
+            La pagination conserve automatiquement tous les paramètres GET grâce à <code>withQueryString()</code>.
+          </div>
+          <div class="det-snippet-body" data-snippet="filtres">
+<pre><span class="tok-cmt">// PraticienController.php — filtres cumulables et pagination</span>
+<span class="tok-var">$query</span> = <span class="tok-type">Praticien</span>::<span class="tok-fn">with</span>([<span class="tok-str">'typePraticien'</span>, <span class="tok-str">'ville'</span>]);
+<span class="tok-cmt">// Recherche nom/prénom — closure pour grouper les OR</span>
+<span class="tok-kw">if</span> (<span class="tok-var">$request</span>-><span class="tok-fn">filled</span>(<span class="tok-str">'search'</span>)) {
+    <span class="tok-var">$search</span> = <span class="tok-var">$request</span>->search;
+    <span class="tok-var">$query</span>-><span class="tok-fn">where</span>(<span class="tok-kw">function</span>(<span class="tok-var">$q</span>) <span class="tok-kw">use</span> (<span class="tok-var">$search</span>) {
+        <span class="tok-var">$q</span>-><span class="tok-fn">where</span>(<span class="tok-str">'nom'</span>, <span class="tok-str">'LIKE'</span>, <span class="tok-str">"%{<span class="tok-var">$search</span>}%"</span>)
+          -><span class="tok-fn">orWhere</span>(<span class="tok-str">'prenom'</span>, <span class="tok-str">'LIKE'</span>, <span class="tok-str">"%{<span class="tok-var">$search</span>}%"</span>);
+    });
+}
+<span class="tok-cmt">// Filtres numériques — uniquement si renseignés</span>
+<span class="tok-kw">if</span> (<span class="tok-var">$request</span>-><span class="tok-fn">filled</span>(<span class="tok-str">'anciennete_min'</span>))
+    <span class="tok-var">$query</span>-><span class="tok-fn">where</span>(<span class="tok-str">'anciennete'</span>, <span class="tok-str">'>='</span>, <span class="tok-var">$request</span>->anciennete_min);
+<span class="tok-kw">if</span> (<span class="tok-var">$request</span>-><span class="tok-fn">filled</span>(<span class="tok-str">'salaire_max'</span>))
+    <span class="tok-var">$query</span>-><span class="tok-fn">where</span>(<span class="tok-str">'salaire'</span>, <span class="tok-str">'<='</span>, <span class="tok-var">$request</span>->salaire_max);
+<span class="tok-cmt">// Tri dynamique + pagination avec params GET conservés</span>
+<span class="tok-var">$query</span>-><span class="tok-fn">orderBy</span>(<span class="tok-var">$request</span>-><span class="tok-fn">get</span>(<span class="tok-str">'sort_by'</span>, <span class="tok-str">'nom'</span>), <span class="tok-var">$request</span>-><span class="tok-fn">get</span>(<span class="tok-str">'sort_order'</span>, <span class="tok-str">'asc'</span>));
+<span class="tok-var">$praticiens</span> = <span class="tok-var">$query</span>-><span class="tok-fn">paginate</span>(<span class="tok-op">20</span>)-><span class="tok-fn">withQueryString</span>();</pre>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lightbox code -->
+      <div id="code-lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;cursor:zoom-out;" onclick="this.style.display='none';document.body.style.overflow='';">
+        <button onclick="event.stopPropagation();document.getElementById('code-lightbox').style.display='none';document.body.style.overflow='';" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.1rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+        <div class="lightbox-code" onclick="event.stopPropagation()">
+          <pre id="code-lightbox-content"></pre>
+        </div>
+      </div>
+      <script>
+        (function() {
+          var snippets = {
+            trigger: document.querySelector('[data-snippet="trigger"] pre').innerHTML,
+            auth:    document.querySelector('[data-snippet="auth"] pre').innerHTML,
+            filtres: document.querySelector('[data-snippet="filtres"] pre').innerHTML
+          };
+          document.querySelectorAll('.det-snippet-body').forEach(function(el) {
+            el.addEventListener('click', function() {
+              var lb  = document.getElementById('code-lightbox');
+              var pre = document.getElementById('code-lightbox-content');
+              pre.innerHTML = snippets[el.dataset.snippet];
+              lb.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            });
+          });
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              document.getElementById('code-lightbox').style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        })();
+      </script>
+    </section>
+
     <!-- STACK -->
     <section class="det-section">
       <span class="det-section-label">Stack technique</span>

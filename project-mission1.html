@@ -264,6 +264,255 @@
       </div>
     </section>
 
+    <!-- EXTRAITS DE CODE -->
+    <style>
+      .det-snippets { display: flex; flex-direction: column; gap: 24px; }
+
+      .det-snippet {
+        background: var(--s1);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .det-snippet-header {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        padding: 12px 16px 10px;
+        border-bottom: 1px solid var(--border);
+        background: var(--s2);
+      }
+
+      .det-snippet-file {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--green);
+        font-family: 'Courier New', monospace;
+      }
+
+      .det-snippet-badge {
+        font-size: 0.55rem;
+        font-weight: 600;
+        color: var(--muted);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 1px 7px;
+        letter-spacing: 0.06em;
+      }
+
+      .det-snippet-desc {
+        font-size: 0.70rem;
+        color: var(--muted);
+        line-height: 1.6;
+        padding: 10px 16px 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .det-snippet-body {
+        position: relative;
+        cursor: zoom-in;
+      }
+      .det-snippet-body:hover { opacity: 0.92; }
+      .det-snippet-body::after {
+        content: '🔍';
+        position: absolute;
+        top: 8px; right: 10px;
+        font-size: 0.75rem;
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      .det-snippet-body pre {
+        margin: 0;
+        padding: 16px;
+        overflow-x: auto;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.72rem;
+        line-height: 1.65;
+        color: #cdd6f4;
+        background: #0d1117;
+        tab-size: 2;
+      }
+      html[data-theme="light"] .det-snippet-body pre {
+        background: #1e1e2e;
+      }
+
+      /* tokens simples */
+      .tok-kw   { color: #cba6f7; } /* keywords */
+      .tok-type { color: #89dceb; } /* types */
+      .tok-str  { color: #a6e3a1; } /* strings */
+      .tok-cmt  { color: #6c7086; font-style: italic; } /* comments */
+      .tok-fn   { color: #89b4fa; } /* functions */
+      .tok-num  { color: #fab387; } /* numbers */
+      .tok-op   { color: #94e2d5; } /* operators / punctuation */
+
+      /* lightbox override pour les snippets */
+      .lightbox-code {
+        background: #0d1117;
+        border-radius: 10px;
+        max-width: 860px;
+        width: 92vw;
+        overflow: auto;
+        padding: 28px;
+      }
+      .lightbox-code pre {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+        line-height: 1.7;
+        color: #cdd6f4;
+        white-space: pre;
+        margin: 0;
+      }
+    </style>
+
+    <section class="det-section">
+      <span class="det-section-label">Extraits de code</span>
+      <h2 class="det-section-title">Points techniques clés</h2>
+      <div class="det-snippets">
+
+        <!-- Db.cs -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">Db.cs</span>
+            <span class="det-snippet-badge">Classe statique · Connexion centralisée</span>
+          </div>
+          <div class="det-snippet-desc">
+            Plutôt que d'écrire la chaîne de connexion dans chaque formulaire, une classe statique <strong>Db</strong>
+            centralise tout. Un seul endroit à modifier pour changer de serveur (local ↔ distant) — on voit même la
+            ligne commentée pour le serveur de l'école. Chaque appel à <code>Db.GetConnection()</code> retourne une
+            nouvelle instance <code>MySqlConnection</code> prête à l'emploi.
+          </div>
+          <div class="det-snippet-body" data-snippet="db">
+<pre><span class="tok-cmt">// Db.cs — point d'entrée unique vers la base de données</span>
+<span class="tok-kw">public static class</span> <span class="tok-type">Db</span>
+{
+    <span class="tok-kw">private static string</span> connectionString =
+        <span class="tok-str">"Server=localhost;Database=gsb_opti;Uid=root;Pwd=;"</span>;
+    <span class="tok-cmt">// Serveur distant (commenté) — un seul endroit à changer</span>
+    <span class="tok-cmt">// "Server=172.23.80.2;Database=gsbeh;Uid=wassil;Pwd=1234;"</span>
+    <span class="tok-kw">public static</span> <span class="tok-type">MySqlConnection</span> <span class="tok-fn">GetConnection</span>()
+    {
+        <span class="tok-kw">return new</span> <span class="tok-type">MySqlConnection</span>(connectionString);
+    }
+}</pre>
+          </div>
+        </div>
+
+        <!-- LoginForm.cs -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">LoginForm.cs</span>
+            <span class="det-snippet-badge">Dapper · Auth · Routing</span>
+          </div>
+          <div class="det-snippet-desc">
+            <code>QueryFirstOrDefault&lt;Utilisateur&gt;</code> de Dapper retourne directement un objet C# typé (ou
+            <code>null</code> si introuvable) — pas de DataReader, pas de cast manuel. Si les identifiants sont
+            valides, le rôle stocké en BDD détermine quelle fenêtre ouvrir : <strong>PraticienForm</strong> ou
+            <strong>RhForm</strong>. Le LoginForm se masque avec <code>Hide()</code> sans se fermer, pour rester
+            en mémoire le temps de la session.
+          </div>
+          <div class="det-snippet-body" data-snippet="login">
+<pre><span class="tok-cmt">// LoginForm.cs — auth Dapper + routing automatique par rôle</span>
+<span class="tok-kw">var</span> user = conn.<span class="tok-fn">QueryFirstOrDefault</span>&lt;<span class="tok-type">Utilisateur</span>&gt;(
+    <span class="tok-str">"SELECT * FROM utilisateurs WHERE email=@Email AND pwd=@Mdp"</span>,
+    <span class="tok-kw">new</span> { Email = txtEmail.Text.<span class="tok-fn">Trim</span>(), Mdp = txtPassword.Text.<span class="tok-fn">Trim</span>() }
+);
+<span class="tok-kw">if</span> (user != <span class="tok-kw">null</span>)
+{
+    <span class="tok-kw">if</span> (user.Role == <span class="tok-str">"praticien"</span>)
+    {
+        <span class="tok-kw">var</span> f = <span class="tok-kw">new</span> <span class="tok-type">PraticienForm</span>(user);
+        f.<span class="tok-fn">Show</span>(); <span class="tok-cmt">// ← espace praticien</span>
+    }
+    <span class="tok-kw">else</span>
+    {
+        <span class="tok-kw">var</span> f = <span class="tok-kw">new</span> <span class="tok-type">RhForm</span>(user);
+        f.<span class="tok-fn">Show</span>(); <span class="tok-cmt">// ← espace RH</span>
+    }
+    <span class="tok-kw">this</span>.<span class="tok-fn">Hide</span>(); <span class="tok-cmt">// LoginForm masqué, pas fermé</span>
+}
+<span class="tok-kw">else</span>
+{
+    <span class="tok-type">MessageBox</span>.<span class="tok-fn">Show</span>(<span class="tok-str">"Identifiants invalides !"</span>, <span class="tok-str">"Erreur"</span>,
+        <span class="tok-type">MessageBoxButtons</span>.OK, <span class="tok-type">MessageBoxIcon</span>.Warning);
+}</pre>
+          </div>
+        </div>
+
+        <!-- RhForm.cs -->
+        <div class="det-snippet">
+          <div class="det-snippet-header">
+            <span class="det-snippet-file">RhForm.cs</span>
+            <span class="det-snippet-badge">Transaction SQL · Atomicité</span>
+          </div>
+          <div class="det-snippet-desc">
+            Accepter un congé est une opération critique : si plusieurs requêtes SQL doivent s'enchaîner, elles
+            doivent toutes réussir ou toutes échouer. <code>BeginTransaction()</code> crée une transaction que
+            Dapper reçoit en troisième argument — passée explicitement à chaque <code>Execute()</code>. Si une
+            erreur survient avant <code>tr.Commit()</code>, un rollback automatique annule tout et garantit la
+            cohérence de la base.
+          </div>
+          <div class="det-snippet-body" data-snippet="rh">
+<pre><span class="tok-cmt">// RhForm.cs — transaction pour sécuriser l'acceptation</span>
+<span class="tok-kw">using</span> (<span class="tok-kw">var</span> conn = <span class="tok-type">Db</span>.<span class="tok-fn">GetConnection</span>())
+{
+    conn.<span class="tok-fn">Open</span>();
+    <span class="tok-kw">using</span> (<span class="tok-kw">var</span> tr = conn.<span class="tok-fn">BeginTransaction</span>())
+    {
+        <span class="tok-cmt">// Mise à jour du statut — dans la transaction</span>
+        conn.<span class="tok-fn">Execute</span>(
+            <span class="tok-str">"UPDATE conges SET statut='accepte' WHERE id=@id"</span>,
+            <span class="tok-kw">new</span> { id = congeId }, tr <span class="tok-cmt">// ← tr passé à Dapper</span>
+        );
+        <span class="tok-cmt">// D'autres Execute() pourraient s'enchaîner ici</span>
+        <span class="tok-cmt">// ex: décompter les jours du praticien</span>
+        <span class="tok-cmt">// conn.Execute("UPDATE utilisateurs SET conges_restant -= @j ...</span>
+        tr.<span class="tok-fn">Commit</span>(); <span class="tok-cmt">// ✅ tout réussi → on valide</span>
+        <span class="tok-cmt">// si une erreur est levée avant → rollback automatique</span>
+    }
+}
+<span class="tok-fn">LoadConges</span>(); <span class="tok-cmt">// rafraîchit la grille</span></pre>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lightbox code -->
+      <div id="code-lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;cursor:zoom-out;" onclick="this.style.display='none';document.body.style.overflow='';">
+        <button onclick="event.stopPropagation();document.getElementById('code-lightbox').style.display='none';document.body.style.overflow='';" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.1rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+        <div class="lightbox-code" onclick="event.stopPropagation()">
+          <pre id="code-lightbox-content"></pre>
+        </div>
+      </div>
+      <script>
+        (function() {
+          var snippets = {
+            db: `<span class="tok-cmt">// Db.cs — point d'entrée unique vers la base de données</span>\n<span class="tok-kw">public static class</span> <span class="tok-type">Db</span>\n{\n    <span class="tok-kw">private static string</span> connectionString =\n        <span class="tok-str">"Server=localhost;Database=gsb_opti;Uid=root;Pwd=;"</span>;\n    <span class="tok-cmt">// Serveur distant (commenté) — un seul endroit à changer</span>\n    <span class="tok-cmt">// "Server=172.23.80.2;Database=gsbeh;Uid=wassil;Pwd=1234;"</span>\n    <span class="tok-kw">public static</span> <span class="tok-type">MySqlConnection</span> <span class="tok-fn">GetConnection</span>()\n    {\n        <span class="tok-kw">return new</span> <span class="tok-type">MySqlConnection</span>(connectionString);\n    }\n}`,
+            login: `<span class="tok-cmt">// LoginForm.cs — auth Dapper + routing automatique par rôle</span>\n<span class="tok-kw">var</span> user = conn.<span class="tok-fn">QueryFirstOrDefault</span>&lt;<span class="tok-type">Utilisateur</span>&gt;(\n    <span class="tok-str">"SELECT * FROM utilisateurs WHERE email=@Email AND pwd=@Mdp"</span>,\n    <span class="tok-kw">new</span> { Email = txtEmail.Text.<span class="tok-fn">Trim</span>(), Mdp = txtPassword.Text.<span class="tok-fn">Trim</span>() }\n);\n<span class="tok-kw">if</span> (user != <span class="tok-kw">null</span>)\n{\n    <span class="tok-kw">if</span> (user.Role == <span class="tok-str">"praticien"</span>)\n    {\n        <span class="tok-kw">var</span> f = <span class="tok-kw">new</span> <span class="tok-type">PraticienForm</span>(user);\n        f.<span class="tok-fn">Show</span>(); <span class="tok-cmt">// ← espace praticien</span>\n    }\n    <span class="tok-kw">else</span>\n    {\n        <span class="tok-kw">var</span> f = <span class="tok-kw">new</span> <span class="tok-type">RhForm</span>(user);\n        f.<span class="tok-fn">Show</span>(); <span class="tok-cmt">// ← espace RH</span>\n    }\n    <span class="tok-kw">this</span>.<span class="tok-fn">Hide</span>(); <span class="tok-cmt">// LoginForm masqué, pas fermé</span>\n}\n<span class="tok-kw">else</span>\n{\n    <span class="tok-type">MessageBox</span>.<span class="tok-fn">Show</span>(<span class="tok-str">"Identifiants invalides !"</span>, <span class="tok-str">"Erreur"</span>,\n        <span class="tok-type">MessageBoxButtons</span>.OK, <span class="tok-type">MessageBoxIcon</span>.Warning);\n}`,
+            rh: `<span class="tok-cmt">// RhForm.cs — transaction pour sécuriser l'acceptation</span>\n<span class="tok-kw">using</span> (<span class="tok-kw">var</span> conn = <span class="tok-type">Db</span>.<span class="tok-fn">GetConnection</span>())\n{\n    conn.<span class="tok-fn">Open</span>();\n    <span class="tok-kw">using</span> (<span class="tok-kw">var</span> tr = conn.<span class="tok-fn">BeginTransaction</span>())\n    {\n        <span class="tok-cmt">// Mise à jour du statut — dans la transaction</span>\n        conn.<span class="tok-fn">Execute</span>(\n            <span class="tok-str">"UPDATE conges SET statut='accepte' WHERE id=@id"</span>,\n            <span class="tok-kw">new</span> { id = congeId }, tr <span class="tok-cmt">// ← tr passé à Dapper</span>\n        );\n        <span class="tok-cmt">// D'autres Execute() pourraient s'enchaîner ici</span>\n        tr.<span class="tok-fn">Commit</span>(); <span class="tok-cmt">// ✅ tout réussi → on valide</span>\n        <span class="tok-cmt">// si une erreur est levée avant → rollback automatique</span>\n    }\n}\n<span class="tok-fn">LoadConges</span>(); <span class="tok-cmt">// rafraîchit la grille</span>`
+          };
+          document.querySelectorAll('.det-snippet-body').forEach(function(el) {
+            el.addEventListener('click', function() {
+              var key = el.dataset.snippet;
+              var lb = document.getElementById('code-lightbox');
+              var pre = document.getElementById('code-lightbox-content');
+              pre.innerHTML = snippets[key];
+              lb.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            });
+          });
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              document.getElementById('code-lightbox').style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        })();
+      </script>
+    </section>
+
     <!-- STACK -->
     <section class="det-section">
       <span class="det-section-label">Stack technique</span>
