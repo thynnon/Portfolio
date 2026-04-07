@@ -29,7 +29,7 @@ const i18n = {
     'about.tab.bio':       'À propos',
     'about.tab.timeline':  'Parcours',
     'about.tab.certs':     'Certifications',
-    'about.text':          'Passionné de dev web & mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome, toujours en train de coder.',
+    'about.text':          'Passionné de dev web & mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome.',
     'tl.bts':              'BTS SIO option SLAM',
     'tl.stage':            'Stage · Développeur Web',
     'tl.bac':              'Bac Général spécialité Physique-Chimie / SVT',

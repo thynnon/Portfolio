@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stage 1 — Développeur Web – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -70,7 +71,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 1 : remplacer par <img src="img/stage1/interface.png" alt="Interface développée"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">💻</span>
+            <span class="screenshot-ph-icon"><i data-lucide="laptop"></i></span>
             <span class="screenshot-ph-label">Interface développée en stage</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/stage1/interface.png"&gt;</span>
           </div>
@@ -80,7 +81,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 2 : remplacer par <img src="img/stage1/feature.png" alt="Fonctionnalité"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">⚙️</span>
+            <span class="screenshot-ph-icon"><i data-lucide="settings-2"></i></span>
             <span class="screenshot-ph-label">Fonctionnalité développée</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/stage1/feature.png"&gt;</span>
           </div>
@@ -222,5 +223,6 @@
     document.documentElement.dataset.theme   = t;
     document.documentElement.dataset.palette = p;
   </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

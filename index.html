@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body data-github="thynnon">
 
   <!-- ══ NAVBAR ═══════════════════════════════ -->
   <nav class="navbar">
-    <div class="nav-logo">&lt;thynnon.dev /&gt;</div>
+    <div class="nav-logo">&lt; /&gt;</div>
     <div class="nav-links">
       <button class="nav-link" data-target="avatar"   data-i18n="nav.profil">Profil</button>
       <button class="nav-link" data-target="skills"   data-i18n="nav.skills">Compétences</button>
@@ -47,15 +48,15 @@
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.lang">Langue</div>
       <div class="lang-grid">
-        <button class="lang-opt active" data-lang="fr">🇫🇷 Français</button>
-        <button class="lang-opt"        data-lang="en">🇬🇧 English</button>
+        <button class="lang-opt active" data-lang="fr">Français</button>
+        <button class="lang-opt"        data-lang="en">English</button>
       </div>
     </div>
     <div class="settings-section">
       <div class="settings-label" data-i18n="settings.theme">Apparence</div>
       <div class="theme-toggle-row">
-        <button class="theme-opt active" id="theme-dark"  data-i18n="settings.dark">🌙 Sombre</button>
-        <button class="theme-opt"        id="theme-light" data-i18n="settings.light">☀️ Clair</button>
+        <button class="theme-opt active" id="theme-dark"  data-i18n="settings.dark"><i data-lucide="moon"></i> Sombre</button>
+        <button class="theme-opt"        id="theme-light" data-i18n="settings.light"><i data-lucide="sun"></i> Clair</button>
       </div>
     </div>
     <div class="settings-section">
@@ -282,7 +283,6 @@
           </div>
         </div>
         <div class="contact-actions">
-          <a href="mailto:wassil.henni@gmail.com" class="btn-social" data-i18n="contact.mail">Email</a>
           <a href="https://github.com/thynnon" target="_blank" class="btn-social">GitHub</a>
           <a href="https://www.linkedin.com/in/wassil-henni-5b942834b/" target="_blank" class="btn-social">LinkedIn</a>
         </div>
@@ -302,8 +302,8 @@
     <!-- ── ÉCOLE ───────────────────────────────── -->
     <div class="showcase-cat">
       <div class="showcase-cat-hd">
-        <span class="showcase-cat-icon">🎓</span>
-        <h3 class="showcase-cat-title">École</h3>
+        <span class="showcase-cat-icon"><i data-lucide="graduation-cap"></i></span>
+        <h3 class="showcase-cat-title">Formation</h3>
         <span class="showcase-cat-sub">BTS SIO · SLAM — Henri Wallon</span>
       </div>
 
@@ -315,12 +315,7 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🖥️</span><span>Dashboard principal</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📊</span><span>Gestion des stocks</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📋</span><span>Export rapports</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="monitor"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
@@ -332,7 +327,7 @@
                 <div class="showcase-feats"><span>Dashboard</span></div>
                 <div class="showcase-tags"><span>C#</span><span>.NET</span><span>MySQL</span></div>
                 <div class="showcase-links">
-                  <a href="#" class="sl-gh">GitHub</a>
+
                   <a href="project-mission1.html" class="sl-detail">Voir détails →</a>
                 </div>
               </div>
@@ -342,12 +337,7 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🎮</span><span>Quiz principal</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🏆</span><span>Classement</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📱</span><span>Mode mobile</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="layout-dashboard"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
@@ -355,11 +345,11 @@
                   <span class="showcase-year">2025</span>
                 </div>
                 <h3 class="showcase-title">Gestion des salaires</h3>
-                <p class="showcase-desc">Application web de gestion des salaires — dashboard temps réel, calculs automatiques, filtres de recherches, statistiques.</p>
+                <p class="showcase-desc">Application web de gestion des salaires — dashboard temps réel, calculs automatiques, filtres de recherche, statistiques.</p>
                 <div class="showcase-feats"><span>Dashboard</span><span>Calculs auto</span><span>Filtres</span><span>Statistiques</span><span>Rôles</span></div>
                 <div class="showcase-tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>API REST</span></div>
                 <div class="showcase-links">
-                  <a href="#" class="sl-gh">GitHub</a>
+
                   <a href="project-mission2.html" class="sl-detail">Voir détails →</a>
                 </div>
               </div>
@@ -369,12 +359,7 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📅</span><span>Planning activités</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📄</span><span>Gestion documents</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">💬</span><span>Messagerie interne</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="smartphone"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
@@ -382,11 +367,11 @@
                   <span class="showcase-year">2026</span>
                 </div>
                 <h3 class="showcase-title">Notes des praticiens</h3>
-                <p class="showcase-desc">Application mobile pour noter les praticiens et pouvoir lire leur commentaires.</p>
+                <p class="showcase-desc">Application mobile pour noter les praticiens et consulter leurs commentaires.</p>
                 <div class="showcase-feats"><span>Notes</span><span>Commentaires</span><span>Dashboard</span></div>
                 <div class="showcase-tags"><span>Dart</span><span>Flutter</span><span>MySQL</span><span>API REST</span></div>
                 <div class="showcase-links">
-                  <a href="#" class="sl-gh">GitHub</a>
+
                   <a href="project-mission3.html" class="sl-detail">Voir détails →</a>
                 </div>
               </div>
@@ -404,8 +389,8 @@
     <!-- ── STAGE ───────────────────────────────── -->
     <div class="showcase-cat">
       <div class="showcase-cat-hd">
-        <span class="showcase-cat-icon">🏢</span>
-        <h3 class="showcase-cat-title">Stage</h3>
+        <span class="showcase-cat-icon"><i data-lucide="building-2"></i></span>
+        <h3 class="showcase-cat-title">Professionnel</h3>
         <span class="showcase-cat-sub">Expériences en entreprise</span>
       </div>
 
@@ -417,11 +402,7 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🏢</span><span>Environnement de travail</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">💻</span><span>Application développée</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="laptop"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
@@ -429,7 +410,7 @@
                   <span class="showcase-year">2025</span>
                 </div>
                 <h3 class="showcase-title">Stage · Développeur Web</h3>
-                <p class="showcase-desc">Développement d'un intranet interne pendant 6 semaines en entreprise.</p>
+                <p class="showcase-desc">Développement d'un intranet interne en entreprise — gestion des actualités, dashboard et site dynamique.</p>
                 <div class="showcase-feats"><span>Dashboard</span><span>Actualités</span><span>Site Dynamique</span></div>
                 <div class="showcase-tags"><span>PHP</span><span>JavaScript</span><span>MySQL</span></div>
                 <div class="showcase-links">
@@ -442,19 +423,15 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🚀</span><span>SPA React</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">⚙️</span><span>API REST</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="rocket"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
                   <span class="showcase-type showcase-type--stage">Stage · 6 sem.</span>
                   <span class="showcase-year">2025</span>
                 </div>
-                <h3 class="showcase-title">Stage · Développeur Web</h3>
-                <p class="showcase-desc">Conception et finalisation de l'intranet avec  — de la modélisation au déploiement Linux.</p>
+                <h3 class="showcase-title">Stage · Développeur Full-Stack</h3>
+                <p class="showcase-desc">Conception et déploiement d'un intranet complet — de la modélisation BDD au déploiement Linux.</p>
                 <div class="showcase-feats"><span>SPA React</span><span>API REST</span><span>Tests</span><span>Déploiement</span></div>
                 <div class="showcase-tags"><span>React</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Linux</span></div>
                 <div class="showcase-links">
@@ -475,7 +452,7 @@
     <!-- ── PERSO ───────────────────────────────── -->
     <div class="showcase-cat">
       <div class="showcase-cat-hd">
-        <span class="showcase-cat-icon">⚡</span>
+        <span class="showcase-cat-icon"><i data-lucide="zap"></i></span>
         <h3 class="showcase-cat-title">Perso</h3>
         <span class="showcase-cat-sub">Projets personnels</span>
       </div>
@@ -488,12 +465,7 @@
           <div class="showcase-slide">
             <div class="showcase-card">
               <div class="showcase-images">
-                <div class="showcase-images-track">
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">📋</span><span>Tableau Kanban</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">🔔</span><span>Notifications temps réel</span></div>
-                  <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon">👥</span><span>Gestion équipe</span></div>
-                </div>
-                <span class="showcase-img-expand">&#x26F6;</span>
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="kanban"></i></span></div>
               </div>
               <div class="showcase-info">
                 <div class="showcase-top">
@@ -505,13 +477,38 @@
                 <div class="showcase-feats"><span>Temps réel</span><span>Drag &amp; drop</span><span>JWT Auth</span><span>API REST</span></div>
                 <div class="showcase-tags"><span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span><span>Express</span></div>
                 <div class="showcase-links">
-                  <a href="#" class="sl-gh">GitHub</a>
+
                   <a href="project-taskflow.html" class="sl-detail">Voir détails →</a>
                 </div>
               </div>
             </div>
           </div>
 
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <div class="showcase-img-placeholder"><span class="showcase-img-placeholder-icon"><i data-lucide="car"></i></span></div>
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type">Projet Personnel</span>
+                  <span class="showcase-year">2026</span>
+                </div>
+                <h3 class="showcase-title">MPG Motors</h3>
+                <p class="showcase-desc">Site vitrine pour une concession automobile — catalogue de véhicules, filtres de recherche et formulaire de contact.</p>
+                <div class="showcase-feats"><span>Catalogue</span><span>Filtres</span><span>Contact</span></div>
+                <div class="showcase-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                <div class="showcase-links">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="showcase-progress">
+          <div class="showcase-pips"></div>
+          <span class="showcase-counter"><span class="showcase-counter-current">1</span> / 2</span>
         </div>
       </div>
     </div>
@@ -519,5 +516,6 @@
   </section>
 
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

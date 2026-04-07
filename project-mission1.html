@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AP Mission 1 – Gestion des congés – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -161,7 +162,7 @@
 
           <!-- v_praticiens (vue) -->
           <div class="det-db-tbl" style="left:15px;top:646px">
-            <div class="det-db-tbl-head det-db-tbl-head--view">👁 v_praticiens</div>
+            <div class="det-db-tbl-head det-db-tbl-head--view">v_praticiens</div>
             <div class="det-db-tbl-col" style="padding:8px 10px;min-height:auto">
               <span class="dbc-name" style="white-space:normal;font-size:0.72rem;color:var(--muted);line-height:1.5">Vue — JOIN praticien, calcul anciennete_calculee via TIMESTAMPDIFF. Exposée par l'API REST.</span>
             </div>
@@ -307,5 +308,6 @@
   </main>
 
   <script src="js/detail.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

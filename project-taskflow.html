@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskFlow – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 1 : remplacer par <img src="img/taskflow/board.png" alt="Tableau Kanban"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">📋</span>
+            <span class="screenshot-ph-icon"><i data-lucide="kanban"></i></span>
             <span class="screenshot-ph-label">Tableau Kanban principal</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/board.png"&gt;</span>
           </div>
@@ -58,7 +59,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 2 : remplacer par <img src="img/taskflow/realtime.png" alt="Temps réel"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">⚡</span>
+            <span class="screenshot-ph-icon"><i data-lucide="zap"></i></span>
             <span class="screenshot-ph-label">Collaboration temps réel</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/realtime.png"&gt;</span>
           </div>
@@ -68,7 +69,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 3 : remplacer par <img src="img/taskflow/card.png" alt="Détail carte"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">🗒️</span>
+            <span class="screenshot-ph-icon"><i data-lucide="file-text"></i></span>
             <span class="screenshot-ph-label">Détail d'une carte</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/card.png"&gt;</span>
           </div>
@@ -78,7 +79,7 @@
         <figure class="screenshot">
           <!-- SCREENSHOT 4 : remplacer par <img src="img/taskflow/notifications.png" alt="Notifications"> -->
           <div class="screenshot-ph">
-            <span class="screenshot-ph-icon">🔔</span>
+            <span class="screenshot-ph-icon"><i data-lucide="bell"></i></span>
             <span class="screenshot-ph-label">Notifications temps réel</span>
             <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/notifications.png"&gt;</span>
           </div>
@@ -265,5 +266,6 @@
     document.documentElement.dataset.theme   = t;
     document.documentElement.dataset.palette = p;
   </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

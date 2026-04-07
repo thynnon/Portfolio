@@ -87,10 +87,12 @@
   }
 })();
 
-/* ─── THEME INIT ─────────────────────────────── */
+/* ─── THEME + FONT SIZE INIT ─────────────────── */
 (function () {
-  const t = localStorage.getItem('theme') || 'dark';
+  const t = localStorage.getItem('theme') || 'light';
   document.documentElement.dataset.theme = t;
+  const fs = localStorage.getItem('fontSize');
+  if (fs) document.documentElement.style.fontSize = fs + 'px';
 })();
 
 /* ─── LIGHTBOX ───────────────────────────────── */

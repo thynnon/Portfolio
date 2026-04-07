@@ -37,10 +37,15 @@ html[data-theme="light"] {
   --muted:  #475569;
 }
 
+html {
+  background: linear-gradient(180deg, #07080d 0%, #0a0c18 60%, #080a14 100%);
+}
+html[data-theme="light"] {
+  background: linear-gradient(180deg, #e8e4da 0%, #e4e0d6 100%);
+}
 html, body {
   width: 100%;
   min-height: 100%;
-  background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 17px;
