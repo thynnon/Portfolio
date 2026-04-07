@@ -2,8 +2,19 @@
 <html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* ── Init thème + taille police (sans flash) ── */
+    (function(){
+      var t  = localStorage.getItem("theme")    || "light";
+      var p  = localStorage.getItem("palette")  || "cyber";
+      var fs = localStorage.getItem("fontSize");
+      document.documentElement.dataset.theme   = t;
+      document.documentElement.dataset.palette = p;
+      if(fs) document.documentElement.style.fontSize = fs + "px";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaskFlow – Henni Wassil</title>
+  <title>Stage 1 — Développeur Web – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
@@ -11,8 +22,8 @@
 
   <nav class="det-nav">
     <a href="index.html#projects" class="det-nav-back">← Projets</a>
-    <span class="det-nav-title">TaskFlow — Gestionnaire de tâches collaboratif temps réel</span>
-    <span class="det-nav-badge det-nav-badge--perso">Personnel</span>
+    <span class="det-nav-title">Stage 1ʳᵉ année — Développeur Web</span>
+    <span class="det-nav-badge det-nav-badge--stage">Stage · 2024</span>
   </nav>
 
   <main class="det-page">
@@ -20,70 +31,67 @@
     <!-- HERO -->
     <header class="det-hero">
       <div class="det-hero-meta">
-        <span class="det-hero-type det-hero-type--perso">Projet Personnel</span>
+        <span class="det-hero-type det-hero-type--stage">Stage 1ʳᵉ année · 4 semaines</span>
         <span class="det-hero-year">2024</span>
-        <span class="det-hero-status det-hero-status--wip">En cours</span>
+        <span class="det-hero-status det-hero-status--done">Terminé</span>
       </div>
-      <h1 class="det-hero-title">TaskFlow</h1>
+      <h1 class="det-hero-title">Stage · Développeur Web</h1>
       <p class="det-hero-subtitle">
-        Gestionnaire de tâches collaboratif en temps réel, inspiré de Trello et Linear.
-        Les équipes créent des tableaux Kanban, déplacent des cartes par drag &amp; drop
-        et voient les modifications de leurs coéquipiers instantanément grâce aux WebSockets.
-        Projet personnel pour approfondir le temps réel et l'architecture full-stack.
+        Premier stage professionnel effectué en 1ʳᵉ année de BTS SIO. Développement d'un intranet
+        municipal pour la Ville de Saint-Saulve : authentification, gestion des utilisateurs,
+        formulaire d'adhésion à l'amicale et espace documentaire, en PHP natif sans framework.
       </p>
       <div class="det-hero-tags">
-        <span>React</span><span>Node.js</span><span>Socket.io</span>
-        <span>MongoDB</span><span>Express</span><span>JWT</span><span>Swagger</span>
-      </div>
-      <div class="det-hero-links">
-        <a href="#" class="det-btn det-btn--gh">GitHub</a>
-        <a href="#" class="det-btn det-btn--demo">Démo live</a>
+        <span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span>
       </div>
     </header>
+
+    <!-- INFO ENTREPRISE -->
+    <section class="det-section">
+      <span class="det-section-label">Informations stage</span>
+      <h2 class="det-section-title">Contexte professionnel</h2>
+      <div class="det-org-box">
+        <div class="det-org-item">
+          <span class="det-org-label">Organisme</span>
+          <span class="det-org-value">Ville de Saint-Saulve</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Localisation</span>
+          <span class="det-org-value">Saint-Saulve, 59</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Durée</span>
+          <span class="det-org-value">4 semaines</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Période</span>
+          <span class="det-org-value">Mai-Juin</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Poste</span>
+          <span class="det-org-value">Développeur Web</span>
+        </div>
+      </div>
+    </section>
 
     <!-- SCREENSHOTS -->
     <section class="det-screenshots">
       <p class="det-screenshots-title">Captures d'écran</p>
-      <div class="screenshots-grid">
+      <div class="screenshots-grid screenshots-grid--2">
 
         <figure class="screenshot">
-          <!-- SCREENSHOT 1 : remplacer par <img src="img/taskflow/board.png" alt="Tableau Kanban"> -->
-          <div class="screenshot-ph">
-            <span class="screenshot-ph-icon"><i data-lucide="kanban"></i></span>
-            <span class="screenshot-ph-label">Tableau Kanban principal</span>
-            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/board.png"&gt;</span>
-          </div>
-          <figcaption>Vue tableau avec colonnes et cartes drag & drop</figcaption>
+          <img src="STAGE/utilisateur.gif" alt="Interface utilisateur — navigation intranet">
+          <figcaption>Interface utilisateur — navigation intranet</figcaption>
         </figure>
 
         <figure class="screenshot">
-          <!-- SCREENSHOT 2 : remplacer par <img src="img/taskflow/realtime.png" alt="Temps réel"> -->
-          <div class="screenshot-ph">
-            <span class="screenshot-ph-icon"><i data-lucide="zap"></i></span>
-            <span class="screenshot-ph-label">Collaboration temps réel</span>
-            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/realtime.png"&gt;</span>
-          </div>
-          <figcaption>Indicateurs de présence et modifications en direct</figcaption>
+          <img src="STAGE/admin.gif" alt="Interface administrateur — gestion des comptes">
+          <figcaption>Interface administrateur — gestion des comptes</figcaption>
         </figure>
 
         <figure class="screenshot">
-          <!-- SCREENSHOT 3 : remplacer par <img src="img/taskflow/card.png" alt="Détail carte"> -->
-          <div class="screenshot-ph">
-            <span class="screenshot-ph-icon"><i data-lucide="file-text"></i></span>
-            <span class="screenshot-ph-label">Détail d'une carte</span>
-            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/card.png"&gt;</span>
-          </div>
-          <figcaption>Modal de détail — description, membres, étiquettes</figcaption>
-        </figure>
-
-        <figure class="screenshot">
-          <!-- SCREENSHOT 4 : remplacer par <img src="img/taskflow/notifications.png" alt="Notifications"> -->
-          <div class="screenshot-ph">
-            <span class="screenshot-ph-icon"><i data-lucide="bell"></i></span>
-            <span class="screenshot-ph-label">Notifications temps réel</span>
-            <span class="screenshot-ph-hint">Remplacer par &lt;img src="img/taskflow/notifications.png"&gt;</span>
-          </div>
-          <figcaption>Centre de notifications et activité du tableau</figcaption>
+          <img src="STAGE/adhesion_amicale.png" alt="Formulaire d'adhésion à l'amicale">
+          <figcaption>Formulaire d'adhésion à l'amicale du personnel</figcaption>
         </figure>
 
       </div>
@@ -91,181 +99,124 @@
 
     <!-- CONTEXTE -->
     <section class="det-section">
-      <span class="det-section-label">Genèse du projet</span>
-      <h2 class="det-section-title">Pourquoi TaskFlow ?</h2>
+      <span class="det-section-label">Contexte</span>
+      <h2 class="det-section-title">Déroulement du stage</h2>
       <div class="det-section-body">
         <p>
-          TaskFlow est né d'une frustration personnelle : les outils de gestion de tâches existants
-          (Trello, Notion, Jira) sont soit trop lourds, soit trop limités dans leur version gratuite.
-          L'objectif principal était de <strong>construire un projet de bout en bout</strong>
-          en me confrontant à des problématiques techniques que mes projets scolaires n'abordaient pas :
-          le temps réel, la gestion des conflits de données et l'architecture orientée événements.
+          Ce stage s'est déroulé au sein du service informatique de la Ville de Saint-Saulve.
+          La mission principale consistait à développer un <strong>intranet municipal</strong>
+          destiné aux agents de la ville, entièrement en PHP natif, HTML, CSS et JavaScript.
         </p>
         <p>
-          Le choix de <strong>MongoDB</strong> (au lieu de MySQL habituel) était délibéré : les données
-          d'un tableau Kanban — cartes, colonnes, membres — sont naturellement imbriquées et leur
-          schéma évolue fréquemment. Un document MongoDB représente un tableau entier avec toutes
-          ses données, ce qui simplifie les lectures mais complexifie les mises à jour partielles.
+          L'application permet aux agents de se connecter à un espace personnel, de consulter des
+          documents internes, de s'inscrire à l'amicale du personnel et d'accéder aux informations RH.
+          Un <strong>espace d'administration</strong> permet la gestion des comptes utilisateurs
+          et la modération des contenus.
         </p>
         <p>
-          La partie la plus challenging du projet a été d'implémenter la <strong>synchronisation
-          temps réel multi-utilisateurs</strong> : quand Alice déplace une carte pendant que Bob
-          en modifie le titre, les deux utilisateurs doivent voir un état cohérent sans rafraîchissement.
-          Socket.io avec des rooms par tableau résout ce problème élégamment.
+          Travailler sans framework m'a obligé à tout construire à la main : sessions PHP, requêtes
+          SQL manuelles, validation des formulaires côté serveur. Une expérience fondatrice pour
+          comprendre ce que les frameworks font réellement sous le capot.
         </p>
-        <div class="det-highlight det-highlight--purple">
-          Ce projet est mon laboratoire personnel : je l'utilise pour tester de nouvelles technologies
-          (TypeScript, tests E2E avec Playwright, CI/CD GitHub Actions) avant de les adopter
-          dans mes projets professionnels.
+        <div class="det-highlight det-highlight--blue">
+          Ce stage m'a montré l'importance de structurer son code dès le départ — sans l'architecture
+          imposée par un framework, c'est au développeur d'organiser ses fichiers et sa logique
+          de façon cohérente.
         </div>
       </div>
     </section>
 
-    <!-- FONCTIONNALITÉS -->
+    <!-- MISSIONS -->
     <section class="det-section">
-      <span class="det-section-label">Fonctionnalités</span>
-      <h2 class="det-section-title">Ce que fait l'application</h2>
-      <div class="det-features">
-        <div class="det-feature det-feature--purple">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Temps réel via WebSockets</div>
-            <div class="det-feature-desc">Socket.io avec rooms par tableau — chaque action (ajout, déplacement, modification) est diffusée instantanément à tous les membres.</div>
+      <span class="det-section-label">Missions réalisées</span>
+      <h2 class="det-section-title">Ce que j'ai fait</h2>
+      <div class="det-missions">
+        <div class="det-mission">
+          <div class="det-mission-title">Système d'authentification PHP</div>
+          <div class="det-mission-desc">
+            Développement complet du système de connexion et d'inscription : sessions PHP, hachage
+            des mots de passe, validation des formulaires côté serveur et gestion des droits
+            (utilisateur / administrateur).
           </div>
         </div>
-        <div class="det-feature det-feature--purple">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Drag &amp; drop inter-colonnes</div>
-            <div class="det-feature-desc">Déplacement fluide des cartes entre colonnes avec @dnd-kit. L'ordre est persisté en base et synchronisé en temps réel.</div>
+        <div class="det-mission">
+          <div class="det-mission-title">Formulaire d'adhésion à l'amicale</div>
+          <div class="det-mission-desc">
+            Création d'un formulaire d'adhésion en ligne avec choix du mode de règlement,
+            stockage en base de données et interface admin pour consulter et gérer les inscriptions.
           </div>
         </div>
-        <div class="det-feature">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Gestion d'équipe</div>
-            <div class="det-feature-desc">Invitations par e-mail, rôles (Owner, Admin, Member), assignation de membres sur les cartes avec avatars.</div>
+        <div class="det-mission">
+          <div class="det-mission-title">Espace documentaire</div>
+          <div class="det-mission-desc">
+            Mise en place d'un espace de dépôt et de consultation de documents internes (RH, notes
+            de service). Les agents peuvent télécharger les fichiers mis à disposition par l'administration.
           </div>
         </div>
-        <div class="det-feature">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Étiquettes &amp; priorités</div>
-            <div class="det-feature-desc">Étiquettes colorées personnalisables, niveaux de priorité (Urgent / High / Normal / Low) et dates d'échéance avec alertes.</div>
+        <div class="det-mission">
+          <div class="det-mission-title">Interface d'administration</div>
+          <div class="det-mission-desc">
+            Tableau de bord réservé aux administrateurs : gestion des comptes utilisateurs,
+            activation / désactivation des accès, et consultation des inscriptions à l'amicale.
           </div>
         </div>
-        <div class="det-feature">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Notifications en temps réel</div>
-            <div class="det-feature-desc">Centre de notifications pour les mentions (@user), assignations et modifications sur les cartes suivies.</div>
-          </div>
-        </div>
-        <div class="det-feature">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">API REST documentée</div>
-            <div class="det-feature-desc">Tous les endpoints sont documentés avec Swagger/OpenAPI. L'API est consommable indépendamment du frontend React.</div>
-          </div>
-        </div>
-        <div class="det-feature det-feature--blue">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Authentification JWT sécurisée</div>
-            <div class="det-feature-desc">Access token (15min) + Refresh token (7j) stocké en httpOnly cookie. Rotation des tokens à chaque refresh.</div>
-          </div>
-        </div>
-        <div class="det-feature det-feature--blue">
-          <div class="det-feature-dot"></div>
-          <div class="det-feature-body">
-            <div class="det-feature-name">Indicateurs de présence</div>
-            <div class="det-feature-desc">Avatars des membres actuellement connectés sur un tableau, avec indicateur de la carte qu'ils sont en train de modifier.</div>
+        <div class="det-mission">
+          <div class="det-mission-title">Intégration HTML/CSS responsive</div>
+          <div class="det-mission-desc">
+            Développement de toutes les pages en HTML/CSS natif, avec une charte graphique en bleu
+            marine et doré aux couleurs de la ville. Mise en page responsive pour une consultation
+            sur tous types d'écrans.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ARCHITECTURE -->
+    <!-- STACK -->
     <section class="det-section">
-      <span class="det-section-label">Architecture</span>
-      <h2 class="det-section-title">Comment c'est construit</h2>
-      <div class="det-section-body">
-        <p>
-          L'application suit une architecture <strong>client-serveur découplée</strong>. Le frontend React
-          communique avec le backend via deux canaux : l'API REST (Express) pour les opérations CRUD
-          classiques, et Socket.io pour les événements temps réel. Les deux partagent le même processus
-          Node.js mais sont clairement séparés dans le code.
-        </p>
-        <p>
-          <strong>MongoDB</strong> stocke les données avec un modèle de document par tableau contenant
-          ses colonnes et ses cartes. Cette dénormalisation optimise les lectures (un seul fetch pour
-          tout un tableau) au prix d'une logique de mise à jour plus complexe via les opérateurs
-          atomiques de MongoDB ($set, $push, $pull, arrayFilters).
-        </p>
-      </div>
+      <span class="det-section-label">Environnement technique</span>
+      <h2 class="det-section-title">Technologies utilisées</h2>
       <div class="det-stack">
-        <div class="det-stack-item"><span class="det-stack-item-name">React 18</span><span class="det-stack-item-role">Frontend SPA</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Node.js</span><span class="det-stack-item-role">Backend</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Express 4</span><span class="det-stack-item-role">API REST</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Socket.io</span><span class="det-stack-item-role">Temps réel</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">MongoDB</span><span class="det-stack-item-role">Base de données</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Mongoose</span><span class="det-stack-item-role">ODM</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">JWT</span><span class="det-stack-item-role">Auth</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">@dnd-kit</span><span class="det-stack-item-role">Drag & Drop</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Swagger</span><span class="det-stack-item-role">API docs</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Jest</span><span class="det-stack-item-role">Tests</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">PHP 8</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MySQL</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">HTML / CSS</span><span class="det-stack-item-role">Frontend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">JavaScript</span><span class="det-stack-item-role">Interactivité</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Sessions PHP</span><span class="det-stack-item-role">Auth</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Git / GitHub</span><span class="det-stack-item-role">Versioning</span></div>
       </div>
     </section>
 
-    <!-- DÉFIS -->
+    <!-- BILAN -->
     <section class="det-section">
-      <span class="det-section-label">Défis &amp; apprentissages</span>
-      <h2 class="det-section-title">Ce que j'ai appris</h2>
+      <span class="det-section-label">Bilan</span>
+      <h2 class="det-section-title">Compétences développées</h2>
       <div class="det-challenges">
-        <div class="det-challenge det-challenge--purple">
-          <div class="det-challenge-title">Gestion des conflits temps réel</div>
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">PHP sans framework</div>
           <div class="det-challenge-desc">
-            Quand deux utilisateurs modifient la même carte simultanément, laquelle des deux modifications
-            prime ? J'ai implémenté un système de verrous optimistes basé sur les timestamps :
-            la modification la plus récente gagne, et un toast avertit l'autre utilisateur que ses
-            changements ont été écrasés.
+            Développer en PHP natif m'a forcé à comprendre ce que les frameworks abstraient :
+            routing manuel, gestion des sessions, requêtes SQL à la main. Une base solide
+            qui me permet aujourd'hui de mieux apprécier les outils comme Laravel.
           </div>
         </div>
         <div class="det-challenge">
-          <div class="det-challenge-title">Drag &amp; drop avec synchronisation</div>
+          <div class="det-challenge-title">Gestion des rôles utilisateurs</div>
           <div class="det-challenge-desc">
-            Combiner une bibliothèque de drag & drop (@dnd-kit) avec la mise à jour optimiste de l'UI
-            et la synchronisation Socket.io était délicat. La mise à jour de l'ordre local avant
-            la confirmation serveur garantit une UX fluide, avec rollback en cas d'erreur.
+            Implémenter un système de droits (utilisateur / administrateur, etc) sans m'a appris à sécuriser les accès manuellement et à penser les vérifications
+            à chaque point d'entrée de l'application.
           </div>
         </div>
-        <div class="det-challenge det-challenge--blue">
-          <div class="det-challenge-title">Sécurité JWT et rotation des tokens</div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Autonomie sur un projet réel</div>
           <div class="det-challenge-desc">
-            Implémenter correctement la rotation des refresh tokens (chaque utilisation génère un nouveau
-            token, l'ancien est révoqué) a nécessité la gestion d'une liste noire en mémoire (Redis-like
-            avec un Map Node.js) pour les tokens invalidés avant expiration naturelle.
-          </div>
-        </div>
-        <div class="det-challenge det-challenge--yellow">
-          <div class="det-challenge-title">MongoDB vs SQL — trouver le bon modèle</div>
-          <div class="det-challenge-desc">
-            J'ai refactorisé le schéma deux fois avant de trouver le bon équilibre entre dénormalisation
-            (performance de lecture) et maintenabilité. Trop dénormalisé = mises à jour complexes,
-            trop normalisé = perd tout l'intérêt de MongoDB.
+            Livrer une application utilisée par de vrais agents municipaux, avec des contraintes
+            métier précises, m'a appris à poser les bonnes questions et à valider mes choix
+            avec le tuteur de stage avant de coder.
           </div>
         </div>
       </div>
     </section>
 
   </main>
-
-  <script>
-    const t = localStorage.getItem('theme') || 'dark';
-    const p = localStorage.getItem('palette') || 'cyber';
-    document.documentElement.dataset.theme   = t;
-    document.documentElement.dataset.palette = p;
-  </script>
   <script>lucide.createIcons();</script>
 </body>
 </html>

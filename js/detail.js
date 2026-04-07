@@ -87,11 +87,13 @@
   }
 })();
 
-/* ─── THEME + FONT SIZE INIT ─────────────────── */
+/* ─── THEME + FONT SIZE INIT (fallback si script inline absent) ── */
 (function () {
-  const t = localStorage.getItem('theme') || 'light';
-  document.documentElement.dataset.theme = t;
+  const t  = localStorage.getItem('theme')   || 'light';
+  const p  = localStorage.getItem('palette') || 'cyber';
   const fs = localStorage.getItem('fontSize');
+  document.documentElement.dataset.theme   = t;
+  document.documentElement.dataset.palette = p;
   if (fs) document.documentElement.style.fontSize = fs + 'px';
 })();
 

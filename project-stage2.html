@@ -2,8 +2,19 @@
 <html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* ── Init thème + taille police (sans flash) ── */
+    (function(){
+      var t  = localStorage.getItem("theme")    || "light";
+      var p  = localStorage.getItem("palette")  || "cyber";
+      var fs = localStorage.getItem("fontSize");
+      document.documentElement.dataset.theme   = t;
+      document.documentElement.dataset.palette = p;
+      if(fs) document.documentElement.style.fontSize = fs + "px";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stage 2 — Développeur Full-Stack – Henni Wassil</title>
+  <title>Stage 1 — Développeur Web – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
@@ -11,8 +22,8 @@
 
   <nav class="det-nav">
     <a href="index.html#projects" class="det-nav-back">← Projets</a>
-    <span class="det-nav-title">Stage 2ᵉ année — Développeur Web</span>
-    <span class="det-nav-badge det-nav-badge--stage">Stage · 2026</span>
+    <span class="det-nav-title">Stage 1ʳᵉ année — Développeur Web</span>
+    <span class="det-nav-badge det-nav-badge--stage">Stage · 2024</span>
   </nav>
 
   <main class="det-page">
@@ -20,15 +31,15 @@
     <!-- HERO -->
     <header class="det-hero">
       <div class="det-hero-meta">
-        <span class="det-hero-type det-hero-type--stage">Stage 2ᵉ année · 6 semaines</span>
-        <span class="det-hero-year">2026</span>
+        <span class="det-hero-type det-hero-type--stage">Stage 1ʳᵉ année · 4 semaines</span>
+        <span class="det-hero-year">2024</span>
         <span class="det-hero-status det-hero-status--done">Terminé</span>
       </div>
       <h1 class="det-hero-title">Stage · Développeur Web</h1>
       <p class="det-hero-subtitle">
-        Retour à la Ville de Saint-Saulve pour une évolution de l'intranet municipal développé
-        en 1ʳᵉ année. Ajout de nouvelles fonctionnalités, refonte de l'interface et amélioration
-        de l'expérience utilisateur, toujours en PHP natif, HTML, CSS et JavaScript.
+        Premier stage professionnel effectué en 1ʳᵉ année de BTS SIO. Développement d'un intranet
+        municipal pour la Ville de Saint-Saulve : authentification, gestion des utilisateurs,
+        formulaire d'adhésion à l'amicale et espace documentaire, en PHP natif sans framework.
       </p>
       <div class="det-hero-tags">
         <span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span>
@@ -50,11 +61,11 @@
         </div>
         <div class="det-org-item">
           <span class="det-org-label">Durée</span>
-          <span class="det-org-value">6 semaines</span>
+          <span class="det-org-value">4 semaines</span>
         </div>
         <div class="det-org-item">
           <span class="det-org-label">Période</span>
-          <span class="det-org-value">Janvier-Février</span>
+          <span class="det-org-value">Mai-Juin</span>
         </div>
         <div class="det-org-item">
           <span class="det-org-label">Poste</span>
@@ -69,7 +80,7 @@
       <div class="screenshots-grid screenshots-grid--2">
 
         <figure class="screenshot">
-          <img src="STAGE/utilisateur.gif" alt="Interface utilisateur — intranet évolué">
+          <img src="STAGE/utilisateur.gif" alt="Interface utilisateur — navigation intranet">
           <figcaption>Interface utilisateur — navigation intranet</figcaption>
         </figure>
 
@@ -92,27 +103,25 @@
       <h2 class="det-section-title">Déroulement du stage</h2>
       <div class="det-section-body">
         <p>
-          Ce second stage est un retour à la Ville de Saint-Saulve pour <strong>faire évoluer
-          l'intranet municipal</strong> développé en 1ʳᵉ année. L'application existante était
-          fonctionnelle mais perfectible : certaines pages manquaient de cohérence visuelle,
-          des fonctionnalités étaient incomplètes, et de nouveaux besoins avaient émergé côté métier.
+          Ce stage s'est déroulé au sein du service informatique de la Ville de Saint-Saulve.
+          La mission principale consistait à développer un <strong>intranet municipal</strong>
+          destiné aux agents de la ville, entièrement en PHP natif, HTML, CSS et JavaScript.
         </p>
         <p>
-          Le travail a consisté à reprendre une base de code que je connaissais déjà, mais avec
-          un regard plus critique : identifier ce qui pouvait être amélioré, corriger les
-          failles de sécurité mineures repérées, et ajouter les fonctionnalités demandées par
-          les agents et l'administration.
+          L'application permet aux agents de se connecter à un espace personnel, de consulter des
+          documents internes, de s'inscrire à l'amicale du personnel et d'accéder aux informations RH.
+          Un <strong>espace d'administration</strong> permet la gestion des comptes utilisateurs
+          et la modération des contenus.
         </p>
         <p>
-          Reprendre son propre code après plusieurs mois est une expérience particulière —
-          on voit immédiatement ses anciennes erreurs et mauvaises habitudes. Ce stage a été
-          l'occasion de <strong>refactoriser</strong> plusieurs parties du code tout en livrant
-          de nouvelles fonctionnalités.
+          Travailler sans framework m'a obligé à tout construire à la main : sessions PHP, requêtes
+          SQL manuelles, validation des formulaires côté serveur. Une expérience fondatrice pour
+          comprendre ce que les frameworks font réellement sous le capot.
         </p>
-        <div class="det-highlight">
-          Revenir sur un projet existant m'a appris autant que de le créer from scratch :
-          lire son propre code avec du recul, documenter ce qu'on avait laissé implicite,
-          et livrer des évolutions sans tout casser.
+        <div class="det-highlight det-highlight--blue">
+          Ce stage m'a montré l'importance de structurer son code dès le départ — sans l'architecture
+          imposée par un framework, c'est au développeur d'organiser ses fichiers et sa logique
+          de façon cohérente.
         </div>
       </div>
     </section>
@@ -123,33 +132,40 @@
       <h2 class="det-section-title">Ce que j'ai fait</h2>
       <div class="det-missions">
         <div class="det-mission">
-          <div class="det-mission-title">Évolution du système d'authentification</div>
+          <div class="det-mission-title">Système d'authentification PHP</div>
           <div class="det-mission-desc">
-            Renforcement de la sécurité : protection contre les attaques par force brute,
-            amélioration de la gestion des sessions expirées et ajout d'une page de réinitialisation
-            de mot de passe par e-mail.
+            Développement complet du système de connexion et d'inscription : sessions PHP, hachage
+            des mots de passe, validation des formulaires côté serveur et gestion des droits
+            (utilisateur / administrateur).
           </div>
         </div>
         <div class="det-mission">
-          <div class="det-mission-title">Nouvelles fonctionnalités métier</div>
+          <div class="det-mission-title">Formulaire d'adhésion à l'amicale</div>
           <div class="det-mission-desc">
-            Ajout de modules demandés par l'administration : gestion des actualités internes,
-            agenda des événements et amélioration de l'espace documentaire avec tri et recherche.
+            Création d'un formulaire d'adhésion en ligne avec choix du mode de règlement,
+            stockage en base de données et interface admin pour consulter et gérer les inscriptions.
           </div>
         </div>
         <div class="det-mission">
-          <div class="det-mission-title">Refonte partielle de l'interface</div>
+          <div class="det-mission-title">Espace documentaire</div>
           <div class="det-mission-desc">
-            Harmonisation du design sur l'ensemble des pages, correction des problèmes
-            d'affichage sur mobile et amélioration de la navigation pour les agents
-            peu à l'aise avec l'outil.
+            Mise en place d'un espace de dépôt et de consultation de documents internes (RH, notes
+            de service). Les agents peuvent télécharger les fichiers mis à disposition par l'administration.
           </div>
         </div>
         <div class="det-mission">
-          <div class="det-mission-title">Refactorisation du code existant</div>
+          <div class="det-mission-title">Interface d'administration</div>
           <div class="det-mission-desc">
-            Réorganisation des fichiers PHP, factorisation des requêtes SQL répétitives
-            en fonctions réutilisables et ajout de commentaires sur les parties les plus complexes.
+            Tableau de bord réservé aux administrateurs : gestion des comptes utilisateurs,
+            activation / désactivation des accès, et consultation des inscriptions à l'amicale.
+          </div>
+        </div>
+        <div class="det-mission">
+          <div class="det-mission-title">Intégration HTML/CSS responsive</div>
+          <div class="det-mission-desc">
+            Développement de toutes les pages en HTML/CSS natif, avec une charte graphique en bleu
+            marine et doré aux couleurs de la ville. Mise en page responsive pour une consultation
+            sur tous types d'écrans.
           </div>
         </div>
       </div>
@@ -174,41 +190,33 @@
       <span class="det-section-label">Bilan</span>
       <h2 class="det-section-title">Compétences développées</h2>
       <div class="det-challenges">
-        <div class="det-challenge">
-          <div class="det-challenge-title">Reprendre son propre code</div>
-          <div class="det-challenge-desc">
-            Relire du code écrit un an plus tôt est révélateur : on voit ses anciennes erreurs,
-            les raccourcis pris sous la pression du temps. Ce stage m'a appris à écrire du code
-            pensé pour être relu — par les autres, mais aussi par soi-même.
-          </div>
-        </div>
         <div class="det-challenge det-challenge--blue">
-          <div class="det-challenge-title">Livrer des évolutions sans régression</div>
+          <div class="det-challenge-title">PHP sans framework</div>
           <div class="det-challenge-desc">
-            Modifier une application en production utilisée par de vrais agents oblige à être
-            prudent : tester manuellement chaque modification, s'assurer que l'existant
-            continue de fonctionner avant d'ajouter du nouveau.
+            Développer en PHP natif m'a forcé à comprendre ce que les frameworks abstraient :
+            routing manuel, gestion des sessions, requêtes SQL à la main. Une base solide
+            qui me permet aujourd'hui de mieux apprécier les outils comme Laravel.
           </div>
         </div>
-        <div class="det-challenge det-challenge--yellow">
-          <div class="det-challenge-title">Répondre aux besoins utilisateurs réels</div>
+        <div class="det-challenge">
+          <div class="det-challenge-title">Gestion des rôles utilisateurs</div>
           <div class="det-challenge-desc">
-            Les retours des agents sur la première version ont guidé les évolutions.
-            Comprendre ce qui bloque un utilisateur non-technique et y répondre avec
-            des solutions simples est une compétence à part entière.
+            Implémenter un système de droits (utilisateur / administrateur, etc) sans m'a appris à sécuriser les accès manuellement et à penser les vérifications
+            à chaque point d'entrée de l'application.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Autonomie sur un projet réel</div>
+          <div class="det-challenge-desc">
+            Livrer une application utilisée par de vrais agents municipaux, avec des contraintes
+            métier précises, m'a appris à poser les bonnes questions et à valider mes choix
+            avec le tuteur de stage avant de coder.
           </div>
         </div>
       </div>
     </section>
 
   </main>
-
-  <script>
-    const t = localStorage.getItem('theme') || 'dark';
-    const p = localStorage.getItem('palette') || 'cyber';
-    document.documentElement.dataset.theme   = t;
-    document.documentElement.dataset.palette = p;
-  </script>
   <script>lucide.createIcons();</script>
 </body>
 </html>

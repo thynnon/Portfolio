@@ -2,6 +2,17 @@
 <html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* ── Init thème + taille police (sans flash) ── */
+    (function(){
+      var t  = localStorage.getItem("theme")    || "light";
+      var p  = localStorage.getItem("palette")  || "cyber";
+      var fs = localStorage.getItem("fontSize");
+      document.documentElement.dataset.theme   = t;
+      document.documentElement.dataset.palette = p;
+      if(fs) document.documentElement.style.fontSize = fs + "px";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stage 1 — Développeur Web – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
@@ -206,13 +217,6 @@
     </section>
 
   </main>
-
-  <script>
-    const t = localStorage.getItem('theme') || 'dark';
-    const p = localStorage.getItem('palette') || 'cyber';
-    document.documentElement.dataset.theme   = t;
-    document.documentElement.dataset.palette = p;
-  </script>
   <script>lucide.createIcons();</script>
 </body>
 </html>
