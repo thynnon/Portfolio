@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <script>
-    /* ── Init thème + taille police (sans flash) ── */
     (function(){
       var t  = localStorage.getItem("theme")    || "light";
       var p  = localStorage.getItem("palette")  || "cyber";
@@ -14,16 +13,107 @@
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stage 1 — Développeur Web – Henni Wassil</title>
+  <title>Stage 2 — Développeur Web – Henni Wassil</title>
   <link rel="stylesheet" href="css/project-detail.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ── Code block ── */
+    .det-code-block {
+      margin: 2rem 0 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+      font-size: 0.88rem;
+    }
+    .det-code-block-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #1a1d23;
+      padding: 0.65rem 1.1rem;
+      border-bottom: 1px solid #2e323c;
+    }
+    .det-code-block-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .det-code-block-dots span {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .det-code-block-dots span:nth-child(1) { background: #ff5f57; }
+    .det-code-block-dots span:nth-child(2) { background: #febc2e; }
+    .det-code-block-dots span:nth-child(3) { background: #28c840; }
+    .det-code-block-filename {
+      margin-left: 0.4rem;
+      color: #8b93a7;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .det-code-block pre {
+      margin: 0;
+      padding: 1.4rem 1.4rem 1.5rem;
+      background: #13151a;
+      overflow-x: auto;
+      line-height: 1.75;
+    }
+    .det-code-block code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.84rem;
+      color: #cdd6f4;
+    }
+    /* Syntax colors */
+    .tok-comment  { color: #6c7a96; font-style: italic; }
+    .tok-keyword  { color: #cba6f7; }
+    .tok-var      { color: #89dceb; }
+    .tok-string   { color: #a6e3a1; }
+    .tok-func     { color: #89b4fa; }
+    .tok-bracket  { color: #f38ba8; }
+    .tok-number   { color: #fab387; }
+    .tok-op       { color: #94e2d5; }
+    .tok-prop     { color: #f5c2e7; }
+
+    /* ── Explanation box ── */
+    .det-code-explain {
+      background: #181b22;
+      border-left: 3px solid #89b4fa;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1.4rem 1.3rem;
+      color: #b0b8cc;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .det-code-explain strong { color: #cdd6f4; }
+    .det-code-explain p { margin: 0 0 0.65rem; }
+    .det-code-explain p:last-child { margin-bottom: 0; }
+
+    /* ── Section code wrapper ── */
+    .det-code-section {
+      margin: 2.5rem 0 0;
+    }
+    .det-code-section + .det-code-section {
+      margin-top: 2rem;
+    }
+    .det-code-section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #89b4fa;
+      margin-bottom: 0.75rem;
+    }
+  </style>
 </head>
 <body>
 
   <nav class="det-nav">
     <a href="index.html#projects" class="det-nav-back">← Projets</a>
-    <span class="det-nav-title">Stage 1ʳᵉ année — Développeur Web</span>
-    <span class="det-nav-badge det-nav-badge--stage">Stage · 2024</span>
+    <span class="det-nav-title">Stage 2ᵉ année — Développeur Web</span>
+    <span class="det-nav-badge det-nav-badge--stage">Stage · 2025</span>
   </nav>
 
   <main class="det-page">
@@ -31,13 +121,13 @@
     <!-- HERO -->
     <header class="det-hero">
       <div class="det-hero-meta">
-        <span class="det-hero-type det-hero-type--stage">Stage 1ʳᵉ année · 4 semaines</span>
-        <span class="det-hero-year">2024</span>
+        <span class="det-hero-type det-hero-type--stage">Stage 2ᵉ année · 4 semaines</span>
+        <span class="det-hero-year">2025</span>
         <span class="det-hero-status det-hero-status--done">Terminé</span>
       </div>
       <h1 class="det-hero-title">Stage · Développeur Web</h1>
       <p class="det-hero-subtitle">
-        Premier stage professionnel effectué en 1ʳᵉ année de BTS SIO. Développement d'un intranet
+        Deuxième stage professionnel effectué en 2ᵉ année de BTS SIO. Développement d'un intranet
         municipal pour la Ville de Saint-Saulve : authentification, gestion des utilisateurs,
         formulaire d'adhésion à l'amicale et espace documentaire, en PHP natif sans framework.
       </p>
@@ -95,6 +185,59 @@
         </figure>
 
       </div>
+
+      <!-- EXTRAIT 1 — Configuration PHPMailer -->
+      <div class="det-code-section">
+        <span class="det-code-section-label">Extrait de code</span>
+        <div class="det-code-block">
+          <div class="det-code-block-header">
+            <div class="det-code-block-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="det-code-block-filename">adhesion-amicale.php — Configuration PHPMailer</span>
+          </div>
+          <pre><code><span class="tok-comment">// Configuration de l'instance PHPMailer</span>
+<span class="tok-var">$mail</span> <span class="tok-op">=</span> <span class="tok-keyword">new</span> <span class="tok-func">PHPMailer</span><span class="tok-bracket">(</span><span class="tok-keyword">true</span><span class="tok-bracket">)</span>;
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-func">isSMTP</span><span class="tok-bracket">()</span>;                       <span class="tok-comment">// On utilise le protocole SMTP</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-prop">Host</span>       <span class="tok-op">=</span> <span class="tok-string">'postfix.man.cavm'</span>;   <span class="tok-comment">// Adresse du serveur de mail interne</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-prop">Port</span>       <span class="tok-op">=</span> <span class="tok-number">25</span>;                   <span class="tok-comment">// Port standard pour du SMTP local</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-prop">SMTPAuth</span>   <span class="tok-op">=</span> <span class="tok-keyword">false</span>;              <span class="tok-comment">// Pas d'authentification (réseau interne)</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-prop">SMTPAutoTLS</span> <span class="tok-op">=</span> <span class="tok-keyword">false</span>;             <span class="tok-comment">// TLS désactivé pour éviter les blocages</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-prop">CharSet</span>    <span class="tok-op">=</span> <span class="tok-string">'UTF-8'</span>;            <span class="tok-comment">// Encodage pour les accents (é, à, etc.)</span>
+<span class="tok-var">$mail</span><span class="tok-op">-></span><span class="tok-func">isHTML</span><span class="tok-bracket">(</span><span class="tok-keyword">true</span><span class="tok-bracket">)</span>;                   <span class="tok-comment">// Le corps du mail sera interprété en HTML</span></code></pre>
+          <div class="det-code-explain">
+            <p>La configuration repose ici sur le protocole <strong>SMTP</strong>, qui offre une bien meilleure fiabilité que la fonction native <code>mail()</code> de PHP, souvent bloquée ou redirigée en spam. Le serveur désigné (<code>postfix.man.cavm</code>) est un serveur de messagerie <strong>interne au réseau de la mairie</strong> : les machines du réseau local étant considérées de confiance, l'authentification et le chiffrement TLS sont inutiles et donc désactivés.</p>
+            <p>Activer <code>isHTML(true)</code> permet d'envoyer un mail avec une mise en forme structurée (titres, paragraphes, gras), tandis que le <code>CharSet UTF-8</code> garantit un affichage correct des caractères spécifiques au français.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTRAIT 2 — Requête préparée -->
+      <div class="det-code-section">
+        <span class="det-code-section-label">Extrait de code</span>
+        <div class="det-code-block">
+          <div class="det-code-block-header">
+            <div class="det-code-block-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="det-code-block-filename">adhesion-amicale.php — Insertion en base de données</span>
+          </div>
+          <pre><code><span class="tok-comment">// Préparation de la requête SQL avec des marqueurs (?)</span>
+<span class="tok-var">$sql</span> <span class="tok-op">=</span> <span class="tok-string">"INSERT INTO inscription_amicale (prenom, nom, service, email, telephone, paiement)
+        VALUES (?, ?, ?, ?, ?, ?)"</span>;
+
+<span class="tok-comment">// On prépare la requête pour la base de données</span>
+<span class="tok-var">$stmt</span> <span class="tok-op">=</span> <span class="tok-var">$pdo</span><span class="tok-op">-></span><span class="tok-func">prepare</span><span class="tok-bracket">(</span><span class="tok-var">$sql</span><span class="tok-bracket">)</span>;
+
+<span class="tok-comment">// On exécute la requête en injectant les variables nettoyées</span>
+<span class="tok-var">$stmt</span><span class="tok-op">-></span><span class="tok-func">execute</span><span class="tok-bracket">([</span><span class="tok-var">$prenom</span>, <span class="tok-var">$nom</span>, <span class="tok-var">$service</span>, <span class="tok-var">$email</span>, <span class="tok-var">$telephone</span>, <span class="tok-var">$paiement</span><span class="tok-bracket">]</span><span class="tok-bracket">)</span>;</code></pre>
+          <div class="det-code-explain">
+            <p>L'insertion utilise des <strong>requêtes préparées</strong>, identifiables par les marqueurs <code>?</code> dans la requête SQL. Cette technique est fondamentale en sécurité web : en séparant la structure SQL des données, on empêche tout utilisateur malveillant de manipuler la base en saisissant du code dans un champ du formulaire — c'est la protection de référence contre les <strong>injections SQL</strong>.</p>
+            <p>En amont de cette étape, les données sont également nettoyées : <code>trim()</code> supprime les espaces superflus et <code>filter_var()</code> vérifie que l'adresse e-mail respecte un format valide. Cette double vérification — forme puis fond — garantit que seules des données propres atteignent la base de données.</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- CONTEXTE -->
@@ -180,7 +323,7 @@
         <div class="det-stack-item"><span class="det-stack-item-name">MySQL</span><span class="det-stack-item-role">Base de données</span></div>
         <div class="det-stack-item"><span class="det-stack-item-name">HTML / CSS</span><span class="det-stack-item-role">Frontend</span></div>
         <div class="det-stack-item"><span class="det-stack-item-name">JavaScript</span><span class="det-stack-item-role">Interactivité</span></div>
-        <div class="det-stack-item"><span class="det-stack-item-name">Sessions PHP</span><span class="det-stack-item-role">Auth</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">PHPMailer</span><span class="det-stack-item-role">Emails</span></div>
         <div class="det-stack-item"><span class="det-stack-item-name">Git / GitHub</span><span class="det-stack-item-role">Versioning</span></div>
       </div>
     </section>
@@ -201,8 +344,8 @@
         <div class="det-challenge">
           <div class="det-challenge-title">Gestion des rôles utilisateurs</div>
           <div class="det-challenge-desc">
-            Implémenter un système de droits (utilisateur / administrateur, etc) sans m'a appris à sécuriser les accès manuellement et à penser les vérifications
-            à chaque point d'entrée de l'application.
+            Implémenter un système de droits (utilisateur / administrateur) m'a appris à sécuriser
+            les accès manuellement et à penser les vérifications à chaque point d'entrée de l'application.
           </div>
         </div>
         <div class="det-challenge det-challenge--purple">

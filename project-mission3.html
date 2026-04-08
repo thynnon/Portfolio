@@ -133,144 +133,363 @@
       <span class="det-section-label">Base de données</span>
       <h2 class="det-section-title">Schéma complet — GSB_total</h2>
 
-      <div class="det-db-diagram-wrap">
-        <!-- col1=x15 · col2=x315 · col3=x615 · gap 80px · tables 220px -->
-        <div class="det-db-diagram" style="width:900px;height:930px">
+      <style>
+        .gsb-mcd-wrap {
+          width: 100%;
+          overflow-x: auto;
+          border-radius: 14px;
+          background: #13151e;
+          border: 1px solid #2e3250;
+          padding: 24px 20px 20px;
+          margin-top: 1.5rem;
+          box-shadow: 0 6px 32px rgba(0,0,0,0.35);
+        }
+        .gsb-mcd-wrap svg {
+          display: block;
+          width: 100%;
+          height: auto;
+          min-width: 700px;
+        }
+      </style>
 
-          <!-- ── COL 1 ── -->
-
-          <!-- evaluation -->
-          <div class="det-db-tbl" data-table="evaluation" style="left:15px;top:15px">
-            <div class="det-db-tbl-head">evaluation</div>
-            <div class="det-db-tbl-col" data-col="id">         <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="praticien.id"><span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">note</span><span class="dbc-type">double</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">type_evaluateur</span><span class="dbc-type">varchar(10)</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_evaluation</span><span class="dbc-type">date</span></div>
-          </div>
-
-          <!-- userconge -->
-          <div class="det-db-tbl" data-table="userconge" style="left:15px;top:244px">
-            <div class="det-db-tbl-head">userconge</div>
-            <div class="det-db-tbl-col" data-col="id">         <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="praticien.id"><span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">praticien_id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_debut</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_fin</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">statut</span><span class="dbc-type">enum</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">text</span></div>
-            <div class="det-db-tbl-col">                        <span class="dbc-key"></span><span class="dbc-name">date_demande</span><span class="dbc-type">datetime</span></div>
-          </div>
-
-          <!-- congeutilisateur -->
-          <div class="det-db-tbl" data-table="congeutilisateur" style="left:15px;top:501px">
-            <div class="det-db-tbl-head">congeutilisateur</div>
-            <div class="det-db-tbl-col" data-col="idConge">          <span class="dbc-key">PK</span><span class="dbc-name">idConge</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="utilisateur.id">    <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">idUtilisateur</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                              <span class="dbc-key"></span><span class="dbc-name">etatConge</span><span class="dbc-type">enum</span></div>
-          </div>
-
-          <!-- v_praticiens (vue) -->
-          <div class="det-db-tbl" style="left:15px;top:646px">
-            <div class="det-db-tbl-head det-db-tbl-head--view">&#128065; v_praticiens</div>
-            <div class="det-db-tbl-col" style="padding:8px 10px;min-height:auto">
-              <span class="dbc-name" style="white-space:normal;font-size:0.72rem;color:var(--muted);line-height:1.5">Vue — JOIN praticien, calcul anciennete_calculee via TIMESTAMPDIFF. Exposée par l'API REST.</span>
-            </div>
-          </div>
-
-          <!-- ── COL 2 ── -->
-
-          <!-- praticien -->
-          <div class="det-db-tbl" data-table="praticien" style="left:315px;top:15px">
-            <div class="det-db-tbl-head">praticien</div>
-            <div class="det-db-tbl-col" data-col="id">                   <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">prenom</span><span class="dbc-type">varchar(60)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">date_embauche</span><span class="dbc-type">date</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">adresse</span><span class="dbc-type">varchar(100)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">coef_notoriete</span><span class="dbc-type">float</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
-            <div class="det-db-tbl-col" data-fk="type_praticien.code">   <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col" data-fk="ville.id">              <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_ville</span><span class="dbc-type">mediumint</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">username</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">conges_restant</span><span class="dbc-type">int</span></div>
-          </div>
-
-          <!-- grille_salariale -->
-          <div class="det-db-tbl" data-table="grille_salariale" style="left:315px;top:496px">
-            <div class="det-db-tbl-head">grille_salariale</div>
-            <div class="det-db-tbl-col" data-col="id">                   <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col" data-fk="type_praticien.code">   <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">code_type_praticien</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">echelon</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete_min</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">anciennete_max</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                                  <span class="dbc-key"></span><span class="dbc-name">salaire</span><span class="dbc-type">double</span></div>
-          </div>
-
-          <!-- utilisateur -->
-          <div class="det-db-tbl" data-table="utilisateur" style="left:315px;top:725px">
-            <div class="det-db-tbl-head">utilisateur</div>
-            <div class="det-db-tbl-col" data-col="id"><span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">mdp</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">isAdmin</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">commentaire</span><span class="dbc-type">varchar(250)</span></div>
-          </div>
-
-          <!-- ── COL 3 ── -->
-
-          <!-- type_praticien -->
-          <div class="det-db-tbl" data-table="type_praticien" style="left:615px;top:15px">
-            <div class="det-db-tbl-head">type_praticien</div>
-            <div class="det-db-tbl-col" data-col="code"><span class="dbc-key">PK</span><span class="dbc-name">code</span><span class="dbc-type">varchar(6)</span></div>
-            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">libelle</span><span class="dbc-type">varchar(50)</span></div>
-            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">lieu</span><span class="dbc-type">varchar(70)</span></div>
-            <div class="det-db-tbl-col">               <span class="dbc-key"></span><span class="dbc-name">type</span><span class="dbc-type">varchar(1)</span></div>
-          </div>
-
-          <!-- ville -->
-          <div class="det-db-tbl" data-table="ville" style="left:615px;top:188px">
-            <div class="det-db-tbl-head">ville</div>
-            <div class="det-db-tbl-col" data-col="id">           <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">mediumint</span></div>
-            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(45)</span></div>
-            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">code_postal</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">                          <span class="dbc-key"></span><span class="dbc-name">code_commune</span><span class="dbc-type">varchar(5)</span></div>
-            <div class="det-db-tbl-col" data-fk="departement.id"> <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_departement</span><span class="dbc-type">int</span></div>
-          </div>
-
-          <!-- departement -->
-          <div class="det-db-tbl" data-table="departement" style="left:615px;top:417px">
-            <div class="det-db-tbl-head">departement</div>
-            <div class="det-db-tbl-col" data-col="id">          <span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">int</span></div>
-            <div class="det-db-tbl-col">                         <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">                         <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col" data-fk="region.id">    <span class="dbc-key dbc-key--fk">FK</span><span class="dbc-name">id_region</span><span class="dbc-type">tinyint</span></div>
-          </div>
-
-          <!-- region -->
-          <div class="det-db-tbl" data-table="region" style="left:615px;top:590px">
-            <div class="det-db-tbl-head">region</div>
-            <div class="det-db-tbl-col" data-col="id"><span class="dbc-key">PK</span><span class="dbc-name">id</span><span class="dbc-type">tinyint</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">code</span><span class="dbc-type">varchar(3)</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">nom</span><span class="dbc-type">varchar(255)</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key"></span><span class="dbc-name">commune</span><span class="dbc-type">varchar(4)</span></div>
-            <div class="det-db-tbl-col">             <span class="dbc-key dbc-key--fk" style="color:var(--muted)">FK</span><span class="dbc-name" style="color:var(--muted)">id_ville</span><span class="dbc-type">&#8634; circ.</span></div>
-          </div>
-
-        </div>
+      <div class="gsb-mcd-wrap">
+<svg viewBox="0 0 860 1060" xmlns="http://www.w3.org/2000/svg" id="gsb-mcd">
+  <defs>
+    <style>
+      #gsb-mcd { font-family: 'JetBrains Mono','Fira Code',monospace; }
+      .tbl-bg       { fill: #1e2030; stroke: #3d4166; stroke-width: 1.2; }
+      .tbl-view     { fill: #1a1f2e; stroke: #4a3f6b; stroke-width: 1.2; stroke-dasharray: 5 3; }
+      .tbl-head-bg  { fill: #2a2d4a; }
+      .tbl-head-view{ fill: #2d2445; }
+      .tbl-title    { fill: #cdd6f4; font-size: 12px; font-weight: 700; text-anchor: middle; letter-spacing: .5px; }
+      .row-pk       { fill: rgba(251,191,36,0.08); }
+      .row-fk       { fill: rgba(129,140,248,0.08); }
+      .row-sep      { stroke: #2e3250; stroke-width: 0.8; }
+      .badge-pk     { fill: rgba(251,191,36,0.18); stroke: rgba(251,191,36,0.4); stroke-width:1; }
+      .badge-fk     { fill: rgba(129,140,248,0.18); stroke: rgba(129,140,248,0.4); stroke-width:1; }
+      .badge-txt    { fill: #cdd6f4; font-size: 8px; font-weight: 700; text-anchor: middle; }
+      .col-name     { fill: #cdd6f4; font-size: 11px; dominant-baseline: middle; }
+      .col-type     { fill: #6c7a96; font-size: 10px; text-anchor: end; dominant-baseline: middle; }
+      .fk-line      { fill:none; stroke:#7c85d4; stroke-width:1.6; stroke-dasharray: 6 3; opacity: 0.75; }
+      .fk-dot-start { fill:#7c85d4; opacity:0.9; }
+      .fk-arrow     { fill:#7c85d4; opacity:0.9; }
+      .view-desc    { fill: #6c7a96; font-size: 9px; }
+    </style>
+  </defs>
+  <!-- FK lines (drawn first, behind tables) -->
+  <path d="M 240 104 C 290 104 260 72 310 72" class="fk-line"/>
+    <circle cx="240" cy="104" r="3.5" class="fk-dot-start"/>
+    <polygon points="310,72 302,68 302,76" class="fk-arrow"/>
+    <path d="M 240 364 C 290 364 260 72 310 72" class="fk-line"/>
+    <circle cx="240" cy="364" r="3.5" class="fk-dot-start"/>
+    <polygon points="310,72 302,68 302,76" class="fk-arrow"/>
+    <path d="M 240 654 C 290 654 260 887 310 887" class="fk-line"/>
+    <circle cx="240" cy="654" r="3.5" class="fk-dot-start"/>
+    <polygon points="310,887 302,883 302,891" class="fk-arrow"/>
+    <path d="M 530 360 C 580 360 560 72 610 72" class="fk-line"/>
+    <circle cx="530" cy="360" r="3.5" class="fk-dot-start"/>
+    <polygon points="610,72 602,68 602,76" class="fk-arrow"/>
+    <path d="M 530 392 C 580 392 560 272 610 272" class="fk-line"/>
+    <circle cx="530" cy="392" r="3.5" class="fk-dot-start"/>
+    <polygon points="610,272 602,268 602,276" class="fk-arrow"/>
+    <path d="M 530 654 C 580 654 560 72 610 72" class="fk-line"/>
+    <circle cx="530" cy="654" r="3.5" class="fk-dot-start"/>
+    <polygon points="610,72 602,68 602,76" class="fk-arrow"/>
+    <path d="M 830 432 C 870 432 570 547 610 547" class="fk-line"/>
+    <circle cx="830" cy="432" r="3.5" class="fk-dot-start"/>
+    <polygon points="610,547 618,543 618,551" class="fk-arrow"/>
+    <path d="M 830 643 C 870 643 570 752 610 752" class="fk-line"/>
+    <circle cx="830" cy="643" r="3.5" class="fk-dot-start"/>
+    <polygon points="610,752 618,748 618,756" class="fk-arrow"/>
+  <!-- Tables -->
+  <rect x="20" y="20" width="220" height="228" rx="8" class="tbl-bg"/>
+  <rect x="20" y="20" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="20" y="52" width="220" height="4" class="tbl-head-bg"/>
+  <text x="130" y="42" class="tbl-title">evaluation</text>
+  <rect x="21" y="56" width="218" height="32" class="row-pk"/>
+  <line x1="20" y1="56" x2="240" y2="56" class="row-sep"/>
+  <rect x="26" y="64" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="36" y="76" class="badge-txt">PK</text>
+  <text x="52" y="77" class="col-name">id</text>
+  <text x="234" y="77" class="col-type">int</text>
+  <rect x="21" y="88" width="218" height="32" class="row-fk"/>
+  <line x1="20" y1="88" x2="240" y2="88" class="row-sep"/>
+  <rect x="26" y="96" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="36" y="108" class="badge-txt">FK</text>
+  <text x="52" y="109" class="col-name">praticien_id</text>
+  <text x="234" y="109" class="col-type">int</text>
+  <line x1="20" y1="120" x2="240" y2="120" class="row-sep"/>
+  <text x="52" y="141" class="col-name">note</text>
+  <text x="234" y="141" class="col-type">double</text>
+  <line x1="20" y1="152" x2="240" y2="152" class="row-sep"/>
+  <text x="52" y="173" class="col-name">commentaire</text>
+  <text x="234" y="173" class="col-type">varchar</text>
+  <line x1="20" y1="184" x2="240" y2="184" class="row-sep"/>
+  <text x="52" y="205" class="col-name">type_evaluateur</text>
+  <text x="234" y="205" class="col-type">varchar</text>
+  <line x1="20" y1="216" x2="240" y2="216" class="row-sep"/>
+  <text x="52" y="237" class="col-name">date_evaluation</text>
+  <text x="234" y="237" class="col-type">date</text>
+  <rect x="20" y="280" width="220" height="260" rx="8" class="tbl-bg"/>
+  <rect x="20" y="280" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="20" y="312" width="220" height="4" class="tbl-head-bg"/>
+  <text x="130" y="302" class="tbl-title">userconge</text>
+  <rect x="21" y="316" width="218" height="32" class="row-pk"/>
+  <line x1="20" y1="316" x2="240" y2="316" class="row-sep"/>
+  <rect x="26" y="324" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="36" y="336" class="badge-txt">PK</text>
+  <text x="52" y="337" class="col-name">id</text>
+  <text x="234" y="337" class="col-type">int</text>
+  <rect x="21" y="348" width="218" height="32" class="row-fk"/>
+  <line x1="20" y1="348" x2="240" y2="348" class="row-sep"/>
+  <rect x="26" y="356" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="36" y="368" class="badge-txt">FK</text>
+  <text x="52" y="369" class="col-name">praticien_id</text>
+  <text x="234" y="369" class="col-type">int</text>
+  <line x1="20" y1="380" x2="240" y2="380" class="row-sep"/>
+  <text x="52" y="401" class="col-name">date_debut</text>
+  <text x="234" y="401" class="col-type">date</text>
+  <line x1="20" y1="412" x2="240" y2="412" class="row-sep"/>
+  <text x="52" y="433" class="col-name">date_fin</text>
+  <text x="234" y="433" class="col-type">date</text>
+  <line x1="20" y1="444" x2="240" y2="444" class="row-sep"/>
+  <text x="52" y="465" class="col-name">statut</text>
+  <text x="234" y="465" class="col-type">enum</text>
+  <line x1="20" y1="476" x2="240" y2="476" class="row-sep"/>
+  <text x="52" y="497" class="col-name">commentaire</text>
+  <text x="234" y="497" class="col-type">text</text>
+  <line x1="20" y1="508" x2="240" y2="508" class="row-sep"/>
+  <text x="52" y="529" class="col-name">date_demande</text>
+  <text x="234" y="529" class="col-type">datetime</text>
+  <rect x="20" y="570" width="220" height="132" rx="8" class="tbl-bg"/>
+  <rect x="20" y="570" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="20" y="602" width="220" height="4" class="tbl-head-bg"/>
+  <text x="130" y="592" class="tbl-title">congeutilisateur</text>
+  <rect x="21" y="606" width="218" height="32" class="row-pk"/>
+  <line x1="20" y1="606" x2="240" y2="606" class="row-sep"/>
+  <rect x="26" y="614" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="36" y="626" class="badge-txt">PK</text>
+  <text x="52" y="627" class="col-name">idConge</text>
+  <text x="234" y="627" class="col-type">int</text>
+  <rect x="21" y="638" width="218" height="32" class="row-fk"/>
+  <line x1="20" y1="638" x2="240" y2="638" class="row-sep"/>
+  <rect x="26" y="646" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="36" y="658" class="badge-txt">FK</text>
+  <text x="52" y="659" class="col-name">idUtilisateur</text>
+  <text x="234" y="659" class="col-type">int</text>
+  <line x1="20" y1="670" x2="240" y2="670" class="row-sep"/>
+  <text x="52" y="691" class="col-name">etatConge</text>
+  <text x="234" y="691" class="col-type">enum</text>
+  <rect x="310" y="20" width="220" height="516" rx="8" class="tbl-bg"/>
+  <rect x="310" y="20" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="310" y="52" width="220" height="4" class="tbl-head-bg"/>
+  <text x="420" y="42" class="tbl-title">praticien</text>
+  <rect x="311" y="56" width="218" height="32" class="row-pk"/>
+  <line x1="310" y1="56" x2="530" y2="56" class="row-sep"/>
+  <rect x="316" y="64" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="326" y="76" class="badge-txt">PK</text>
+  <text x="342" y="77" class="col-name">id</text>
+  <text x="524" y="77" class="col-type">int</text>
+  <line x1="310" y1="88" x2="530" y2="88" class="row-sep"/>
+  <text x="342" y="109" class="col-name">nom</text>
+  <text x="524" y="109" class="col-type">varchar</text>
+  <line x1="310" y1="120" x2="530" y2="120" class="row-sep"/>
+  <text x="342" y="141" class="col-name">prenom</text>
+  <text x="524" y="141" class="col-type">varchar</text>
+  <line x1="310" y1="152" x2="530" y2="152" class="row-sep"/>
+  <text x="342" y="173" class="col-name">date_embauche</text>
+  <text x="524" y="173" class="col-type">date</text>
+  <line x1="310" y1="184" x2="530" y2="184" class="row-sep"/>
+  <text x="342" y="205" class="col-name">anciennete</text>
+  <text x="524" y="205" class="col-type">int</text>
+  <line x1="310" y1="216" x2="530" y2="216" class="row-sep"/>
+  <text x="342" y="237" class="col-name">echelon</text>
+  <text x="524" y="237" class="col-type">int</text>
+  <line x1="310" y1="248" x2="530" y2="248" class="row-sep"/>
+  <text x="342" y="269" class="col-name">adresse</text>
+  <text x="524" y="269" class="col-type">varchar</text>
+  <line x1="310" y1="280" x2="530" y2="280" class="row-sep"/>
+  <text x="342" y="301" class="col-name">coef_notoriete</text>
+  <text x="524" y="301" class="col-type">float</text>
+  <line x1="310" y1="312" x2="530" y2="312" class="row-sep"/>
+  <text x="342" y="333" class="col-name">salaire</text>
+  <text x="524" y="333" class="col-type">double</text>
+  <rect x="311" y="344" width="218" height="32" class="row-fk"/>
+  <line x1="310" y1="344" x2="530" y2="344" class="row-sep"/>
+  <rect x="316" y="352" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="326" y="364" class="badge-txt">FK</text>
+  <text x="342" y="365" class="col-name">code_type_praticien</text>
+  <text x="524" y="365" class="col-type">varchar</text>
+  <rect x="311" y="376" width="218" height="32" class="row-fk"/>
+  <line x1="310" y1="376" x2="530" y2="376" class="row-sep"/>
+  <rect x="316" y="384" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="326" y="396" class="badge-txt">FK</text>
+  <text x="342" y="397" class="col-name">id_ville</text>
+  <text x="524" y="397" class="col-type">mediumint</text>
+  <line x1="310" y1="408" x2="530" y2="408" class="row-sep"/>
+  <text x="342" y="429" class="col-name">username</text>
+  <text x="524" y="429" class="col-type">varchar</text>
+  <line x1="310" y1="440" x2="530" y2="440" class="row-sep"/>
+  <text x="342" y="461" class="col-name">mdp</text>
+  <text x="524" y="461" class="col-type">varchar</text>
+  <line x1="310" y1="472" x2="530" y2="472" class="row-sep"/>
+  <text x="342" y="493" class="col-name">commentaire</text>
+  <text x="524" y="493" class="col-type">varchar</text>
+  <line x1="310" y1="504" x2="530" y2="504" class="row-sep"/>
+  <text x="342" y="525" class="col-name">conges_restant</text>
+  <text x="524" y="525" class="col-type">int</text>
+  <rect x="310" y="570" width="220" height="228" rx="8" class="tbl-bg"/>
+  <rect x="310" y="570" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="310" y="602" width="220" height="4" class="tbl-head-bg"/>
+  <text x="420" y="592" class="tbl-title">grille_salariale</text>
+  <rect x="311" y="606" width="218" height="32" class="row-pk"/>
+  <line x1="310" y1="606" x2="530" y2="606" class="row-sep"/>
+  <rect x="316" y="614" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="326" y="626" class="badge-txt">PK</text>
+  <text x="342" y="627" class="col-name">id</text>
+  <text x="524" y="627" class="col-type">int</text>
+  <rect x="311" y="638" width="218" height="32" class="row-fk"/>
+  <line x1="310" y1="638" x2="530" y2="638" class="row-sep"/>
+  <rect x="316" y="646" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="326" y="658" class="badge-txt">FK</text>
+  <text x="342" y="659" class="col-name">code_type_praticien</text>
+  <text x="524" y="659" class="col-type">varchar</text>
+  <line x1="310" y1="670" x2="530" y2="670" class="row-sep"/>
+  <text x="342" y="691" class="col-name">echelon</text>
+  <text x="524" y="691" class="col-type">int</text>
+  <line x1="310" y1="702" x2="530" y2="702" class="row-sep"/>
+  <text x="342" y="723" class="col-name">anciennete_min</text>
+  <text x="524" y="723" class="col-type">int</text>
+  <line x1="310" y1="734" x2="530" y2="734" class="row-sep"/>
+  <text x="342" y="755" class="col-name">anciennete_max</text>
+  <text x="524" y="755" class="col-type">int</text>
+  <line x1="310" y1="766" x2="530" y2="766" class="row-sep"/>
+  <text x="342" y="787" class="col-name">salaire</text>
+  <text x="524" y="787" class="col-type">double</text>
+  <rect x="310" y="835" width="220" height="196" rx="8" class="tbl-bg"/>
+  <rect x="310" y="835" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="310" y="867" width="220" height="4" class="tbl-head-bg"/>
+  <text x="420" y="857" class="tbl-title">utilisateur</text>
+  <rect x="311" y="871" width="218" height="32" class="row-pk"/>
+  <line x1="310" y1="871" x2="530" y2="871" class="row-sep"/>
+  <rect x="316" y="879" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="326" y="891" class="badge-txt">PK</text>
+  <text x="342" y="892" class="col-name">id</text>
+  <text x="524" y="892" class="col-type">int</text>
+  <line x1="310" y1="903" x2="530" y2="903" class="row-sep"/>
+  <text x="342" y="924" class="col-name">nom</text>
+  <text x="524" y="924" class="col-type">varchar</text>
+  <line x1="310" y1="935" x2="530" y2="935" class="row-sep"/>
+  <text x="342" y="956" class="col-name">mdp</text>
+  <text x="524" y="956" class="col-type">varchar</text>
+  <line x1="310" y1="967" x2="530" y2="967" class="row-sep"/>
+  <text x="342" y="988" class="col-name">isAdmin</text>
+  <text x="524" y="988" class="col-type">int</text>
+  <line x1="310" y1="999" x2="530" y2="999" class="row-sep"/>
+  <text x="342" y="1020" class="col-name">commentaire</text>
+  <text x="524" y="1020" class="col-type">varchar</text>
+  <rect x="610" y="20" width="220" height="164" rx="8" class="tbl-bg"/>
+  <rect x="610" y="20" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="610" y="52" width="220" height="4" class="tbl-head-bg"/>
+  <text x="720" y="42" class="tbl-title">type_praticien</text>
+  <rect x="611" y="56" width="218" height="32" class="row-pk"/>
+  <line x1="610" y1="56" x2="830" y2="56" class="row-sep"/>
+  <rect x="616" y="64" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="626" y="76" class="badge-txt">PK</text>
+  <text x="642" y="77" class="col-name">code</text>
+  <text x="824" y="77" class="col-type">varchar</text>
+  <line x1="610" y1="88" x2="830" y2="88" class="row-sep"/>
+  <text x="642" y="109" class="col-name">libelle</text>
+  <text x="824" y="109" class="col-type">varchar</text>
+  <line x1="610" y1="120" x2="830" y2="120" class="row-sep"/>
+  <text x="642" y="141" class="col-name">lieu</text>
+  <text x="824" y="141" class="col-type">varchar</text>
+  <line x1="610" y1="152" x2="830" y2="152" class="row-sep"/>
+  <text x="642" y="173" class="col-name">type</text>
+  <text x="824" y="173" class="col-type">varchar</text>
+  <rect x="610" y="220" width="220" height="228" rx="8" class="tbl-bg"/>
+  <rect x="610" y="220" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="610" y="252" width="220" height="4" class="tbl-head-bg"/>
+  <text x="720" y="242" class="tbl-title">ville</text>
+  <rect x="611" y="256" width="218" height="32" class="row-pk"/>
+  <line x1="610" y1="256" x2="830" y2="256" class="row-sep"/>
+  <rect x="616" y="264" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="626" y="276" class="badge-txt">PK</text>
+  <text x="642" y="277" class="col-name">id</text>
+  <text x="824" y="277" class="col-type">mediumint</text>
+  <line x1="610" y1="288" x2="830" y2="288" class="row-sep"/>
+  <text x="642" y="309" class="col-name">nom</text>
+  <text x="824" y="309" class="col-type">varchar</text>
+  <line x1="610" y1="320" x2="830" y2="320" class="row-sep"/>
+  <text x="642" y="341" class="col-name">code_postal</text>
+  <text x="824" y="341" class="col-type">varchar</text>
+  <line x1="610" y1="352" x2="830" y2="352" class="row-sep"/>
+  <text x="642" y="373" class="col-name">commune</text>
+  <text x="824" y="373" class="col-type">varchar</text>
+  <line x1="610" y1="384" x2="830" y2="384" class="row-sep"/>
+  <text x="642" y="405" class="col-name">code_commune</text>
+  <text x="824" y="405" class="col-type">varchar</text>
+  <rect x="611" y="416" width="218" height="32" class="row-fk"/>
+  <line x1="610" y1="416" x2="830" y2="416" class="row-sep"/>
+  <rect x="616" y="424" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="626" y="436" class="badge-txt">FK</text>
+  <text x="642" y="437" class="col-name">id_departement</text>
+  <text x="824" y="437" class="col-type">int</text>
+  <rect x="610" y="495" width="220" height="164" rx="8" class="tbl-bg"/>
+  <rect x="610" y="495" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="610" y="527" width="220" height="4" class="tbl-head-bg"/>
+  <text x="720" y="517" class="tbl-title">departement</text>
+  <rect x="611" y="531" width="218" height="32" class="row-pk"/>
+  <line x1="610" y1="531" x2="830" y2="531" class="row-sep"/>
+  <rect x="616" y="539" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="626" y="551" class="badge-txt">PK</text>
+  <text x="642" y="552" class="col-name">id</text>
+  <text x="824" y="552" class="col-type">int</text>
+  <line x1="610" y1="563" x2="830" y2="563" class="row-sep"/>
+  <text x="642" y="584" class="col-name">code</text>
+  <text x="824" y="584" class="col-type">varchar</text>
+  <line x1="610" y1="595" x2="830" y2="595" class="row-sep"/>
+  <text x="642" y="616" class="col-name">nom</text>
+  <text x="824" y="616" class="col-type">varchar</text>
+  <rect x="611" y="627" width="218" height="32" class="row-fk"/>
+  <line x1="610" y1="627" x2="830" y2="627" class="row-sep"/>
+  <rect x="616" y="635" width="20" height="15" rx="3" class="badge-fk"/>
+  <text x="626" y="647" class="badge-txt">FK</text>
+  <text x="642" y="648" class="col-name">id_region</text>
+  <text x="824" y="648" class="col-type">tinyint</text>
+  <rect x="610" y="700" width="220" height="164" rx="8" class="tbl-bg"/>
+  <rect x="610" y="700" width="220" height="36" rx="8" class="tbl-head-bg"/>
+  <rect x="610" y="732" width="220" height="4" class="tbl-head-bg"/>
+  <text x="720" y="722" class="tbl-title">region</text>
+  <rect x="611" y="736" width="218" height="32" class="row-pk"/>
+  <line x1="610" y1="736" x2="830" y2="736" class="row-sep"/>
+  <rect x="616" y="744" width="20" height="15" rx="3" class="badge-pk"/>
+  <text x="626" y="756" class="badge-txt">PK</text>
+  <text x="642" y="757" class="col-name">id</text>
+  <text x="824" y="757" class="col-type">tinyint</text>
+  <line x1="610" y1="768" x2="830" y2="768" class="row-sep"/>
+  <text x="642" y="789" class="col-name">code</text>
+  <text x="824" y="789" class="col-type">varchar</text>
+  <line x1="610" y1="800" x2="830" y2="800" class="row-sep"/>
+  <text x="642" y="821" class="col-name">nom</text>
+  <text x="824" y="821" class="col-type">varchar</text>
+  <line x1="610" y1="832" x2="830" y2="832" class="row-sep"/>
+  <text x="642" y="853" class="col-name">commune</text>
+  <text x="824" y="853" class="col-type">varchar</text>
+  <rect x="20" y="730" width="220" height="86" rx="8" class="tbl-bg tbl-view"/>
+  <rect x="20" y="730" width="220" height="36" rx="8" class="tbl-head-bg tbl-head-view"/>
+  <rect x="20" y="762" width="220" height="4" class="tbl-head-view"/>
+  <text x="130" y="752" class="tbl-title">👁 v_praticiens</text>
+  <text x="30" y="782" class="view-desc">Vue SQL — JOIN praticien</text>
+  <text x="30" y="798" class="view-desc">anciennete_calculee (TIMESTAMPDIFF)</text>
+</svg>
       </div>
 
-      <div class="det-db-legend">
+      <div class="det-db-legend" style="margin-top:1rem">
         <span><span class="det-db-legend-dot" style="background:rgba(251,191,36,0.8)"></span>Clé primaire (PK)</span>
         <span><span class="det-db-legend-dot" style="background:rgba(129,140,248,0.8)"></span>Clé étrangère (FK)</span>
-        <span><span class="det-db-legend-dot" style="background:rgba(96,165,250,0.6);border-radius:0;width:16px;height:2px"></span>Relation FK&#8594;PK</span>
-        <span><span class="det-db-legend-dot" style="background:rgba(251,191,36,0.4)"></span>Vue SQL</span>
-        <span style="color:var(--muted);font-style:italic">&#8634; region.id_ville &#8594; ville (référence circulaire, non tracée)</span>
+        <span><span class="det-db-legend-dot" style="background:rgba(124,133,212,0.6);border-radius:0;width:16px;height:2px"></span>Relation FK→PK</span>
+        <span><span class="det-db-legend-dot" style="background:rgba(90,60,130,0.6);border:1px dashed rgba(130,100,200,0.5)"></span>Vue SQL</span>
       </div>
     </section>
 
