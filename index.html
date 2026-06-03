@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wassil Henni — Développeur web & mobile | Portfolio</title>
+  <meta name="description" content="Portfolio de Wassil Henni, développeur web & mobile en BTS SIO SLAM à Valenciennes. Projets en PHP, Laravel, JavaScript, React et MySQL.">
+  <meta name="author" content="Wassil Henni">
+  <meta name="theme-color" content="#0d0d12">
+  <link rel="canonical" href="https://thynnon.github.io/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wassil Henni — Développeur web & mobile">
+  <meta property="og:description" content="Développeur web & mobile en BTS SIO SLAM à Valenciennes. Projets en PHP, Laravel, JavaScript, React et MySQL.">
+  <meta property="og:image" content="https://thynnon.github.io/img/react.png">
+  <meta property="og:url" content="https://thynnon.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wassil Henni — Développeur web & mobile">
+  <meta name="twitter:description" content="Développeur web & mobile en BTS SIO SLAM à Valenciennes.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-github="thynnon">
+
+  <!-- ══ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-logo">&lt; /&gt;</div>
+    <div class="nav-links">
+      <button class="nav-link" data-target="avatar"   data-i18n="nav.profil">Profil</button>
+      <button class="nav-link" data-target="skills"   data-i18n="nav.skills">Compétences</button>
+      <button class="nav-link" data-target="projects"  data-i18n="nav.projects">Projets</button>
+      <button class="nav-link" data-target="contact"  data-i18n="nav.contact">Contact</button>
+    </div>
+    <div class="nav-controls">
+      <button id="nav-hamburger" class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <span id="nav-lang-badge" class="nav-lang-badge">FR</span>
+      <button id="settings-btn" title="Réglages" aria-label="Ouvrir les réglages">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ MOBILE NAV MENU ══════════════════════ -->
+  <div id="nav-mobile-menu" class="nav-mobile-menu" aria-hidden="true">
+    <button class="nav-link" data-target="avatar"  data-i18n="nav.profil">Profil</button>
+    <button class="nav-link" data-target="skills"  data-i18n="nav.skills">Compétences</button>
+    <button class="nav-link" data-target="projects" data-i18n="nav.projects">Projets</button>
+    <button class="nav-link" data-target="contact" data-i18n="nav.contact">Contact</button>
+  </div>
+
+  <!-- ══ SETTINGS PANEL ═══════════════════════ -->
+  <div id="settings-panel" class="settings-panel" aria-hidden="true">
+    <div class="settings-header">
+      <span data-i18n="settings.title">Réglages</span>
+      <button id="settings-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.lang">Langue</div>
+      <div class="lang-grid">
+        <button class="lang-opt active" data-lang="fr">Français</button>
+        <button class="lang-opt"        data-lang="en">English</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.theme">Apparence</div>
+      <div class="theme-toggle-row">
+        <button class="theme-opt"        id="theme-dark"  data-i18n="settings.dark"><i data-lucide="moon"></i> Sombre</button>
+        <button class="theme-opt active" id="theme-light" data-i18n="settings.light"><i data-lucide="sun"></i> Clair</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.animations">Animations</div>
+      <div class="theme-toggle-row">
+        <button class="anim-opt active" id="anim-on"  data-i18n="settings.anim.on">Activer</button>
+        <button class="anim-opt"        id="anim-off" data-i18n="settings.anim.off">Désactiver</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label" data-i18n="settings.fontsize">Taille du texte</div>
+      <div class="fontsize-row">
+        <button class="fs-opt" data-fs="12" style="font-size:0.62rem">A</button>
+        <button class="fs-opt active" data-fs="14" style="font-size:0.75rem">A</button>
+        <button class="fs-opt" data-fs="16" style="font-size:0.88rem">A</button>
+        <button class="fs-opt" data-fs="18" style="font-size:1rem">A</button>
+        <button class="fs-opt" data-fs="20" style="font-size:1.12rem">A</button>
+      </div>
+      <input type="range" id="fs-slider" min="11" max="22" value="14" step="1" class="fs-slider">
+    </div>
+  </div>
+  <div id="settings-backdrop" class="settings-backdrop"></div>
+
+  <!-- ══ TOAST ════════════════════════════════ -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ══ FULLSCREEN PANEL ═══════════════════════ -->
+  <div id="fullscreen-panel" class="fs-overlay hidden" role="dialog" aria-modal="true">
+    <div class="fs-chrome">
+      <button class="fs-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="fs-body" id="fs-body"></div>
+  </div>
+
+  <!-- ══ SITE MAIN ══════════════════════════════ -->
+  <main class="site-main">
+
+    <!-- HERO -->
+    <header class="s-hero" id="hero">
+      <div class="s-hero-name">
+        <h1>
+          <span class="hero-first">Wassil</span>
+          <span class="hero-last">Henni</span>
+        </h1>
+      </div>
+      <div class="s-hero-meta">
+        <p class="s-hero-role" data-i18n="hero.sub">Développeur web &amp; mobile</p>
+        <p class="s-hero-detail">BTS SIO SLAM · Valenciennes · 2026</p>
+        <div class="s-hero-status">
+          <span class="status-dot"></span>
+          <span data-i18n="status">En formation</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <div class="s-intro">
+      <p data-i18n="about.text">Passionné de dev web &amp; mobile, en 2ᵉ année de BTS SIO SLAM à Valenciennes. Curieux, autonome, toujours en train de coder.</p>
+    </div>
+
+    <!-- ── PROFIL ──────────────────────────────── -->
+    <section class="s-section s-section--profil" id="avatar">
+      <div class="profil-2col">
+
+        <!-- Parcours -->
+        <div class="profil-col">
+          <div class="s-label"><span data-i18n="profil.parcours">Parcours</span></div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2021–2024</span>
+                <span class="tl-title" data-i18n="tl.bac.title">Bac Général · SVT · Physique</span>
+                <span class="tl-sub">Lycée Antoine Watteau</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot--active"></div>
+              <div class="tl-content">
+                <span class="tl-date">2024–2026</span>
+                <span class="tl-title">BTS SIO · SLAM</span>
+                <span class="tl-sub">Lycée Henri Wallon · Valenciennes</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date" data-i18n="tl.stage1.date">2025 · 4 sem.</span>
+                <span class="tl-title" data-i18n="tl.stage1.title">Stage 1ʳᵉ année · Dev Web</span>
+                <span class="tl-sub">Mairie de Saint-Saulve</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date" data-i18n="tl.stage2.date">2026 · 6 sem.</span>
+                <span class="tl-title" data-i18n="tl.stage2.title">Stage 2ᵉ année · Dev Web</span>
+                <span class="tl-sub">Mairie de Saint-Saulve</span>
+              </div>
+            </div>
+          </div>
+          <button class="expand-btn text-btn" data-expand="timeline" data-i18n="common.fullscreen">Voir en plein écran →</button>
+        </div>
+
+        <!-- Certifications -->
+        <div class="profil-col">
+          <div class="s-label"><span data-i18n="about.tab.certs">Certifications</span></div>
+          <div class="certs-scroll">
+            <div class="cert-cat">
+              <div class="cert-item">
+                <div class="cert-left"><span class="cert-name">Pix</span><span class="cert-org">GIP Pix · pix.fr</span></div>
+                <div class="cert-right"><span class="cert-date">2025</span><span class="cert-badge cert-ok">✓</span></div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-left"><span class="cert-name">SecNumAcadémie</span><span class="cert-org">ANSSI</span></div>
+                <div class="cert-right"><span class="cert-date">2024</span><span class="cert-badge cert-ok">✓</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="expand-btn text-btn" data-expand="certs" data-i18n="common.fullscreen">Voir en plein écran →</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── COMPÉTENCES ─────────────────────────── -->
+    <section class="s-section" id="skills">
+      <div class="s-label"><span data-i18n="skills.label">Compétences</span></div>
+      <div class="skills-grid">
+        <div class="sk-block">
+          <span class="sk-num">01</span>
+          <span class="sk-head">Front-end</span>
+          <div class="sk-tags">
+            <span>HTML &amp; CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+          </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">02</span>
+          <span class="sk-head">Back-end</span>
+          <div class="sk-tags">
+            <span>PHP</span>
+            <span>Laravel</span>
+            <span>Node.js</span>
+            <span>APIs REST</span>
+          </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">03</span>
+          <span class="sk-head" data-i18n="sk.db.head">Base de données</span>
+          <div class="sk-tags">
+            <span>MySQL</span>
+            <span>Modélisation</span>
+            <span>Requêtes</span>
+          </div>
+        </div>
+        <div class="sk-block">
+          <span class="sk-num">04</span>
+          <span class="sk-head" data-i18n="sk.tools.head">Outils</span>
+          <div class="sk-tags">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Linux</span>
+          </div>
+        </div>
+      </div>
+      <div class="stack-section">
+        <div class="s-label"><span data-i18n="stack.label">Stack</span></div>
+        <div class="stack-grid">
+          <div class="stack-item"><img src="img/HTML5.png" alt="HTML5"><span>HTML</span></div>
+          <div class="stack-item"><img src="img/CSS3.png" alt="CSS3"><span>CSS</span></div>
+          <div class="stack-item"><img src="img/js.webp" alt="JavaScript"><span>JS</span></div>
+          <div class="stack-item"><img src="img/react.png" alt="React"><span>React</span></div>
+          <div class="stack-item"><img src="img/php.png" alt="PHP"><span>PHP</span></div>
+          <div class="stack-item"><img src="img/laravel.png" alt="Laravel"><span>Laravel</span></div>
+          <div class="stack-item"><img src="img/MySQL.svg" alt="MySQL"><span>MySQL</span></div>
+          <div class="stack-item"><img src="img/github.png" alt="Git"><span>Git</span></div>
+          <div class="stack-item"><img src="img/angular.webp" alt="Angular"><span>Angular</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ACTIVITÉ GITHUB ──────────────────────── -->
+    <section class="s-section s-stats">
+      <div class="s-label"><span data-i18n="stats.label">Activité GitHub</span></div>
+      <div class="stats-center">
+        <div class="heatmap-wrap">
+          <div class="heatmap-days">
+            <span></span><span>L</span><span></span><span>M</span><span></span><span>V</span><span></span>
+          </div>
+          <div class="commit-grid" id="commit-grid"></div>
+        </div>
+        <div class="heatmap-footer">
+          <div class="heatmap-legend">
+            <span class="legend-txt" data-i18n="stats.less">Moins</span>
+            <div class="legend-cells">
+              <div class="commit-cell"></div>
+              <div class="commit-cell lv1"></div>
+              <div class="commit-cell lv2"></div>
+              <div class="commit-cell lv3"></div>
+              <div class="commit-cell lv4"></div>
+            </div>
+            <span class="legend-txt" data-i18n="stats.more">Plus</span>
+          </div>
+          <span class="stats-inline" id="stats-inline"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ──────────────────────────────── -->
+    <footer class="s-section s-contact" id="contact">
+      <div class="s-label"><span data-i18n="contact.label">Contact</span></div>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="contact-row" id="email-copy" title="Copier l'adresse" style="cursor:pointer">
+            <span class="contact-row-label" data-i18n="contact.email">Email</span>
+            <span class="contact-row-val">wassil.henni@gmail.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label" data-i18n="contact.phone">Tél.</span>
+            <a class="contact-row-val" href="tel:+33782675552">07 82 67 55 52</a>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="https://github.com/thynnon" target="_blank" class="btn-social">GitHub</a>
+          <a href="https://www.linkedin.com/in/wassil-henni-5b942834b/" target="_blank" class="btn-social">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ══ PROJETS ═══════════════════════════════════ -->
+  <section class="projects-section" id="projects">
+    <div class="projects-section-hd">
+      <span class="projects-section-dot"></span>
+      <h2 class="projects-section-title" data-i18n="proj.title">Projets</h2>
+      <div class="projects-section-line"></div>
+    </div>
+
+    <!-- ── ÉCOLE ───────────────────────────────── -->
+    <div class="showcase-cat">
+      <div class="showcase-cat-hd">
+        <span class="showcase-cat-icon"><i data-lucide="graduation-cap"></i></span>
+        <h3 class="showcase-cat-title" data-i18n="cat.school.title">Formation</h3>
+        <span class="showcase-cat-sub" data-i18n="cat.school.sub">BTS SIO · SLAM — Henri Wallon</span>
+      </div>
+
+      <div class="showcase" data-showcase>
+        <button class="showcase-prev" aria-label="Précédent">‹</button>
+        <button class="showcase-next" aria-label="Suivant">›</button>
+        <div class="showcase-viewport">
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_gestion_conges.svg" alt="Bannière du projet Gestion des congés" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type">AP Mission 1</span>
+                  <span class="showcase-year">2025</span>
+                </div>
+                <h3 class="showcase-title" data-i18n="proj.conges.title">Gestion des congés</h3>
+                <p class="showcase-desc" data-i18n="proj.conges.desc">Application C# de gestion de congés — dashboard temps réel.</p>
+                <div class="showcase-feats"><span data-i18n="feat.dashboard">Dashboard</span><span data-i18n="feat.usermgmt">Gestion Utilisateur</span></div>
+                <div class="showcase-tags"><span>C#</span><span>.NET</span><span>MySQL</span></div>
+                <div class="showcase-links">
+
+                  <a href="project-mission1.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_gestion_salaires.svg" alt="Bannière du projet Gestion des salaires" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type">AP Mission 2</span>
+                  <span class="showcase-year">2025</span>
+                </div>
+                <h3 class="showcase-title" data-i18n="proj.salaires.title">Gestion des salaires</h3>
+                <p class="showcase-desc" data-i18n="proj.salaires.desc">Application web de gestion des salaires — dashboard temps réel, calculs automatiques, filtres de recherche, statistiques.</p>
+                <div class="showcase-feats"><span data-i18n="feat.dashboard">Dashboard</span><span data-i18n="feat.autocalc">Calculs auto</span><span data-i18n="feat.filters">Filtres</span><span data-i18n="feat.stats">Statistiques</span><span data-i18n="feat.roles">Rôles</span></div>
+                <div class="showcase-tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>API REST</span></div>
+                <div class="showcase-links">
+
+                  <a href="project-mission2.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_notes_praticiens.svg" alt="Bannière du projet Notes des praticiens" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type">AP Mission 3</span>
+                  <span class="showcase-year">2026</span>
+                </div>
+                <h3 class="showcase-title" data-i18n="proj.notes.title">Notes des praticiens</h3>
+                <p class="showcase-desc" data-i18n="proj.notes.desc">Application mobile pour noter les praticiens et consulter leurs commentaires.</p>
+                <div class="showcase-feats"><span data-i18n="feat.ratings">Notes</span><span data-i18n="feat.comments">Commentaires</span><span data-i18n="feat.dashboard">Dashboard</span></div>
+                <div class="showcase-tags"><span>Dart</span><span>Flutter</span><span>MySQL</span><span>API REST</span></div>
+                <div class="showcase-links">
+
+                  <a href="project-mission3.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="showcase-progress">
+          <div class="showcase-pips"></div>
+          <span class="showcase-counter"><span class="showcase-counter-current">1</span> / 3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STAGE ───────────────────────────────── -->
+    <div class="showcase-cat">
+      <div class="showcase-cat-hd">
+        <span class="showcase-cat-icon"><i data-lucide="building-2"></i></span>
+        <h3 class="showcase-cat-title" data-i18n="cat.pro.title">Professionnel</h3>
+        <span class="showcase-cat-sub" data-i18n="cat.pro.sub">Expériences en entreprise</span>
+      </div>
+
+      <div class="showcase" data-showcase>
+        <button class="showcase-prev" aria-label="Précédent">‹</button>
+        <button class="showcase-next" aria-label="Suivant">›</button>
+        <div class="showcase-viewport">
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_stage1.svg" alt="Bannière du stage 1 — Développeur Web" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type showcase-type--stage" data-i18n="proj.stage1.type">Stage · 4 sem.</span>
+                  <span class="showcase-year">2025</span>
+                </div>
+                <h3 class="showcase-title" data-i18n="proj.stage1.title">Stage · Développeur Web</h3>
+                <p class="showcase-desc" data-i18n="proj.stage1.desc">Développement d'un intranet interne en entreprise — gestion des actualités, dashboard et site dynamique.</p>
+                <div class="showcase-feats"><span data-i18n="feat.dashboard">Dashboard</span><span data-i18n="feat.news">Actualités</span><span data-i18n="feat.dynsite">Site Dynamique</span></div>
+                <div class="showcase-tags"><span>PHP</span><span>JavaScript</span><span>MySQL</span></div>
+                <div class="showcase-links">
+                  <a href="project-stage1.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_stage2.svg" alt="Bannière du stage 2 — Développeur Full-Stack" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type showcase-type--stage" data-i18n="proj.stage2.type">Stage · 6 sem.</span>
+                  <span class="showcase-year">2026</span>
+                </div>
+                <h3 class="showcase-title" data-i18n="proj.stage2.title">Stage · Développeur Full-Stack</h3>
+                <p class="showcase-desc" data-i18n="proj.stage2.desc">Conception et déploiement d'un intranet complet — de la modélisation BDD au déploiement.</p>
+                <div class="showcase-feats"><span data-i18n="feat.tests">Tests</span><span data-i18n="feat.deploy">Déploiement</span><span data-i18n="feat.docs">Documentation</span></div>
+                <div class="showcase-tags"><span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML</span><span>CSS</span></div>
+                <div class="showcase-links">
+                  <a href="project-stage2.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="showcase-progress">
+          <div class="showcase-pips"></div>
+          <span class="showcase-counter"><span class="showcase-counter-current">1</span> / 2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PERSO ───────────────────────────────── -->
+    <div class="showcase-cat">
+      <div class="showcase-cat-hd">
+        <span class="showcase-cat-icon"><i data-lucide="zap"></i></span>
+        <h3 class="showcase-cat-title" data-i18n="cat.perso.title">Perso</h3>
+        <span class="showcase-cat-sub" data-i18n="cat.perso.sub">Projets personnels</span>
+      </div>
+
+      <div class="showcase" data-showcase>
+        <button class="showcase-prev" aria-label="Précédent">‹</button>
+        <button class="showcase-next" aria-label="Suivant">›</button>
+        <div class="showcase-viewport">
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_todoapp.svg" alt="Bannière du projet ToDoApp" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type" data-i18n="proj.perso.type">Projet Personnel</span>
+                  <span class="showcase-year">2024</span>
+                </div>
+                <h3 class="showcase-title">ToDoAPP</h3>
+                <p class="showcase-desc" data-i18n="proj.todo.desc">Projet web et mobile pour une To-Do List &amp; un gestionnaire de projets.</p>
+                <div class="showcase-feats"><span data-i18n="feat.realtime">Temps réel</span><span data-i18n="feat.dashboard">Dashboard</span><span data-i18n="feat.db">BDD</span></div>
+                <div class="showcase-tags"><span>JS</span><span>JSON</span><span>CSS</span></div>
+                <div class="showcase-links">
+
+                  <a href="project-taskflow.html" class="sl-detail" data-i18n="common.details">Voir détails →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div class="showcase-card">
+              <div class="showcase-images">
+                <img src="img/banniere_mpgmotors.svg" alt="Bannière du projet MPG Motors" loading="lazy">
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-top">
+                  <span class="showcase-type" data-i18n="proj.perso.type">Projet Personnel</span>
+                  <span class="showcase-year">2026</span>
+                </div>
+                <h3 class="showcase-title">MPG Motors</h3>
+                <p class="showcase-desc" data-i18n="proj.mpg.desc">Site vitrine pour une concession automobile — catalogue de véhicules, filtres de recherche et formulaire de contact.</p>
+                <div class="showcase-feats"><span data-i18n="feat.catalog">Catalogue</span><span data-i18n="feat.filters">Filtres</span><span data-i18n="feat.contact">Contact</span></div>
+                <div class="showcase-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                <div class="showcase-links">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="showcase-progress">
+          <div class="showcase-pips"></div>
+          <span class="showcase-counter"><span class="showcase-counter-current">1</span> / 2</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

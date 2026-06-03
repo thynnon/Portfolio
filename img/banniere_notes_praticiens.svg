@@ -1,0 +1,68 @@
+<svg width="100%" viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip3">
+      <rect width="680" height="220" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="220" rx="16" fill="#E8F5F0" style="fill:rgb(232, 245, 240);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Decorative circles -->
+  <circle cx="580" cy="40" r="90" fill="#C8E8DC" opacity="0.7" style="fill:rgb(200, 232, 220);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="620" cy="190" r="60" fill="#A0D4BC" opacity="0.5" style="fill:rgb(160, 212, 188);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="30" cy="200" r="70" fill="#C8E8DC" opacity="0.4" style="fill:rgb(200, 232, 220);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Left accent bar -->
+  <rect x="40" y="52" width="4" height="116" rx="2" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Badge -->
+  <rect x="56" y="52" width="120" height="24" rx="6" fill="#B8DDD0" style="fill:rgb(184, 221, 208);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="116" y="68" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="500" fill="#0F6E56" style="fill:rgb(15, 110, 86);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:auto">AP Mission 3 · 2026</text>
+
+  <!-- Title -->
+  <text x="56" y="112" font-family="sans-serif" font-size="30" font-weight="600" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:30px;font-weight:600;text-anchor:start;dominant-baseline:auto">Notes des praticiens</text>
+
+  <!-- Subtitle -->
+  <text x="56" y="140" font-family="sans-serif" font-size="15" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:15px;font-weight:400;text-anchor:start;dominant-baseline:auto">Flutter · Dart · MySQL · API REST</text>
+
+  <!-- Tags -->
+  <rect x="56" y="158" width="52" height="24" rx="6" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="82" y="174" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Notes</text>
+
+  <rect x="116" y="158" width="84" height="24" rx="6" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="158" y="174" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Commentaires</text>
+
+  <rect x="208" y="158" width="72" height="24" rx="6" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="244" y="174" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Dashboard</text>
+
+  <rect x="288" y="158" width="52" height="24" rx="6" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="314" y="174" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Mobile</text>
+
+  <!-- Right side: fake mobile card -->
+  <rect x="450" y="22" width="130" height="176" rx="16" fill="white" opacity="0.9" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Phone top bar -->
+  <rect x="450" y="22" width="130" height="38" rx="16" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="450" y="42" width="130" height="18" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="515" y="46" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="500" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Praticiens</text>
+
+  <!-- Fake practitioner card 1 -->
+  <rect x="462" y="70" width="106" height="40" rx="8" fill="#E8F5F0" style="fill:rgb(232, 245, 240);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="478" cy="90" r="10" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="478" y="94" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:9px;font-weight:500;text-anchor:middle;dominant-baseline:auto">DR</text>
+  <text x="494" y="85" font-family="sans-serif" font-size="10" font-weight="500" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:start;dominant-baseline:auto">Dr. Renaud</text>
+  <!-- Stars -->
+  <text x="494" y="100" font-family="sans-serif" font-size="9" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">★★★★☆</text>
+
+  <!-- Fake practitioner card 2 -->
+  <rect x="462" y="118" width="106" height="40" rx="8" fill="#E8F5F0" style="fill:rgb(232, 245, 240);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="478" cy="138" r="10" fill="#9FE1CB" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="478" y="142" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="500" fill="#04342C" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:9px;font-weight:500;text-anchor:middle;dominant-baseline:auto">ML</text>
+  <text x="494" y="133" font-family="sans-serif" font-size="10" font-weight="500" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:start;dominant-baseline:auto">Dr. Martin</text>
+  <text x="494" y="148" font-family="sans-serif" font-size="9" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">★★★★★</text>
+
+  <!-- Bottom nav bar -->
+  <rect x="462" y="166" width="106" height="24" rx="6" fill="#B8DDD0" style="fill:rgb(184, 221, 208);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="515" y="182" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">+ Ajouter un avis</text>
+</svg>

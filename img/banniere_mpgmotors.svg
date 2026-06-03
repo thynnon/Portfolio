@@ -1,0 +1,151 @@
+<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f78166"/>
+      <stop offset="100%" style="stop-color:#ff9580"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#21262d"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="url(#bg4)"/>
+
+  <!-- Floor line -->
+  <line x1="0" y1="350" x2="900" y2="350" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Spotlight effect from top right -->
+  <radialGradient id="spot" cx="75%" cy="0%" r="60%">
+    <stop offset="0%" style="stop-color:#f78166;stop-opacity:0.06"/>
+    <stop offset="100%" style="stop-color:#0d1117;stop-opacity:0"/>
+  </radialGradient>
+  <rect width="900" height="400" fill="url(#spot)"/>
+
+  <!-- Left bar -->
+  <rect x="0" y="0" width="4" height="400" fill="url(#accent4)"/>
+
+  <text x="24" y="38" fill="#3d444d" font-size="11" letter-spacing="2">// PROJET PERSONNEL · 2026</text>
+
+  <!-- Car silhouette (right) -->
+  <!-- Ground shadow -->
+  <ellipse cx="680" cy="340" rx="180" ry="12" fill="#000" opacity="0.5"/>
+
+  <!-- Car body - sedan shape -->
+  <!-- Main body -->
+  <path d="M500,305 L520,305 L530,270 L560,245 L720,240 L760,265 L820,270 L840,290 L840,310 L820,310 L810,320 Q800,332 782,332 Q764,332 754,320 L590,320 Q582,332 564,332 Q546,332 536,320 L520,310 Z" fill="#1c2126" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Windshield -->
+  <path d="M588,248 L614,248 L618,270 L576,270 Z" fill="#0d2137" stroke="#30363d" stroke-width="1" opacity="0.8"/>
+  <!-- Rear window -->
+  <path d="M638,248 L710,248 L722,268 L634,268 Z" fill="#0d2137" stroke="#30363d" stroke-width="1" opacity="0.8"/>
+
+  <!-- Roof -->
+  <path d="M560,248 L574,248 L572,270 L536,270 Z" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+
+  <!-- Hood detail -->
+  <line x1="720" y1="250" x2="760" y2="268" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Front headlight -->
+  <rect x="822" y="274" width="18" height="10" rx="2" fill="#d29922" opacity="0.8" filter="url(#glow4)"/>
+  <rect x="822" y="274" width="18" height="10" rx="2" fill="none" stroke="#f0c040" stroke-width="0.5"/>
+  <!-- Headlight beam -->
+  <polygon points="840,276 880,260 880,290 840,282" fill="#d29922" opacity="0.08"/>
+
+  <!-- Rear light -->
+  <rect x="502" y="276" width="16" height="22" rx="2" fill="#f78166" opacity="0.7" filter="url(#glow4)"/>
+
+  <!-- Front wheel -->
+  <circle cx="786" cy="325" r="20" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <circle cx="786" cy="325" r="12" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <circle cx="786" cy="325" r="4" fill="#21262d"/>
+  <!-- Spokes -->
+  <line x1="786" y1="313" x2="786" y2="337" stroke="#3d444d" stroke-width="1.5"/>
+  <line x1="774" y1="325" x2="798" y2="325" stroke="#3d444d" stroke-width="1.5"/>
+  <line x1="778" y1="317" x2="794" y2="333" stroke="#3d444d" stroke-width="1"/>
+  <line x1="778" y1="333" x2="794" y2="317" stroke="#3d444d" stroke-width="1"/>
+
+  <!-- Rear wheel -->
+  <circle cx="558" cy="325" r="20" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <circle cx="558" cy="325" r="12" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <circle cx="558" cy="325" r="4" fill="#21262d"/>
+  <line x1="558" y1="313" x2="558" y2="337" stroke="#3d444d" stroke-width="1.5"/>
+  <line x1="546" y1="325" x2="570" y2="325" stroke="#3d444d" stroke-width="1.5"/>
+  <line x1="550" y1="317" x2="566" y2="333" stroke="#3d444d" stroke-width="1"/>
+  <line x1="550" y1="333" x2="566" y2="317" stroke="#3d444d" stroke-width="1"/>
+
+  <!-- Door line -->
+  <path d="M545,270 L545,308" fill="none" stroke="#21262d" stroke-width="1"/>
+  <path d="M660,270 L660,310" fill="none" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Car label -->
+  <text x="660" y="232" fill="#f78166" font-size="9" text-anchor="middle" letter-spacing="3" filter="url(#glow4)">MPG MOTORS · PREMIUM</text>
+
+  <!-- UI card overlaid -->
+  <rect x="490" y="88" width="190" height="130" rx="6" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="503" y="106" fill="#3d444d" font-size="8" letter-spacing="1">CATALOGUE</text>
+  <line x1="503" y1="111" x2="668" y2="111" stroke="#21262d" stroke-width="0.5"/>
+  <!-- Filter row -->
+  <rect x="503" y="117" width="42" height="14" rx="3" fill="#1c2128" stroke="#f78166" stroke-width="1"/>
+  <text x="524" y="128" fill="#f78166" font-size="7" text-anchor="middle">Berline</text>
+  <rect x="550" y="117" width="38" height="14" rx="3" fill="#1c2128"/>
+  <text x="569" y="128" fill="#3d444d" font-size="7" text-anchor="middle">SUV</text>
+  <rect x="593" y="117" width="44" height="14" rx="3" fill="#1c2128"/>
+  <text x="615" y="128" fill="#3d444d" font-size="7" text-anchor="middle">Coupé</text>
+  <rect x="642" y="117" width="22" height="14" rx="3" fill="#1c2128"/>
+  <text x="653" y="128" fill="#3d444d" font-size="7" text-anchor="middle">+</text>
+  <!-- Car cards -->
+  <rect x="503" y="137" width="78" height="68" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="503" y="137" width="78" height="36" rx="4" fill="#1c2128"/>
+  <rect x="503" y="159" width="78" height="14" fill="#1c2128"/>
+  <text x="542" y="155" fill="#f78166" font-size="14" text-anchor="middle">🚗</text>
+  <text x="512" y="183" fill="#f0f6fc" font-size="7" font-weight="bold">Modèle A</text>
+  <text x="512" y="193" fill="#d29922" font-size="7">24 900 €</text>
+  <rect x="503" y="198" width="78" height="3" rx="1" fill="#f78166" opacity="0.4"/>
+  <rect x="503" y="198" width="52" height="3" rx="1" fill="#f78166"/>
+
+  <rect x="587" y="137" width="78" height="68" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="587" y="137" width="78" height="36" rx="4" fill="#1c2128"/>
+  <rect x="587" y="159" width="78" height="14" fill="#1c2128"/>
+  <text x="626" y="155" fill="#58a6ff" font-size="14" text-anchor="middle">🚙</text>
+  <text x="596" y="183" fill="#f0f6fc" font-size="7" font-weight="bold">Modèle B</text>
+  <text x="596" y="193" fill="#d29922" font-size="7">38 500 €</text>
+  <rect x="587" y="198" width="78" height="3" rx="1" fill="#58a6ff" opacity="0.4"/>
+  <rect x="587" y="198" width="60" height="3" rx="1" fill="#58a6ff"/>
+
+  <!-- Left panel -->
+  <text x="24" y="90" fill="#f0f6fc" font-size="42" font-weight="900" letter-spacing="-2">MPG</text>
+  <text x="24" y="132" fill="#f0f6fc" font-size="42" font-weight="900" letter-spacing="-2">MOTORS</text>
+  <rect x="24" y="145" width="120" height="3" fill="url(#accent4)"/>
+
+  <text x="24" y="175" fill="#3d444d" font-size="12">Site vitrine · Concession Auto</text>
+
+  <!-- Badges -->
+  <rect x="24" y="192" width="50" height="22" rx="11" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="49" y="207" fill="#a8d5a2" font-size="10" text-anchor="middle">HTML</text>
+  <rect x="80" y="192" width="38" height="22" rx="11" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="99" y="207" fill="#79c0ff" font-size="10" text-anchor="middle">CSS</text>
+  <rect x="124" y="192" width="30" height="22" rx="11" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="139" y="207" fill="#e6db74" font-size="10" text-anchor="middle">JS</text>
+
+  <!-- Features -->
+  <text x="24" y="252" fill="#3d444d" font-size="10" letter-spacing="1">FONCTIONNALITÉS</text>
+  <text x="24" y="274" fill="#f78166" font-size="12">→</text>
+  <text x="40" y="274" fill="#8b949e" font-size="12">Catalogue véhicules</text>
+  <text x="24" y="294" fill="#f78166" font-size="12">→</text>
+  <text x="40" y="294" fill="#8b949e" font-size="12">Filtres de recherche</text>
+  <text x="24" y="314" fill="#f78166" font-size="12">→</text>
+  <text x="40" y="314" fill="#8b949e" font-size="12">Formulaire de contact</text>
+
+  <text x="24" y="378" fill="#21262d" font-size="10">Projet personnel · 2026</text>
+  <text x="876" y="378" fill="#21262d" font-size="10" text-anchor="end">HTML · CSS · JS</text>
+</svg>

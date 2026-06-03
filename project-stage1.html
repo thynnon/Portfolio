@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function(){
+      var t  = localStorage.getItem("theme")    || "light";
+      var p  = localStorage.getItem("palette")  || "cyber";
+      var fs = localStorage.getItem("fontSize");
+      document.documentElement.dataset.theme   = t;
+      document.documentElement.dataset.palette = p;
+      if(fs) document.documentElement.style.fontSize = fs + "px";
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 1 — Développeur Web – Wassil Henni</title>
+  <meta name="description" content="Stage de 1ʳᵉ année (4 semaines) à la Mairie de Saint-Saulve : développement d'un intranet en PHP / JavaScript / MySQL — actualités et dashboard.">
+  <meta name="theme-color" content="#0d0d12">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Stage Développeur Web — Mairie de Saint-Saulve">
+  <meta property="og:image" content="https://thynnon.github.io/img/banniere_stage1.svg">
+  <link rel="stylesheet" href="css/project-detail.css">
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ── Code block ── */
+    .det-code-block {
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+      font-size: 0.88rem;
+    }
+    .det-code-block-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #1a1d23;
+      padding: 0.65rem 1.1rem;
+      border-bottom: 1px solid #2e323c;
+    }
+    .det-code-block-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .det-code-block-dots span {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .det-code-block-dots span:nth-child(1) { background: #ff5f57; }
+    .det-code-block-dots span:nth-child(2) { background: #febc2e; }
+    .det-code-block-dots span:nth-child(3) { background: #28c840; }
+    .det-code-block-filename {
+      margin-left: 0.4rem;
+      color: #8b93a7;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .det-code-block pre {
+      margin: 0;
+      padding: 1.4rem 1.4rem 1.5rem;
+      background: #13151a;
+      overflow-x: auto;
+      line-height: 1.75;
+    }
+    .det-code-block code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.84rem;
+      color: #cdd6f4;
+    }
+    /* Syntax colors */
+    .tok-comment  { color: #6c7a96; font-style: italic; }
+    .tok-keyword  { color: #cba6f7; }
+    .tok-var      { color: #89dceb; }
+    .tok-string   { color: #a6e3a1; }
+    .tok-func     { color: #89b4fa; }
+    .tok-bracket  { color: #f38ba8; }
+    .tok-number   { color: #fab387; }
+    .tok-op       { color: #94e2d5; }
+
+    /* ── Explanation box ── */
+    .det-code-explain {
+      background: #181b22;
+      border-left: 3px solid #89b4fa;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1.4rem 1.3rem;
+      color: #b0b8cc;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: -2px;
+    }
+    .det-code-explain strong {
+      color: #cdd6f4;
+    }
+    .det-code-explain p { margin: 0 0 0.65rem; }
+    .det-code-explain p:last-child { margin-bottom: 0; }
+
+    /* ── Section code wrapper ── */
+    .det-code-section {
+      margin: 2.5rem 0 0;
+    }
+    .det-code-section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #89b4fa;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="det-nav">
+    <a href="index.html#projects" class="det-nav-back">← Projets</a>
+    <span class="det-nav-title">Stage 1ʳᵉ année — Développeur Web</span>
+    <span class="det-nav-badge det-nav-badge--stage">Stage · 2024</span>
+  </nav>
+
+  <main class="det-page">
+
+    <!-- HERO -->
+    <header class="det-hero">
+      <div class="det-hero-meta">
+        <span class="det-hero-type det-hero-type--stage">Stage 1ʳᵉ année · 4 semaines</span>
+        <span class="det-hero-year">2024</span>
+        <span class="det-hero-status det-hero-status--done">Terminé</span>
+      </div>
+      <h1 class="det-hero-title">Stage · Développeur Web</h1>
+      <p class="det-hero-subtitle">
+        Premier stage professionnel effectué en 1ʳᵉ année de BTS SIO. Développement d'un intranet
+        municipal pour la Ville de Saint-Saulve : authentification, gestion des utilisateurs,
+        formulaire d'adhésion à l'amicale et espace documentaire, en PHP natif sans framework.
+      </p>
+      <div class="det-hero-tags">
+        <span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span>
+      </div>
+    </header>
+
+    <!-- INFO ENTREPRISE -->
+    <section class="det-section">
+      <span class="det-section-label">Informations stage</span>
+      <h2 class="det-section-title">Contexte professionnel</h2>
+      <div class="det-org-box">
+        <div class="det-org-item">
+          <span class="det-org-label">Organisme</span>
+          <span class="det-org-value">Ville de Saint-Saulve</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Localisation</span>
+          <span class="det-org-value">Saint-Saulve, 59</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Durée</span>
+          <span class="det-org-value">4 semaines</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Période</span>
+          <span class="det-org-value">Mai-Juin</span>
+        </div>
+        <div class="det-org-item">
+          <span class="det-org-label">Poste</span>
+          <span class="det-org-value">Développeur Web</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="det-screenshots">
+      <p class="det-screenshots-title">Captures d'écran</p>
+      <div class="screenshots-grid screenshots-grid--2">
+
+        <figure class="screenshot">
+          <img loading="lazy" src="STAGE/utilisateur.gif" alt="Interface utilisateur — navigation intranet">
+          <figcaption>Interface utilisateur — navigation intranet</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <img loading="lazy" src="STAGE/admin.gif" alt="Interface administrateur — gestion des comptes">
+          <figcaption>Interface administrateur — gestion des comptes</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+          <img loading="lazy" src="STAGE/adhesion_amicale.png" alt="Formulaire d'adhésion à l'amicale">
+          <figcaption>Formulaire d'adhésion à l'amicale du personnel</figcaption>
+        </figure>
+
+      </div>
+
+      <!-- EXTRAIT DE CODE — admin.php -->
+      <div class="det-code-section">
+        <span class="det-code-section-label">Extrait de code</span>
+        <div class="det-code-block">
+          <div class="det-code-block-header">
+            <div class="det-code-block-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="det-code-block-filename">admin.php</span>
+          </div>
+          <pre><code><span class="tok-comment">// 1. Récupération de l'utilisateur en session (ou null s'il n'est pas connecté)</span>
+<span class="tok-var">$utilisateur</span> <span class="tok-op">=</span> <span class="tok-var">$_SESSION</span><span class="tok-bracket">[</span><span class="tok-string">'utilisateur'</span><span class="tok-bracket">]</span> <span class="tok-op">??</span> <span class="tok-keyword">null</span>;
+
+<span class="tok-comment">// 2. Vérification de l'accès</span>
+<span class="tok-comment">// On bloque si : l'utilisateur n'existe pas OU si son rôle n'est ni 'admin' ni 'amicale'</span>
+<span class="tok-keyword">if</span> <span class="tok-bracket">(</span><span class="tok-op">!</span><span class="tok-var">$utilisateur</span> <span class="tok-op">||</span> <span class="tok-bracket">(</span><span class="tok-var">$utilisateur</span><span class="tok-bracket">[</span><span class="tok-string">'role'</span><span class="tok-bracket">]</span> <span class="tok-op">!==</span> <span class="tok-string">'admin'</span> <span class="tok-op">&amp;&amp;</span> <span class="tok-var">$utilisateur</span><span class="tok-bracket">[</span><span class="tok-string">'role'</span><span class="tok-bracket">]</span> <span class="tok-op">!==</span> <span class="tok-string">'amicale'</span><span class="tok-bracket">))</span> <span class="tok-bracket">{</span>
+
+    <span class="tok-comment">// 3. Stockage d'un message d'erreur pour l'afficher sur la page de connexion</span>
+    <span class="tok-var">$_SESSION</span><span class="tok-bracket">[</span><span class="tok-string">'erreur_connexion'</span><span class="tok-bracket">]</span> <span class="tok-op">=</span> <span class="tok-string">"Accès réservé aux administrateurs et membres de l'amicale."</span>;
+
+    <span class="tok-comment">// 4. Redirection forcée vers la page de connexion</span>
+    <span class="tok-func">header</span><span class="tok-bracket">(</span><span class="tok-string">'Location: ../connexion.php'</span><span class="tok-bracket">)</span>;
+
+    <span class="tok-comment">// 5. Arrêt immédiat du script pour empêcher l'affichage du reste de la page</span>
+    <span class="tok-keyword">exit</span>;
+<span class="tok-bracket">}</span></code></pre>
+          <div class="det-code-explain">
+            <p>Ce script sécurise l'accès à la page d'administration en vérifiant, dès le chargement, que l'utilisateur dispose bien d'un rôle autorisé. La valeur est lue depuis la <strong>session PHP</strong> — si elle est absente ou si le rôle ne correspond ni à <code>admin</code> ni à <code>amicale</code>, l'accès est immédiatement coupé.</p>
+            <p>La combinaison <strong><code>header('Location: ...')</code> + <code>exit</code></strong> est essentielle : sans le <code>exit</code>, PHP continuerait d'exécuter le reste du script même après la redirection, ce qui pourrait exposer des données sensibles. C'est le rempart de première ligne pour protéger toutes les pages réservées aux rôles privilégiés.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CONTEXTE -->
+    <section class="det-section">
+      <span class="det-section-label">Contexte</span>
+      <h2 class="det-section-title">Déroulement du stage</h2>
+      <div class="det-section-body">
+        <p>
+          Ce stage s'est déroulé au sein du service informatique de la Ville de Saint-Saulve.
+          La mission principale consistait à développer un <strong>intranet municipal</strong>
+          destiné aux agents de la ville, entièrement en PHP natif, HTML, CSS et JavaScript.
+        </p>
+        <p>
+          L'application permet aux agents de se connecter à un espace personnel, de consulter des
+          documents internes, de s'inscrire à l'amicale du personnel et d'accéder aux informations RH.
+          Un <strong>espace d'administration</strong> permet la gestion des comptes utilisateurs
+          et la modération des contenus.
+        </p>
+        <p>
+          Travailler sans framework m'a obligé à tout construire à la main : sessions PHP, requêtes
+          SQL manuelles, validation des formulaires côté serveur. Une expérience fondatrice pour
+          comprendre ce que les frameworks font réellement sous le capot.
+        </p>
+        <div class="det-highlight det-highlight--blue">
+          Ce stage m'a montré l'importance de structurer son code dès le départ — sans l'architecture
+          imposée par un framework, c'est au développeur d'organiser ses fichiers et sa logique
+          de façon cohérente.
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSIONS -->
+    <section class="det-section">
+      <span class="det-section-label">Missions réalisées</span>
+      <h2 class="det-section-title">Ce que j'ai fait</h2>
+      <div class="det-missions">
+        <div class="det-mission">
+          <div class="det-mission-title">Système d'authentification PHP</div>
+          <div class="det-mission-desc">
+            Développement complet du système de connexion et d'inscription : sessions PHP, hachage
+            des mots de passe, validation des formulaires côté serveur et gestion des droits
+            (utilisateur / administrateur).
+          </div>
+        </div>
+        <div class="det-mission">
+          <div class="det-mission-title">Formulaire d'adhésion à l'amicale</div>
+          <div class="det-mission-desc">
+            Création d'un formulaire d'adhésion en ligne avec choix du mode de règlement,
+            stockage en base de données et interface admin pour consulter et gérer les inscriptions.
+          </div>
+        </div>
+        <div class="det-mission">
+          <div class="det-mission-title">Espace documentaire</div>
+          <div class="det-mission-desc">
+            Mise en place d'un espace de dépôt et de consultation de documents internes (RH, notes
+            de service). Les agents peuvent télécharger les fichiers mis à disposition par l'administration.
+          </div>
+        </div>
+        <div class="det-mission">
+          <div class="det-mission-title">Interface d'administration</div>
+          <div class="det-mission-desc">
+            Tableau de bord réservé aux administrateurs : gestion des comptes utilisateurs,
+            activation / désactivation des accès, et consultation des inscriptions à l'amicale.
+          </div>
+        </div>
+        <div class="det-mission">
+          <div class="det-mission-title">Intégration HTML/CSS responsive</div>
+          <div class="det-mission-desc">
+            Développement de toutes les pages en HTML/CSS natif, avec une charte graphique en bleu
+            marine et doré aux couleurs de la ville. Mise en page responsive pour une consultation
+            sur tous types d'écrans.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="det-section">
+      <span class="det-section-label">Environnement technique</span>
+      <h2 class="det-section-title">Technologies utilisées</h2>
+      <div class="det-stack">
+        <div class="det-stack-item"><span class="det-stack-item-name">PHP 8</span><span class="det-stack-item-role">Backend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">MySQL</span><span class="det-stack-item-role">Base de données</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">HTML / CSS</span><span class="det-stack-item-role">Frontend</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">JavaScript</span><span class="det-stack-item-role">Interactivité</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Sessions PHP</span><span class="det-stack-item-role">Auth</span></div>
+        <div class="det-stack-item"><span class="det-stack-item-name">Git / GitHub</span><span class="det-stack-item-role">Versioning</span></div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="det-section">
+      <span class="det-section-label">Bilan</span>
+      <h2 class="det-section-title">Compétences développées</h2>
+      <div class="det-challenges">
+        <div class="det-challenge det-challenge--blue">
+          <div class="det-challenge-title">PHP sans framework</div>
+          <div class="det-challenge-desc">
+            Développer en PHP natif m'a forcé à comprendre ce que les frameworks abstraient :
+            routing manuel, gestion des sessions, requêtes SQL à la main. Une base solide
+            qui me permet aujourd'hui de mieux apprécier les outils comme Laravel.
+          </div>
+        </div>
+        <div class="det-challenge">
+          <div class="det-challenge-title">Gestion des rôles utilisateurs</div>
+          <div class="det-challenge-desc">
+            Implémenter un système de droits (utilisateur / administrateur) m'a appris à sécuriser
+            les accès manuellement et à penser les vérifications à chaque point d'entrée de l'application.
+          </div>
+        </div>
+        <div class="det-challenge det-challenge--purple">
+          <div class="det-challenge-title">Autonomie sur un projet réel</div>
+          <div class="det-challenge-desc">
+            Livrer une application utilisée par de vrais agents municipaux, avec des contraintes
+            métier précises, m'a appris à poser les bonnes questions et à valider mes choix
+            avec le tuteur de stage avant de coder.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
