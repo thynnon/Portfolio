@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thynnon.github.io/sitemap.xml
+Sitemap: https://thynnon.github.io/Portfolio/sitemap.xml
